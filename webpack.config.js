@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require('webpack');
 
 module.exports = (env, argv) => {
@@ -11,13 +10,11 @@ module.exports = (env, argv) => {
     output: {
       filename: 'bundle.js',
       publicPath: '/',
-
     },
     module: {
       rules: [
         {
-          test: /.(js|jsx?)$/,
-          exclude: /node_modules/,
+          test: /.jsx?$/,
           use: ['babel-loader'],
         },
         {
@@ -30,39 +27,27 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    resolve: {
-      extensions: ['.js', '.jsx'],
-    },
     plugins: [
-      new CopyPlugin({
-      patterns: [
-        { from: '_redirects', to: '' },
-        // { from: "source/url/to/images/folder", to: "dest/url/to/images/folder" },
-      ],
-    }),
       new webpack.ProgressPlugin(),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
     ],
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
     devServer: {
-      historyApiFallback: true,
-      open: true,
       hot: true,
-      port: 8080,
+      historyApiFallback: true,
     },
   };
-
-  if (isProduction) {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-  }
 
   if (isProduction) {
     config.plugins.push(
       new MiniCssExtractPlugin({
         filename: '[name].css',
-      }),
+      })
     );
   }
 
