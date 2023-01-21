@@ -1,9 +1,11 @@
 import React from 'react';
-
-import './common.scss';
+import Header from './components/Header/Header';
 
 const App = () => {
-  return <></>;
+  return (
+    <Header />
+    //  <ToDoList />
+  );
 };
 
 export default App;

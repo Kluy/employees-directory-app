@@ -30,6 +30,25 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'arrow-body-style': 1,
     'prefer-arrow-callback': 1,
+    'no-constant-condition': 0,
+    'no-shadow': 0,
+    'no-restricted-globals': 0,
+    'no-underscore-dangle': 0,
+    'func-names': 0,
+    'import/no-dynamic-require': 0,
+    'import/prefer-default-export': 0,
+    'prefer-template': 0,
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+      'error',
+      {
+        singleQuote: true,
+        parser: 'flow',
+      },
+    ],
   },
   settings: {
     'import/resolver': {
