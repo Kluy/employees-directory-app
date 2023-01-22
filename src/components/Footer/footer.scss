@@ -1,0 +1,15 @@
+.footer {
+    padding: 40px 0;
+    color: white;
+    background-color: #595959;
+}
+
+.footer__nav {
+    display: flex;
+}
+
+.social {
+    &__icons {
+        width: 30px;
+    }
+}
