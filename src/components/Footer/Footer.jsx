@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer__rights">
+      <div className="footer__copyrights">
         <div>
           <p>© 2011-2021</p>
           <p>Міжнародний аеропорт «Київ»</p>
