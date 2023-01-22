@@ -8,7 +8,8 @@ const Header = () => {
         <img
           className="header__logo"
           src="https://iev.aero/_nuxt/img/logo@2x.2d2c20b.png"
-          alt=""
+          // src="/img/logo.png"
+          alt="Logo"
         />
       </div>
       <ul className="header__nav">

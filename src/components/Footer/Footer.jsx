@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__nav">
-        <ul className="nav-passengers">
+        <ul className="footer__nav-item nav-passengers">
           <li>
             <b>Пасажирам</b>
           </li>
@@ -15,7 +15,7 @@ const Footer = () => {
           <li>Політика конфіденційності</li>
           <li>Форма відгуків та пропозицій</li>
         </ul>
-        <ul className="nav-partners">
+        <ul className="footer__nav-item nav-partners">
           <li>
             <b>Партнерам</b>
           </li>
@@ -25,7 +25,7 @@ const Footer = () => {
           <li>Учбовий центр</li>
           <li>Вакансії</li>
         </ul>
-        <ul className="nav-press">
+        <ul className="footer__nav-item nav-press">
           <li>
             <b>Пресцентр</b>
           </li>
@@ -35,10 +35,14 @@ const Footer = () => {
           <li>Фінансова звітність</li>
           <li>Статистика пасажиропотоку</li>
         </ul>
-        <div className="social">
-          <div>Авіадовідка</div>
-          <div>+38 (044) 500 49 73</div>
-          <div>Приєднуйтесь до нас</div>
+        <div className="footer__nav-item social">
+          <div>
+            <b>Авіадовідка</b>
+          </div>
+          <div className="social__tel">+38 (044) 500 49 73</div>
+          <div>
+            <b>Приєднуйтесь до нас</b>
+          </div>
           <div>
             <img
               className="social__icons"
@@ -48,7 +52,7 @@ const Footer = () => {
             <img className="social__icons" src="Twitter" alt="Twitter" />
             <img
               className="social__icons"
-              src="./img/instagram.svg"
+              src="/img/instagram.svg"
               alt="Instagram"
             />
             <img
@@ -62,6 +66,24 @@ const Footer = () => {
               alt="Linkedin"
             />
           </div>
+        </div>
+      </div>
+      <div className="footer__rights">
+        <div>
+          <p>© 2011-2021</p>
+          <p>Міжнародний аеропорт «Київ»</p>
+        </div>
+        <div>
+          <p>
+            Part of <b>Ufuture</b>
+          </p>
+          <p>
+            <b>Investment Group</b>
+          </p>
+        </div>
+        <div>
+          <p>Розробка сайту</p>
+          <p>smp/solutions</p>
         </div>
       </div>
     </footer>

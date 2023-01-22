@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
     entry: './src/index.jsx',
     output: {
       filename: 'bundle.js',
-      publicPath: '/',
+      publicPath: '',
     },
     module: {
       rules: [
@@ -25,6 +25,19 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
+        // {
+        //   test: /.(jpg|png|svg)$/,
+        //   use: [
+        //     {
+        //       loader: 'url-loader',
+        //       options: {
+        //         limit: 8192,
+        //         name: '[path][name].[ext]',
+        //         outputPath: 'images',
+        //       },
+        //     },
+        //   ],
+        // },
       ],
     },
     plugins: [

@@ -2,14 +2,46 @@
     padding: 40px 0;
     color: white;
     background-color: #595959;
-}
 
-.footer__nav {
-    display: flex;
+    &__nav {
+        max-width: 1140px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 106px;
+        padding-bottom: 20px;
+        font-size: 16px;
+    }
+
+    &__nav-item {
+        padding: 0 10px;
+    }
+
+    &__nav-item>li {
+        margin-bottom: 10px;
+        line-height: 24px;
+    }
+
+    &__rights {
+        max-width: 1140px;
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 116px 0 116px;
+        padding-top: 20px;
+        border-top: 1px solid #b8bdc1;
+        color: #b8bdc1;
+        font-size: 12px;
+    }
 }
 
 .social {
     &__icons {
         width: 30px;
+    }
+
+    &__tel {
+        margin-bottom: 15px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 42px;
     }
 }
