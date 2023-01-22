@@ -1,0 +1,25 @@
+.search {
+    margin: 0 auto;
+    padding-top: 40px;
+    background-color: #e7efec;
+
+    &__title {
+        font-size: 70px;
+        font-weight: 300;
+        color: rgb(47, 47, 47);
+    }
+
+    &__input {
+        height: 80px;
+        width: 450px;
+        margin: 40px 0;
+        border: 0;
+        font-size: 24px;
+    }
+
+    &__button {
+        height: 80px;
+        width: 160px;
+        background-color: #1eb7ee;
+    }
+}
