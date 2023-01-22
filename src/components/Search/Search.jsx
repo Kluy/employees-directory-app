@@ -5,6 +5,7 @@ const Search = () => {
   return (
     <section className="search">
       <div className="search__title">ПОШУК РЕЙСУ</div>
+      <i class="fa-solid fa-magnifying-glass search__icon"></i>
       <input
         className="search__input"
         type="text"

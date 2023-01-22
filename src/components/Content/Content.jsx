@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../Search/Search';
+import Search from '../search/search';
 import './content.scss';
 
 const Content = () => {
