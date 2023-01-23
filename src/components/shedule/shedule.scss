@@ -1,3 +1,7 @@
+.shedule {
+    margin: 0 auto;
+}
+
 .filter__btn {
     height: 60px;
     width: 591px;
@@ -5,4 +9,20 @@
     border-radius: 90px 90px 0 0;
     border: 0;
     outline: 0;
+    font-size: 24px;
+    color: #1eb7ee;
+    font-weight: 600;
+
+
+    &_arrival {
+        padding-right: 100px;
+        text-align: right;
+
+    }
+
+    &_departure {
+        margin-left: -100px;
+        padding-left: 100px;
+        text-align: left;
+    }
 }

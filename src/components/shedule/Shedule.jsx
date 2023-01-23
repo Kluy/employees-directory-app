@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './shedule.scss';
 
 const Shedule = () => {
+  const [active, setActive] = useState(true);
+
   return (
     <section className="shedule">
       <div className="filter">
-        <button className="filter__btn">ВИЛІТ</button>
-        <button className="filter__btn">ПРИЛІТ</button>
+        <button
+          onClick={() => setActive(!active)}
+          className="filter__btn filter__btn_arrival"
+        >
+          <i class="fa-solid fa-plane-departure"></i>
+          ВИЛІТ
+        </button>
+        <button
+          onClick={() => setActive(!active)}
+          className="filter__btn filter__btn_departure"
+        >
+          ПРИЛІТ
+        </button>
       </div>
     </section>
   );
