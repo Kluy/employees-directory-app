@@ -44,11 +44,11 @@ const Footer = () => {
             <b>Приєднуйтесь до нас</b>
           </div>
           <div className="footer__icons">
-            <i class="fa-brands fa-facebook-f footer__icon"></i>
-            <i class="fa-brands fa-twitter footer__icon"></i>
-            <i class="fa-brands fa-instagram footer__icon"></i>
-            <i class="fa-brands fa-youtube footer__icon"></i>
-            <i class="fa-brands fa-linkedin-in footer__icon"></i>
+            <i className="fa-brands fa-facebook-f footer__icon"></i>
+            <i className="fa-brands fa-twitter footer__icon"></i>
+            <i className="fa-brands fa-instagram footer__icon"></i>
+            <i className="fa-brands fa-youtube footer__icon"></i>
+            <i className="fa-brands fa-linkedin-in footer__icon"></i>
             {/* <img
               className="social__icons"
               src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii01MzY0IDExMTAgMzAgMzAiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnIGlkPSJGYWNlYm9vayIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNjQgMTExMCkiPgogICAgPHJlY3QgaWQ9IlJlY3RhbmdsZV8xNDU4IiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxNDU4IiBjbGFzcz0iY2xzLTEiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSIvPgogICAgPHBhdGggaWQ9IlBhdGhfMSIgZGF0YS1uYW1lPSJQYXRoIDEiIGNsYXNzPSJjbHMtMiIgZD0iTTkwLjE2NywzMFYxNi4zMzNoNC42NjdMOTUuNSwxMUg5MC4xNjdWNy42NjdjMC0xLjUuNS0yLjY2NywyLjY2Ny0yLjY2N2gyLjgzM1YuMTY3Qzk1LC4xNjcsOTMuMzMzLDAsOTEuNSwwYy00LDAtNi44MzMsMi41LTYuODMzLDd2NEg4MHY1LjMzM2g0LjY2N1YzMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03Mi41IDApIi8+CiAgPC9nPgo8L3N2Zz4K"

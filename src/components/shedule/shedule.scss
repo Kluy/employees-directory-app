@@ -5,24 +5,33 @@
 .filter__btn {
     height: 60px;
     width: 591px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 90px 90px 0 0;
     border: 0;
     outline: 0;
     font-size: 24px;
     color: #1eb7ee;
     font-weight: 600;
-
-
-    &_arrival {
-        padding-right: 100px;
-        text-align: right;
-
-    }
+    cursor: pointer;
 
     &_departure {
+        padding-right: 130px;
+        text-align: right;
+    }
+
+    &_arrival {
         margin-left: -100px;
-        padding-left: 100px;
+        padding-left: 130px;
         text-align: left;
+    }
+
+    &_unactive {
+        color: #fff;
+        background-color: #1eb7ee;
+        transition: background-color .5s;
+
+        &:hover {
+            background-color: #007bff;
+        }
     }
 }
