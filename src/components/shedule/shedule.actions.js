@@ -11,7 +11,7 @@ const saveShedule = (shedule) => {
   };
 };
 
-const getSheduleAction = () => {
+export const getSheduleAction = () => {
   return function (dispatch) {
     getFlights('11-01-2022').then((result) => dispatch(saveShedule(result)));
   };

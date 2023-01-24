@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-import * as sheduleActions from './shedule.actions';
+import { connect } from 'react-redux';
+import * as sheduleActions from '../shedule/shedule.actions';
+import { sheduleSelector } from '../shedule/shedule.selectors';
 
 import './calendar.scss';
-import { sheduleSelector } from '../shedule/shedule.selectors';
 
 const Calendar = () => {
   const date = new Date();
