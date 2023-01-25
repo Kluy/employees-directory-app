@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Calendar from '../calendar/Calendar';
+import Flights from '../flights/Flights';
 import './shedule.scss';
 
 const Shedule = () => {
@@ -27,6 +28,7 @@ const Shedule = () => {
         </button>
       </div>
       <Calendar />
+      <Flights />
     </section>
   );
 };
