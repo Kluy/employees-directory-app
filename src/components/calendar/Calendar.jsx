@@ -11,9 +11,10 @@ const Calendar = () => {
   return (
     <>
       <div className="calendar">
-        <div>
+        <div className="calendar__date-picker">
           <div>{moment(date).format('DD/MM')}</div>
-          <input type="date" />
+          <input className="date-picker" type="date" />
+          {/* <img className="picker" src="../../images/calendar.svg" alt="" /> */}
         </div>
         <div className="calendar__item">
           <div>{moment(date).subtract(1, 'days').format('DD/MM')}</div>

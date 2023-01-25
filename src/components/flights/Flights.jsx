@@ -16,16 +16,13 @@ const Flights = ({ shedule }) => {
         <li>Рейс</li>
         <li></li>
       </ul>
-
       {shedule &&
         shedule.body.departure.map((flight) => {
-          console.log(flight);
-          //   console.log(flight.airportToID.name);
           return (
             <ul className="flights__table">
               <li>{flight.term}</li>
               <li>{moment(flight.timeDepShedule).format('h:mm')}</li>
-              <li>{flight['airportToID.City']}</li>
+              <li>{flight['airportToID.city']}</li>
               <li>Вилетів о {moment(flight.timeDepFact).format('h:mm')}</li>
               <li className="airline">
                 <img
