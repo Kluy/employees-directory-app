@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as sheduleActions from '../shedule/shedule.actions';
-import { sheduleSelector } from '../shedule/shedule.selectors';
+import * as sheduleActions from '../shedule.actions';
+import { sheduleSelector } from '../shedule.selectors';
 
 import './search.scss';
 

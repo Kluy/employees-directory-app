@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import sheduleReducer from './components/shedule/shedule.reducer';
+import sheduleReducer from './components/shedule.reducer';
 
 const logger = (state) => (next) => (action) => {
   console.group(action.type);
