@@ -8,34 +8,38 @@ const Flights = ({ shedule }) => {
   return (
     <div className="flights">
       <ul className="flights__table flights__table_heading">
-        <li>Термінал</li>
-        <li>Розклад</li>
-        <li>Напрямок</li>
-        <li className="status">Статус</li>
-        <li className="airline">Авіакомпанія</li>
-        <li>Рейс</li>
-        <li></li>
+        <li className="flight__item">Термінал</li>
+        <li className="flight__item">Розклад</li>
+        <li className="flight__item">Напрямок</li>
+        <li className="flight__status">Статус</li>
+        <li className="flight__airline">Авіакомпанія</li>
+        <li className="flight__item">Рейс</li>
+        <li className="flight__item"></li>
       </ul>
       {shedule &&
         shedule.body.departure.map((flight) => {
           return (
             <ul className="flights__table flight">
-              <li className="terminal">{flight.term}</li>
-              <li>{moment(flight.timeDepShedule).format('h:mm')}</li>
-              <li>{flight['airportToID.city']}</li>
-              <li className="status">
+              <li className="flight__terminal">{flight.term}</li>
+              <li className="flight__item">
+                {moment(flight.timeDepShedule).format('h:mm')}
+              </li>
+              <li className="flight__item">{flight['airportToID.city']}</li>
+              <li className="flight__status">
                 Вилетів о {moment(flight.timeDepFact).format('h:mm')}
               </li>
-              <li className="airline">
+              <li className="flight__airline">
                 <img
-                  className="airline_logo"
+                  className="flight__airline-logo"
                   src={flight.airline.en.logoSmallName}
                   alt="logo"
                 />
                 <span> {flight.airline.ua.name}</span>
               </li>
-              <li>{flight.codeShareData[0].codeShare}</li>
-              <li></li>
+              <li className="flight__item">
+                {flight.codeShareData[0].codeShare}
+              </li>
+              <li className="flight__item"></li>
             </ul>
           );
         })}

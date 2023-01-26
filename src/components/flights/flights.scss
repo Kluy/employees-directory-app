@@ -10,18 +10,21 @@
     font-weight: 600;
     color: #95989a;
   }
+}
 
-  & > li {
+.flight {
+  height: 72px;
+  align-items: center;
+  &:hover {
+    box-shadow: 0 5px 6px #95989a;
+  }
+  &:nth-last-of-type(odd) {
+    background-color: rgba(0, 102, 135, 0.1);
+  }
+  &__item {
     width: 73px;
-    text-align: left;
   }
-  & > .airline {
-    width: 200px;
-  }
-  & > .status {
-    width: 120px;
-  }
-  & > .terminal {
+  &__terminal {
     width: 40px;
     height: 40px;
     margin: 0 20px;
@@ -33,13 +36,13 @@
     border: 1px solid #63c745;
     border-radius: 20px;
   }
-}
-
-.flight {
-  height: 72px;
-  align-items: center;
-}
-
-.airline_logo {
-  width: 68px;
+  &__status {
+    width: 120px;
+  }
+  &__airline {
+    width: 200px;
+    &-logo {
+      width: 68px;
+    }
+  }
 }
