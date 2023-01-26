@@ -1,26 +1,45 @@
 .flights__table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fff;
+
+  &_heading {
     padding: 35px 0 15px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    color: #95989a;
+  }
 
-    &_names {
-        font-size: 16px;
-        font-weight: 600;
-        color: #95989a;
-    }
+  & > li {
+    width: 73px;
+    text-align: left;
+  }
+  & > .airline {
+    width: 200px;
+  }
+  & > .status {
+    width: 120px;
+  }
+  & > .terminal {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    font-size: 22px;
+    color: #63c745;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #63c745;
+    border-radius: 20px;
+  }
+}
 
-    &>li {
-        width: 73px;
-        text-align: left;
-    }
+.flight {
+  height: 72px;
+  align-items: center;
 }
 
 .airline_logo {
-    width: 68px;
-}
-
-.airline {
-    width: 200px;
+  width: 68px;
 }

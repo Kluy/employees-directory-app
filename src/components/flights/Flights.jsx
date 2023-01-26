@@ -7,23 +7,25 @@ import './flights.scss';
 const Flights = ({ shedule }) => {
   return (
     <div className="flights">
-      <ul className="flights__table flights__table_names">
+      <ul className="flights__table flights__table_heading">
         <li>Термінал</li>
         <li>Розклад</li>
         <li>Напрямок</li>
-        <li>Статус</li>
-        <li>Авіакомпанія</li>
+        <li className="status">Статус</li>
+        <li className="airline">Авіакомпанія</li>
         <li>Рейс</li>
         <li></li>
       </ul>
       {shedule &&
         shedule.body.departure.map((flight) => {
           return (
-            <ul className="flights__table">
-              <li>{flight.term}</li>
+            <ul className="flights__table flight">
+              <li className="terminal">{flight.term}</li>
               <li>{moment(flight.timeDepShedule).format('h:mm')}</li>
               <li>{flight['airportToID.city']}</li>
-              <li>Вилетів о {moment(flight.timeDepFact).format('h:mm')}</li>
+              <li className="status">
+                Вилетів о {moment(flight.timeDepFact).format('h:mm')}
+              </li>
               <li className="airline">
                 <img
                   className="airline_logo"

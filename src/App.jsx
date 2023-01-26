@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Content from './components/content/content';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Header from './components/header/Header';
+import Content from './components/content/Content';
+import Footer from './components/footer/Footer';
 import store from './store';
 
 const App = () => {
