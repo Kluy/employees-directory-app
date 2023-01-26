@@ -15,47 +15,44 @@ const Calendar = ({ getShedule }) => {
   const [dateInput, setDateInput] = useState(today.format('YYYY-MM-DD'));
 
   return (
-    <>
-      <div className="calendar">
-        <div className="calendar__date-picker">
-          <input
-            onSubmit={getShedule(dateInput)}
-            onChange={(e) => setDateInput(e.target.value)}
-            value={dateInput}
-            className="date-picker"
-            type="date"
-          />
-        </div>
-        <div
-          onClick={() => {
-            getShedule(yesterday.format('DD-MM-YYYY'));
-          }}
-          className="calendar__item"
-        >
-          <div>{yesterday.format('DD/MM')}</div>
-          <span className="calendar__item-text">ВЧОРА</span>
-        </div>
-        <div
-          onClick={() => {
-            getShedule(today.format('DD-MM-YYYY'));
-          }}
-          className="calendar__item"
-        >
-          <div>{today.format('DD/MM')}</div>
-          <span className="calendar__item-text">СЬОГОДНІ</span>
-        </div>
-        <div
-          onClick={() => {
-            getShedule(tommorow.format('DD-MM-YYYY'));
-          }}
-          className="calendar__item"
-        >
-          <div>{tommorow.format('DD/MM')}</div>
-          <span className="calendar__item-text">ЗАВТРА</span>
-        </div>
+    <div className="calendar">
+      <div className="calendar__date-picker">
+        <input
+          onSubmit={getShedule(dateInput)}
+          onChange={(e) => setDateInput(e.target.value)}
+          value={dateInput}
+          className="date-picker"
+          type="date"
+        />
       </div>
-      <ul></ul>
-    </>
+      <div
+        onClick={() => {
+          getShedule(yesterday.format('DD-MM-YYYY'));
+        }}
+        className="calendar__item"
+      >
+        <div>{yesterday.format('DD/MM')}</div>
+        <span className="calendar__item-text">ВЧОРА</span>
+      </div>
+      <div
+        onClick={() => {
+          getShedule(today.format('DD-MM-YYYY'));
+        }}
+        className="calendar__item"
+      >
+        <div>{today.format('DD/MM')}</div>
+        <span className="calendar__item-text">СЬОГОДНІ</span>
+      </div>
+      <div
+        onClick={() => {
+          getShedule(tommorow.format('DD-MM-YYYY'));
+        }}
+        className="calendar__item"
+      >
+        <div>{tommorow.format('DD/MM')}</div>
+        <span className="calendar__item-text">ЗАВТРА</span>
+      </div>
+    </div>
   );
 };
 
