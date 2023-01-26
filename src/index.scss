@@ -1,24 +1,24 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'open sans', sans-serif;
+  font-family: 'open sans', sans-serif;
 }
 
 .page {
-    margin: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
