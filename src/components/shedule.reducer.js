@@ -1,9 +1,12 @@
-import { SAVE_SHEDULE } from './shedule.actions';
+import { SAVE_SHEDULE, TOGGLE } from './shedule.actions';
 
 const initialState = {
   shedule: {
     body: [],
+    // departure: [],
+    // arrival: [],
   },
+  departure: true,
 };
 
 const sheduleReducer = (state = initialState, action) => {
@@ -12,6 +15,11 @@ const sheduleReducer = (state = initialState, action) => {
       return {
         ...state,
         shedule: action.payload.shedule,
+      };
+    case TOGGLE:
+      return {
+        ...state,
+        departure: !state.departure,
       };
     default:
       return state;
