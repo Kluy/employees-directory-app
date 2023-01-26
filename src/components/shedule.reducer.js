@@ -1,6 +1,10 @@
 import { SAVE_SHEDULE } from './shedule.actions';
 
-const initialState = {};
+const initialState = {
+  shedule: {
+    body: [],
+  },
+};
 
 const sheduleReducer = (state = initialState, action) => {
   switch (action.type) {

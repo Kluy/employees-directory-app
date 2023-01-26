@@ -1,3 +1,3 @@
 export const sheduleSelector = (state) => {
-  return state.shedule;
+  return state.shedule.body;
 };

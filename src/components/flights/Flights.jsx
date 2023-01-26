@@ -5,6 +5,8 @@ import moment from 'moment';
 import './flights.scss';
 
 const Flights = ({ shedule }) => {
+  if (shedule.length === 0)
+    return <div className="no-flights">Немає рейсів</div>;
   return (
     <div className="flights">
       <ul className="flights__table flights__table_heading">
@@ -16,8 +18,8 @@ const Flights = ({ shedule }) => {
         <li className="flight__item">Рейс</li>
         <li className="flight__item flight__item_status"></li>
       </ul>
-      {shedule &&
-        shedule.body.departure.map((flight) => {
+      {shedule.length !== 0 &&
+        shedule.departure.map((flight) => {
           return (
             <ul className="flights__table flight">
               <li
