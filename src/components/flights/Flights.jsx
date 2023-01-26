@@ -10,11 +10,11 @@ const Flights = ({ shedule }) => {
       <ul className="flights__table flights__table_heading">
         <li className="flight__item">Термінал</li>
         <li className="flight__item">Розклад</li>
-        <li className="flight__item">Напрямок</li>
+        <li className="flight__item flight__item_status">Напрямок</li>
         <li className="flight__item_status">Статус</li>
         <li className="flight__item_airline">Авіакомпанія</li>
         <li className="flight__item">Рейс</li>
-        <li className="flight__item"></li>
+        <li className="flight__item flight__item_status"></li>
       </ul>
       {shedule &&
         shedule.body.departure.map((flight) => {
@@ -27,10 +27,12 @@ const Flights = ({ shedule }) => {
               >
                 {flight.term}
               </li>
-              <li className="flight__item">
+              <li className="flight__item ">
                 {moment(flight.timeDepShedule).format('h:mm')}
               </li>
-              <li className="flight__item">{flight['airportToID.city']}</li>
+              <li className="flight__item flight__item_status">
+                {flight['airportToID.city']}
+              </li>
               <li className="flight__item_status">
                 Вилетів о {moment(flight.timeDepFact).format('h:mm')}
               </li>
@@ -47,7 +49,7 @@ const Flights = ({ shedule }) => {
               <li className="flight__item">
                 {flight.codeShareData[0].codeShare}
               </li>
-              <li className="flight__item ">
+              <li className="flight__item flight__item_status">
                 <a className="flight__item_details" href="#">
                   Деталі рейсу
                 </a>
