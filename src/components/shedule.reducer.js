@@ -3,8 +3,6 @@ import { SAVE_SHEDULE, TOGGLE } from './shedule.actions';
 const initialState = {
   shedule: {
     body: [],
-    // departure: [],
-    // arrival: [],
   },
   departure: true,
 };
