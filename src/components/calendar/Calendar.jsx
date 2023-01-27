@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as sheduleActions from '../shedule.actions';
+import { getSheduleAction } from '../shedule.actions';
 import PropTypes from 'prop-types';
 
 import './calendar.scss';
@@ -80,7 +80,7 @@ const Calendar = ({ getShedule }) => {
 };
 
 const mapDispatch = {
-  getShedule: sheduleActions.getSheduleAction,
+  getShedule: getSheduleAction,
 };
 
 Calendar.propTypes = {

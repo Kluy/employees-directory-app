@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { departureStatusSelector, flightsSelector } from '../shedule.selectors';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import './flights.scss';
@@ -23,9 +24,9 @@ const Flights = ({ flights, departure }) => {
         return (
           <ul key={flight.ID} className="flights__table flight">
             <li
-              className={`flight__terminal ${
-                flight.term === 'D' ? 'flight__terminal_D' : ''
-              }`}
+              className={classNames('flight__terminal', {
+                flight__terminal_D: flight.term === 'D',
+              })}
             >
               {flight.term}
             </li>

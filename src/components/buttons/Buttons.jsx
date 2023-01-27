@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleAction } from '../shedule.actions';
 import { departureStatusSelector } from '../shedule.selectors';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './buttons.scss';
@@ -29,7 +30,7 @@ const Buttons = ({ departure, toggle }) => {
         )}
         disabled={!departure}
       >
-        <i class="fa-solid fa-plane-arrival select__btn-icon"></i>
+        <i className="fa-solid fa-plane-arrival select__btn-icon"></i>
         ПРИЛІТ
       </button>
     </div>
