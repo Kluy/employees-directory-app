@@ -5,8 +5,6 @@ import Flights from '../flights/Flights';
 import './shedule.scss';
 
 const Shedule = () => {
-  const [active, setActive] = useState(false);
-
   return (
     <section className="shedule">
       <Buttons />

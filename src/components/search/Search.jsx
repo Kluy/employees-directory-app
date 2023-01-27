@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import * as sheduleActions from '../shedule.actions';
-import { sheduleSelector } from '../shedule.selectors';
+import { flightNumberAction } from '../shedule.actions';
 
 import './search.scss';
 
-const Search = ({ getShedule, shedule }) => {
+const Search = ({ saveFlightNumber }) => {
   const [input, setInput] = useState('');
 
   return (
@@ -19,7 +18,13 @@ const Search = ({ getShedule, shedule }) => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button onClick={() => getShedule(input)} className="search__button">
+      <button
+        onClick={() => {
+          saveFlightNumber(input);
+          setInput('');
+        }}
+        className="search__button"
+      >
         ЗНАЙТИ
       </button>
     </section>
@@ -27,7 +32,7 @@ const Search = ({ getShedule, shedule }) => {
 };
 
 const mapDispatch = {
-  getShedule: sheduleActions.getSheduleAction,
+  saveFlightNumber: flightNumberAction,
 };
 
 export default connect(null, mapDispatch)(Search);

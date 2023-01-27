@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import * as sheduleActions from '../shedule.actions';
-import { sheduleSelector } from '../shedule.selectors';
 
 import './calendar.scss';
 
 const Calendar = ({ getShedule }) => {
-  const date = new Date();
-  const today = moment(date);
-  const yesterday = moment(date).subtract(1, 'days');
-  const tommorow = moment(date).add(1, 'days');
+  const currentDate = new Date();
+  const today = moment(currentDate);
+  const yesterday = moment(currentDate).subtract(1, 'days');
+  const tommorow = moment(currentDate).add(1, 'days');
 
-  const [dateInput, setDateInput] = useState(today.format('YYYY-MM-DD'));
+  // const [date, setDate] = useState(today.format('YYYY-MM-DD'));
+  const [date, setDate] = useState('2022-02-01');
 
   return (
     <div className="calendar">
       <div className="calendar__date-picker">
         <input
-          onSubmit={getShedule(dateInput)}
-          onChange={(e) => setDateInput(e.target.value)}
-          value={dateInput}
+          onSubmit={getShedule(date)}
+          onChange={(e) => setDate(e.target.value)}
+          value={date}
           className="date-picker"
           type="date"
         />

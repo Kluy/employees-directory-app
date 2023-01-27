@@ -5,7 +5,7 @@ import moment from 'moment';
 import './flights.scss';
 
 const Flights = ({ flights }) => {
-  if (!flights || flights.length === 0)
+  if (flights.length === 0)
     return <div className="no-flights">Немає рейсів</div>;
   return (
     <div className="flights">
@@ -32,10 +32,10 @@ const Flights = ({ flights }) => {
               {moment(flight.timeDepShedule).format('h:mm')}
             </li>
             <li className="flight__item flight__item_status">
-              {flight['airportToID.city']}
+              {flight['airportToID.city'] || flight['airportFromID.city']}
             </li>
             <li className="flight__item_status">
-              Вилетів о {moment(flight.timeDepFact).format('h:mm')}
+              Вилетів о {moment(flight.timeTakeofFact).format('h:mm')}
             </li>
             <li className="flight__item_airline flight__airline">
               <img
