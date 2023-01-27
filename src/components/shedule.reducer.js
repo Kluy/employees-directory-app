@@ -6,7 +6,7 @@ const initialState = {
     arrival: [],
   },
   departure: true,
-  flightNumber: null,
+  flightNumber: '',
 };
 
 const sheduleReducer = (state = initialState, action) => {
@@ -20,13 +20,11 @@ const sheduleReducer = (state = initialState, action) => {
       return {
         ...state,
         shedule: action.payload.shedule,
-        flightNumber: null,
       };
     case TOGGLE:
       return {
         ...state,
         departure: !state.departure,
-        flightNumber: null,
       };
     default:
       return state;

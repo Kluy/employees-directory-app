@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { flightNumberAction } from '../shedule.actions';
+import PropTypes from 'prop-types';
 
 import './search.scss';
 
@@ -19,10 +20,7 @@ const Search = ({ saveFlightNumber }) => {
         onChange={(e) => setInput(e.target.value)}
       />
       <button
-        onClick={() => {
-          saveFlightNumber(input);
-          setInput('');
-        }}
+        onClick={() => saveFlightNumber(input)}
         className="search__button"
       >
         ЗНАЙТИ
@@ -33,6 +31,10 @@ const Search = ({ saveFlightNumber }) => {
 
 const mapDispatch = {
   saveFlightNumber: flightNumberAction,
+};
+
+Search.propTypes = {
+  saveFlightNumber: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatch)(Search);

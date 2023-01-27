@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { flightsSelector } from '../shedule.selectors';
+import { departureStatusSelector, flightsSelector } from '../shedule.selectors';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import './flights.scss';
 
-const Flights = ({ flights }) => {
+const Flights = ({ flights, departure }) => {
   if (flights.length === 0)
     return <div className="no-flights">Немає рейсів</div>;
   return (
     <div className="flights">
-      <ul className="flights__table flights__table_heading">
+      <ul className="flights__table flights__table-heading">
         <li className="flight__item">Термінал</li>
         <li className="flight__item">Розклад</li>
         <li className="flight__item flight__item_status">Напрямок</li>
@@ -20,7 +21,7 @@ const Flights = ({ flights }) => {
       </ul>
       {flights.map((flight) => {
         return (
-          <ul className="flights__table flight">
+          <ul key={flight.ID} className="flights__table flight">
             <li
               className={`flight__terminal ${
                 flight.term === 'D' ? 'flight__terminal_D' : ''
@@ -29,13 +30,21 @@ const Flights = ({ flights }) => {
               {flight.term}
             </li>
             <li className="flight__item ">
-              {moment(flight.timeDepShedule).format('h:mm')}
+              {departure
+                ? moment(flight.timeDepShedule).locale('uk').format('LT')
+                : moment(flight.timeArrShedule).locale('uk').format('LT')}
             </li>
             <li className="flight__item flight__item_status">
               {flight['airportToID.city'] || flight['airportFromID.city']}
             </li>
             <li className="flight__item_status">
-              Вилетів о {moment(flight.timeTakeofFact).format('h:mm')}
+              {departure
+                ? `Вилетів о ${moment(flight.timeDepFact)
+                    .locale('uk')
+                    .format('LT')}`
+                : `Прибув о ${moment(flight.timeLandFact)
+                    .locale('uk')
+                    .format('LT')}`}
             </li>
             <li className="flight__item_airline flight__airline">
               <img
@@ -65,11 +74,18 @@ const Flights = ({ flights }) => {
 const mapState = (state) => {
   return {
     flights: flightsSelector(state),
+    departure: departureStatusSelector(state),
   };
 };
 
-// const mapDispatch = {
-//   getShedule: sheduleActions.getSheduleAction,
-// };
+Flights.propTypes = {
+  flights: PropTypes.array,
+  departure: PropTypes.bool,
+};
+
+Flights.defaultProps = {
+  departure: true,
+  flights: [],
+};
 
 export default connect(mapState, null)(Flights);

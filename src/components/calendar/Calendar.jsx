@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import * as sheduleActions from '../shedule.actions';
+import PropTypes from 'prop-types';
 
 import './calendar.scss';
 
 const Calendar = ({ getShedule }) => {
   const currentDate = new Date();
-  const today = moment(currentDate);
-  const yesterday = moment(currentDate).subtract(1, 'days');
-  const tommorow = moment(currentDate).add(1, 'days');
+  const dateFormat = 'YYYY-MM-DD';
+  const today = moment(currentDate).format(dateFormat);
+  const yesterday = moment(currentDate).subtract(1, 'days').format(dateFormat);
+  const tommorow = moment(currentDate).add(1, 'days').format(dateFormat);
+  const calendarFormat = 'DD/MM';
 
-  // const [date, setDate] = useState(today.format('YYYY-MM-DD'));
-  const [date, setDate] = useState('2022-02-01');
+  const [date, setDate] = useState(today);
+
+  const calendarItemClass = classNames('calendar__item', {
+    calendar__item_selected: date === yesterday,
+  });
 
   return (
     <div className="calendar">
@@ -25,39 +32,59 @@ const Calendar = ({ getShedule }) => {
           type="date"
         />
       </div>
+      {/* <div
+        className={classNames('calendar__dates', {
+          calendar__dates_t: date === today,
+          calendar__dates_tom: date === tommorow,
+        })}
+      > */}
       <div
+        className={classNames('calendar__item', {
+          calendar__item_selected: date === yesterday,
+        })}
         onClick={() => {
-          getShedule(yesterday.format('DD-MM-YYYY'));
+          setDate(yesterday);
+          getShedule(yesterday);
         }}
-        className="calendar__item"
       >
-        <div>{yesterday.format('DD/MM')}</div>
+        <div>{moment(yesterday).format(calendarFormat)}</div>
         <span className="calendar__item-text">ВЧОРА</span>
       </div>
       <div
+        className={classNames('calendar__item', {
+          calendar__item_selected: date === today,
+        })}
         onClick={() => {
-          getShedule(today.format('DD-MM-YYYY'));
+          setDate(today);
+          getShedule(today);
         }}
-        className="calendar__item"
       >
-        <div>{today.format('DD/MM')}</div>
+        <div>{moment(today).format(calendarFormat)}</div>
         <span className="calendar__item-text">СЬОГОДНІ</span>
       </div>
       <div
+        className={classNames('calendar__item', {
+          calendar__item_selected: date === tommorow,
+        })}
         onClick={() => {
-          getShedule(tommorow.format('DD-MM-YYYY'));
+          setDate(tommorow);
+          getShedule(tommorow);
         }}
-        className="calendar__item"
       >
-        <div>{tommorow.format('DD/MM')}</div>
+        <div>{moment(tommorow).format(calendarFormat)}</div>
         <span className="calendar__item-text">ЗАВТРА</span>
       </div>
     </div>
+    // </div>
   );
 };
 
 const mapDispatch = {
   getShedule: sheduleActions.getSheduleAction,
+};
+
+Calendar.propTypes = {
+  getShedule: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatch)(Calendar);

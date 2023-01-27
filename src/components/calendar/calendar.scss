@@ -12,18 +12,46 @@
         text-align: center;
     }
 
+    // &__dates {
+    //     display: flex;
+    //     flex-direction: row;
+    //     transition: transform 1s;
+    //     transform: translateX(0%);
+
+    //     &_t {
+    //         transform: translateX(100%);
+    //     }
+
+    //     &_tom {}
+
+    //     &:after {
+    //         transform: translateX(200%);
+    //         content: '';
+    //         display: block;
+    //         height: 3px;
+    //         width: 33%;
+    //         background-color: #1eb7ee;
+    //         position: absolute;
+    //     }
+    // }
+
     &__item {
         width: 100px;
         text-align: center;
         line-height: 17px;
         border-bottom: 3px solid #d0d0d0;
         cursor: pointer;
-    }
 
-    &__item-text {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 39px;
+        &_selected {
+            color: #1eb7ee;
+            border-color: #1eb7ee;
+        }
+
+        &-text {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 39px;
+        }
     }
 }
 
@@ -42,10 +70,6 @@
     &::-webkit-datetime-edit-text {
         display: none;
     }
-
-    // &::-webkit-datetime-edit-day-field {}
-
-    // &::-webkit-datetime-edit-month-field {}
 
     &::-webkit-calendar-picker-indicator {
         width: 40px;

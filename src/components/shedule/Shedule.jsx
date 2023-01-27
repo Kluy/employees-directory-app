@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Buttons from '../buttons/Buttons';
 import Calendar from '../calendar/Calendar';
 import Flights from '../flights/Flights';
