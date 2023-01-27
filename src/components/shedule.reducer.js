@@ -1,4 +1,8 @@
-import { FLIGHT_NUMBER, SAVE_SHEDULE, TOGGLE } from './shedule.actions';
+import {
+  FLIGHT_NUMBER,
+  SAVE_SHEDULE,
+  DEPARTURE_TOGGLE,
+} from './shedule.actions';
 
 const initialState = {
   shedule: {
@@ -21,7 +25,7 @@ const sheduleReducer = (state = initialState, action) => {
         ...state,
         shedule: action.payload.shedule,
       };
-    case TOGGLE:
+    case DEPARTURE_TOGGLE:
       return {
         ...state,
         departure: !state.departure,
