@@ -14,15 +14,6 @@ const saveShedule = (shedule) => {
   };
 };
 
-// export const chooseDateAction = (date) => {
-//   return {
-//     type: CHOOSE_DATE,
-//     payload: {
-//       date,
-//     },
-//   };
-// };
-
 export const flightNumberAction = (flightNumber) => {
   return {
     type: FLIGHT_NUMBER,

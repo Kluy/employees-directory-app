@@ -2,26 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { flightNumberAction } from '../shedule.actions';
 import PropTypes from 'prop-types';
-import {
-  Link,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import moment from 'moment';
 
 import './search.scss';
 
 const Search = ({ saveFlightNumber }) => {
-  const [input, setInput] = useState('');
-
   const { dep } = useParams();
-
   const [searchParams] = useSearchParams({});
-  const date = moment(new Date()).format('DD-MM-YYYY');
   const params = Object.fromEntries([...searchParams]);
-
+  const [input, setInput] = useState(params.search);
+  const today = moment(new Date()).format('DD-MM-YYYY');
   const navigate = useNavigate();
+
+  const search = input ? `&search=${input}` : '';
 
   return (
     <section className="search">
@@ -39,9 +33,10 @@ const Search = ({ saveFlightNumber }) => {
       <button
         onClick={() => {
           saveFlightNumber(input);
+
           navigate({
             pathname: `/${dep}`,
-            search: `?date=${params.date || date}&search=${input}`,
+            search: `?date=${params.date || today}${search}`,
           });
         }}
         className="search__button"

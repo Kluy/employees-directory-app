@@ -9,10 +9,7 @@ import classNames from 'classnames';
 import './buttons.scss';
 
 const Buttons = ({ departure, toggle }) => {
-  let { dep } = useParams();
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  // console.log(Object.fromEntries([...searchParams]));
+  const [searchParams] = useSearchParams();
 
   return (
     <div className="select">

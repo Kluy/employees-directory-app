@@ -10,11 +10,6 @@ const Content = () => {
     <div className="content-wrapper">
       <Search />
       <Shedule />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route exact path="/:dep" element={[<Search />, <Shedule />]}></Route>
-        </Routes>
-      </BrowserRouter> */}
     </div>
   );
 };
