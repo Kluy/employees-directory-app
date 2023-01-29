@@ -10,7 +10,6 @@ const DateSelector = ({ selectDate, getShedule }) => {
     date: moment(new Date()).format('DD-MM-YYYY'),
   });
   const params = Object.fromEntries([...searchParams]);
-  console.log(params);
   const navigate = useNavigate();
   const search = params.search ? `&search=${params.search}` : '';
 
