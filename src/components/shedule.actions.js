@@ -3,6 +3,7 @@ import { getFlights } from '../gateway';
 export const SAVE_SHEDULE = 'SHEDULE/SAVE_SHEDULE';
 export const DEPARTURE_TOGGLE = 'SHEDULE/DEPARTURE_TOGGLE';
 export const FLIGHT_NUMBER = 'SHEDULE/FLIGHT_NUMBER';
+// export const CHOOSE_DATE = 'SHEDULE/FLIGHT_NUMBER';
 
 const saveShedule = (shedule) => {
   return {
@@ -12,6 +13,15 @@ const saveShedule = (shedule) => {
     },
   };
 };
+
+// export const chooseDateAction = (date) => {
+//   return {
+//     type: CHOOSE_DATE,
+//     payload: {
+//       date,
+//     },
+//   };
+// };
 
 export const flightNumberAction = (flightNumber) => {
   return {

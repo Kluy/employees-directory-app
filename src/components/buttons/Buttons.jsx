@@ -2,12 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleAction } from '../shedule.actions';
 import { departureStatusSelector } from '../shedule.selectors';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './buttons.scss';
 
 const Buttons = ({ departure, toggle }) => {
+  let { dep } = useParams();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(Object.fromEntries([...searchParams]));
+
   return (
     <div className="select">
       <button
@@ -17,21 +23,18 @@ const Buttons = ({ departure, toggle }) => {
         })}
         disabled={departure}
       >
-        <i className="fa-solid fa-plane-departure select__btn-icon"></i>
-        ВИЛІТ
+        <Link to={`/departure?${searchParams}`}>ВИЛІТ</Link>
+        {/* ВИЛІТ */}
       </button>
       <button
         onClick={toggle}
-        className={classNames(
-          'select__btn select__btn_arrival select__btn-icon',
-          {
-            select__btn_unactive: departure,
-          }
-        )}
+        className={classNames('select__btn select__btn_arrival', {
+          select__btn_unactive: departure,
+        })}
         disabled={!departure}
       >
-        <i className="fa-solid fa-plane-arrival select__btn-icon"></i>
-        ПРИЛІТ
+        <Link to={`/arrival?${searchParams}`}>ПРИЛІТ</Link>
+        {/* ПРИЛІТ */}
       </button>
     </div>
   );
