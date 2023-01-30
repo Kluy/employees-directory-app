@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import { flightNumberAction, getSheduleAction } from '../shedule.actions';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -43,15 +42,9 @@ const Calendar = ({ getShedule, saveFlightNumber }) => {
           type="date"
         />
       </div>
-      <DateSelector
-        handleClick={getShedule}
-        selectDate={moment(newDate).subtract(1, 'days')}
-      />
-      <DateSelector handleClick={getShedule} selectDate={moment(newDate)} />
-      <DateSelector
-        handleClick={getShedule}
-        selectDate={moment(newDate).add(1, 'days')}
-      />
+      <DateSelector selectDate={moment(newDate).subtract(1, 'days')} />
+      <DateSelector selectDate={moment(newDate)} />
+      <DateSelector selectDate={moment(newDate).add(1, 'days')} />
     </div>
   );
 };

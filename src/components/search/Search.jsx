@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { flightNumberAction } from '../shedule.actions';
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import moment from 'moment';
 import './search.scss';
 
 const Search = ({ saveFlightNumber }) => {
-  const { dep } = useParams();
+  const { isDepature } = useParams();
   const [searchParams] = useSearchParams({});
   const params = Object.fromEntries([...searchParams]);
   const [input, setInput] = useState(params.search);
@@ -35,7 +35,7 @@ const Search = ({ saveFlightNumber }) => {
           saveFlightNumber(input);
 
           navigate({
-            pathname: `/${dep}`,
+            pathname: `/${isDepature || 'departure'}`,
             search: `?date=${params.date || today}${search}`,
           });
         }}

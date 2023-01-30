@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const DateSelector = ({ selectDate, getShedule }) => {
+const DateSelector = ({ selectDate }) => {
   const date = selectDate.format('DD-MM-YYYY');
   const [searchParams] = useSearchParams({
     date: moment(new Date()).format('DD-MM-YYYY'),
@@ -22,7 +22,6 @@ const DateSelector = ({ selectDate, getShedule }) => {
         navigate({
           search: `?date=${date}${search}`,
         });
-        getShedule(date);
       }}
     >
       <div>{selectDate.format('DD/MM')}</div>
@@ -32,7 +31,6 @@ const DateSelector = ({ selectDate, getShedule }) => {
 };
 
 DateSelector.propTypes = {
-  getShedule: PropTypes.func.isRequired,
   selectDate: PropTypes.instanceOf(moment).isRequired,
 };
 
