@@ -6,6 +6,13 @@ body {
   font-family: 'open sans', sans-serif;
 }
 
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #e7efec;
+}
+
 ul {
   list-style: none;
   margin: 0;
