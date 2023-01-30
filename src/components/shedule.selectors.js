@@ -20,7 +20,9 @@ export const flightsSelector = createSelector(
 
     const flightsByNumber = flights
       .filter((flight) =>
-        flightNumber ? flight.fltNo.includes(flightNumber) : flight
+        flightNumber
+          ? flight['carrierID.IATA'].concat(flight.fltNo).includes(flightNumber)
+          : flight
       )
       .sort((a, b) => a.timeDepShedule - b.timeDepShedule);
     return flightsByNumber;

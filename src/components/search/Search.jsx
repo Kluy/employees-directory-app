@@ -20,29 +20,31 @@ const Search = ({ saveFlightNumber }) => {
   return (
     <section className="search">
       <div className="search__title">ПОШУК РЕЙСУ</div>
-      <i className="fa-solid fa-magnifying-glass search__icon"></i>
-      <input
-        className="search__input"
-        type="text"
-        placeholder="Номер рейсу або місто"
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          saveFlightNumber(input);
-
-          navigate({
-            pathname: `/${isDepature || 'departure'}`,
-            search: `?date=${params.date || today}${search}`,
-          });
-        }}
-        className="search__button"
-      >
-        ЗНАЙТИ
-      </button>
+      <form action="">
+        <input
+          className="search__input"
+          type="text"
+          placeholder="Номер рейсу або місто"
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            saveFlightNumber(input);
+            navigate({
+              pathname: `/${isDepature || 'departure'}`,
+              search: `?date=${params.date || today}${search}`,
+            });
+          }}
+          className="search__button"
+        >
+          ЗНАЙТИ
+        </button>
+      </form>
     </section>
   );
 };

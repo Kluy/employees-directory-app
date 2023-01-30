@@ -5,7 +5,7 @@ import Footer from './components/footer/Footer';
 import Search from './components/search/Search';
 import Buttons from './components/buttons/Buttons';
 import Calendar from './components/calendar/Calendar';
-import Shedule from './components/shedule/Shedule';
+import Shedule from './components/Shedule/Shedule';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import store from './store';
 
@@ -19,7 +19,6 @@ const App = () => {
             <Routes>
               <Route exact path="/" element={[<Search />, <Buttons />]}></Route>
               <Route
-                exact
                 path="/:isDepature"
                 element={[<Search />, <Buttons />, <Calendar />, <Shedule />]}
               ></Route>

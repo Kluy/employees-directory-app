@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import moment from 'moment';
-import { connect } from 'react-redux';
-import { flightNumberAction, getSheduleAction } from '../shedule.actions';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import DateSelector from '../dateSelector/DateSelector';
+import PropTypes from 'prop-types';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { flightNumberAction, getSheduleAction } from '../shedule.actions';
+import { connect } from 'react-redux';
+import moment from 'moment';
 
 import './calendar.scss';
 

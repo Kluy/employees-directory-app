@@ -9,16 +9,6 @@
     color: rgb(47, 47, 47);
   }
 
-  &__icon {
-    width: 70px;
-    height: 80px;
-    line-height: 75px;
-    text-align: center;
-    font-size: 30px;
-    color: #95989a;
-    background-color: #fff;
-  }
-
   &__input {
     height: 80px;
     width: 450px;
@@ -26,6 +16,11 @@
     border: 0;
     font-size: 24px;
     outline: none;
+    padding-left: 50px;
+    background-image: url('../../images/search.svg');
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: 5px;
 
     &::placeholder {
       color: #a3989a;
