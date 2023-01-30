@@ -1,10 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 import classNames from 'classnames';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const DateSelector = ({ selectDate }) => {
+  const { isDepature } = useParams();
+
   const date = selectDate.format('DD-MM-YYYY');
   const [searchParams] = useSearchParams({
     date: moment(new Date()).format('DD-MM-YYYY'),
@@ -20,6 +22,7 @@ const DateSelector = ({ selectDate }) => {
       })}
       onClick={() => {
         navigate({
+          pathname: `/${isDepature || 'departure'}`,
           search: `?date=${date}${search}`,
         });
       }}

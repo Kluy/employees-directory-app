@@ -11,7 +11,7 @@ const Search = ({ saveFlightNumber }) => {
   const { isDepature } = useParams();
   const [searchParams] = useSearchParams({});
   const params = Object.fromEntries([...searchParams]);
-  const [input, setInput] = useState(params.search);
+  const [input, setInput] = useState(params.search || '');
   const today = moment(new Date()).format('DD-MM-YYYY');
   const navigate = useNavigate();
 
