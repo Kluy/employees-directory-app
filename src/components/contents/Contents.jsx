@@ -4,7 +4,7 @@ import Buttons from '../buttons/Buttons';
 import Calendar from '../calendar/Calendar';
 import Shedule from '../shedule/Shedule';
 
-import './content.scss';
+import './contents.scss';
 
 const Content = () => {
   return (
