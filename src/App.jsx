@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Header from './components/header/Header';
-import Content from './components/Content/Content';
+import Contents from './components/contents/Contents';
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -14,8 +14,8 @@ const App = () => {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Content />}></Route>
-            <Route path="/:isDepature" element={<Content />}></Route>
+            <Route exact path="/" element={<Contents />}></Route>
+            <Route path="/:isDepature" element={<Contents />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>
