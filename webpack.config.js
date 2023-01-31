@@ -16,6 +16,7 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /.jsx?$/,
+          exclude: /node_modules/,
           use: ['babel-loader'],
         },
         {
@@ -65,6 +66,10 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
     },
   };
+
+  if (isProduction) {
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  }
 
   if (isProduction) {
     config.plugins.push(
