@@ -1,3 +1,5 @@
+@import '../../var.scss';
+
 .no-flights {
   height: 300px;
   display: flex;
@@ -6,11 +8,11 @@
   font-size: 30px;
   font-weight: 700;
   color: #2f2f2f;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .flights {
-  background-color: #fff;
+  background-color: $white;
 
   &__table {
     display: flex;
