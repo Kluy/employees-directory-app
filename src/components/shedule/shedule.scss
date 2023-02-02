@@ -23,7 +23,7 @@
       padding: 35px 0 15px 0;
       font-size: 16px;
       font-weight: 600;
-      color: #95989a;
+      color: $dark-grey;
     }
   }
 }
@@ -38,7 +38,7 @@
   }
 
   &:hover {
-    box-shadow: 0 5px 6px #95989a;
+    box-shadow: 0 5px 6px $dark-grey;
 
     .flight__item_details {
       visibility: visible;
@@ -50,7 +50,7 @@
 
     &_details {
       visibility: hidden;
-      color: #1eb7ee;
+      color: $blue;
     }
 
     &_status {
@@ -67,16 +67,16 @@
     height: 40px;
     margin: 0 20px;
     font-size: 22px;
-    color: #63c745;
+    color: $green;
     font-weight: 700;
     line-height: 40px;
     text-align: center;
-    border: 1px solid #63c745;
+    border: 1px solid $green;
     border-radius: 20px;
 
     &_D {
-      color: #1eb7ee;
-      border-color: #1eb7ee;
+      color: $blue;
+      border-color: $blue;
     }
   }
 

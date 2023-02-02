@@ -1,53 +1,54 @@
+@import '../../var.scss';
+
 .footer {
-    padding: 40px 0;
-    margin-top: auto;
-    color: white;
-    background-color: #595959;
+  padding: 40px 0;
+  margin-top: auto;
+  color: $white;
+  background-color: #595959;
 
-    &__nav {
-        max-width: 1120px;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 auto;
-        padding-bottom: 20px;
-        font-size: 16px;
-    }
+  &__nav {
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    font-size: 16px;
+  }
 
-    &__nav-item {
-        padding-right: 20px;
-    }
+  &__nav-item {
+    padding-right: 20px;
+  }
 
-    &__nav-item>li {
-        margin-bottom: 10px;
-        line-height: 24px;
-    }
+  &__nav-item > li {
+    margin-bottom: 10px;
+    line-height: 24px;
+  }
 
-    &__icons {
-        font-size: 30px;
-    }
+  &__icons {
+    font-size: 30px;
+  }
 
-    &__tel {
-        margin-bottom: 15px;
-        font-size: 28px;
-        font-weight: 600;
-        line-height: 42px;
-    }
+  &__tel {
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
+  }
 
-    &__icon {
-        margin-top: 10px;
-        margin-right: 30px;
-    }
+  &__icon {
+    margin-top: 10px;
+    margin-right: 30px;
+  }
 
-
-    &__copyrights {
-        max-width: 1120px;
-        display: flex;
-        justify-content: space-between;
-        margin: 30px auto 0 auto;
-        padding-top: 20px;
-        border-top: 1px solid #b8bdc1;
-        color: #b8bdc1;
-        font-size: 12px;
-        line-height: 18px;
-    }
+  &__copyrights {
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #b8bdc1;
+    color: #b8bdc1;
+    font-size: 12px;
+    line-height: 18px;
+  }
 }

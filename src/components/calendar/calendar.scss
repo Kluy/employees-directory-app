@@ -1,88 +1,89 @@
+@import '../../var.scss';
+
 .calendar {
-    padding-top: 25px;
-    display: flex;
-    flex-direction: row;
-    font-size: 12px;
-    color: #b8b9b9;
-    background-color: #fff;
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  color: #b8b9b9;
+  background-color: $white;
 
-    &__date-picker {
-        color: #1eb7ee;
-        font-weight: 600;
-        text-align: center;
+  &__date-picker {
+    color: $blue;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  // &__dates {
+  //     display: flex;
+  //     flex-direction: row;
+  //     transition: transform 1s;
+  //     transform: translateX(0%);
+
+  //     &_t {
+  //         transform: translateX(100%);
+  //     }
+
+  //     &_tom {}
+
+  //     &:after {
+  //         transform: translateX(200%);
+  //         content: '';
+  //         display: block;
+  //         height: 3px;
+  //         width: 33%;
+  //         background-color: $blue;
+  //         position: absolute;
+  //     }
+  // }
+
+  &__item {
+    width: 100px;
+    text-align: center;
+    line-height: 17px;
+    border-bottom: 3px solid #d0d0d0;
+    cursor: pointer;
+
+    &_selected {
+      color: $blue;
+      border-color: $blue;
     }
 
-    // &__dates {
-    //     display: flex;
-    //     flex-direction: row;
-    //     transition: transform 1s;
-    //     transform: translateX(0%);
-
-    //     &_t {
-    //         transform: translateX(100%);
-    //     }
-
-    //     &_tom {}
-
-    //     &:after {
-    //         transform: translateX(200%);
-    //         content: '';
-    //         display: block;
-    //         height: 3px;
-    //         width: 33%;
-    //         background-color: #1eb7ee;
-    //         position: absolute;
-    //     }
-    // }
-
-    &__item {
-        width: 100px;
-        text-align: center;
-        line-height: 17px;
-        border-bottom: 3px solid #d0d0d0;
-        cursor: pointer;
-
-        &_selected {
-            color: #1eb7ee;
-            border-color: #1eb7ee;
-        }
-
-        &-text {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 39px;
-        }
+    &-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 39px;
     }
+  }
 }
 
 .date-picker {
-    display: flex;
-    flex-direction: column;
-    border: 0;
-    outline: 0;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  outline: 0;
 
-    &::-webkit-datetime-edit {
-        color: #1eb7ee;
-        font-weight: 600;
-        text-align: center;
-    }
+  &::-webkit-datetime-edit {
+    color: $blue;
+    font-weight: 600;
+    text-align: center;
+  }
 
-    &::-webkit-datetime-edit-text {
-        display: none;
-    }
+  &::-webkit-datetime-edit-text {
+    display: none;
+  }
 
-    &::-webkit-calendar-picker-indicator {
-        width: 40px;
-        height: 40px;
-        background-image: url('../../images/calendar.svg');
-        background-color: #1eb7ee;
-        background-size: 70%;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+  &::-webkit-calendar-picker-indicator {
+    width: 40px;
+    height: 40px;
+    background-image: url('../../images/calendar.svg');
+    background-color: $blue;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-    &::-webkit-datetime-edit-year-field {
-        display: none;
-    }
-
+  &::-webkit-datetime-edit-year-field {
+    display: none;
+  }
 }
