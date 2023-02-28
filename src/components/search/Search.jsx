@@ -34,7 +34,7 @@ const Search = ({ saveFlightNumber }) => {
           type="submit"
           onClick={e => {
             e.preventDefault();
-            saveFlightNumber(input);
+            // saveFlightNumber(input);
             navigate({
               pathname: `/${isDepature || 'departure'}`,
               search: `?date=${params.date || today}${search}`,

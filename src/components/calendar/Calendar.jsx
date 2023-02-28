@@ -10,12 +10,12 @@ import './calendar.scss';
 
 const Calendar = ({ getShedule, saveFlightNumber }) => {
   const { isDepature } = useParams();
-
   const newDate = new Date();
 
   const [searchParams] = useSearchParams({
     date: moment(newDate).format('DD-MM-YYYY'),
   });
+
   const params = Object.fromEntries([...searchParams]);
   const dateParam = params.date.split('-').reverse().join('-');
 

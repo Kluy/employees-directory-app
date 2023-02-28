@@ -8,22 +8,22 @@ export const departureStatusSelector = state => {
   return state.departure;
 };
 
-export const flightNumberSelector = state => {
-  return state.flightNumber;
-};
+// export const flightNumberSelector = state => {
+//   return state.flightNumber;
+// };
 
-export const flightsSelector = createSelector(
-  [sheduleSelector, departureStatusSelector, flightNumberSelector],
-  (shedule, isDepature, flightNumber) => {
-    const flights = isDepature ? shedule.departure : shedule.arrival;
+// export const flightsSelector = createSelector(
+//   [sheduleSelector, departureStatusSelector, flightNumberSelector],
+//   (shedule, isDepature, flightNumber) => {
+//     const flights = isDepature ? shedule.departure : shedule.arrival;
 
-    const flightsByNumber = flights
-      .filter(flight =>
-        flightNumber
-          ? flight['carrierID.IATA'].concat(flight.fltNo).includes(flightNumber)
-          : flight,
-      )
-      .sort((a, b) => a.timeDepShedule - b.timeDepShedule);
-    return flightsByNumber;
-  },
-);
+//     const flightsByNumber = flights
+//       .filter(flight =>
+//         flightNumber
+//           ? flight['carrierID.IATA'].concat(flight.fltNo).includes(flightNumber)
+//           : flight,
+//       )
+//       .sort((a, b) => a.timeDepShedule - b.timeDepShedule);
+//     return flightsByNumber;
+//   },
+// );
