@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import sheduleReducer from './components/shedule.reducer';
+import sheduleReducer from './store/reducers/shedule.reducer';
 
-const logger = (state) => (next) => (action) => {
+const logger = state => next => action => {
   console.group(action.type);
   console.info('dispatching', action);
   let result = next(action);
@@ -16,8 +16,5 @@ const mainReducer = combineReducers({
   shedule: sheduleReducer,
 });
 
-const store = createStore(
-  sheduleReducer,
-  composeEnhancers(applyMiddleware(thunk, logger))
-);
+const store = createStore(sheduleReducer, composeEnhancers(applyMiddleware(thunk, logger)));
 export default store;

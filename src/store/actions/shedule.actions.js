@@ -1,11 +1,10 @@
-import { getFlights } from '../gateway';
+import { getFlights } from '../../gateway/gateway';
 
 export const SAVE_SHEDULE = 'SHEDULE/SAVE_SHEDULE';
 export const DEPARTURE_TOGGLE = 'SHEDULE/DEPARTURE_TOGGLE';
 export const FLIGHT_NUMBER = 'SHEDULE/FLIGHT_NUMBER';
-// export const CHOOSE_DATE = 'SHEDULE/FLIGHT_NUMBER';
 
-const saveShedule = (shedule) => {
+const saveShedule = shedule => {
   return {
     type: SAVE_SHEDULE,
     payload: {
@@ -14,7 +13,7 @@ const saveShedule = (shedule) => {
   };
 };
 
-export const flightNumberAction = (flightNumber) => {
+export const flightNumberAction = flightNumber => {
   return {
     type: FLIGHT_NUMBER,
     payload: {
@@ -29,8 +28,8 @@ export const toggleAction = () => {
   };
 };
 
-export const getSheduleAction = (input) => {
+export const getSheduleAction = input => {
   return function (dispatch) {
-    getFlights(input).then((result) => dispatch(saveShedule(result.body)));
+    getFlights(input).then(result => dispatch(saveShedule(result.body)));
   };
 };

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import DateSelector from './DateSelector';
 import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { flightNumberAction, getSheduleAction } from '../shedule.actions';
+import { flightNumberAction, getSheduleAction } from '../../store/actions/shedule.actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -32,12 +32,10 @@ const Calendar = ({ getShedule, saveFlightNumber }) => {
     <div className="calendar">
       <div className="calendar__date-picker">
         <input
-          onChange={(e) => {
+          onChange={e => {
             navigate({
               pathname: `/${isDepature || 'departure'}`,
-              search: `?date=${moment(e.target.value).format(
-                'DD-MM-YYYY'
-              )}${search}`,
+              search: `?date=${moment(e.target.value).format('DD-MM-YYYY')}${search}`,
             });
           }}
           value={dateParam}

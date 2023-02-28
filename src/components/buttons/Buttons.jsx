@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleAction } from '../shedule.actions';
-import { departureStatusSelector } from '../shedule.selectors';
+import { toggleAction } from '../../store/actions/shedule.actions';
+import { departureStatusSelector } from '../../store/selectors/shedule.selectors';
 import { Link, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -38,7 +38,7 @@ const Buttons = ({ departure, toggle }) => {
   );
 };
 
-const mapState = (state) => {
+const mapState = state => {
   return {
     departure: departureStatusSelector(state),
   };

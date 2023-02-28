@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { flightNumberAction } from '../shedule.actions';
+import { flightNumberAction } from '../../store/actions/shedule.actions';
 import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import moment from 'moment';
@@ -26,13 +26,13 @@ const Search = ({ saveFlightNumber }) => {
           type="text"
           placeholder="Номер рейсу або місто"
           value={input}
-          onChange={(e) => {
+          onChange={e => {
             setInput(e.target.value);
           }}
         />
         <button
           type="submit"
-          onClick={(e) => {
+          onClick={e => {
             e.preventDefault();
             saveFlightNumber(input);
             navigate({
