@@ -33,5 +33,5 @@ You may also see any lint errores in the console.</p>
 <h3>npm run build</h3>
 <p>Compile the production build to the dist folder.
 Correctly bundles React in production mode and optimizes the build for the best performance.</p>
-<p>The build is minified.
+<p>Build is minified.
 App is ready to be deployed.</p>
