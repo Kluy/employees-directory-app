@@ -1,35 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { toggleAction } from '../../store/actions/shedule.actions';
-import { departureStatusSelector } from '../../store/selectors/shedule.selectors';
-import { Link, useSearchParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { toggleAction } from '../../store/actions/shedule.actions';
+// import { departureStatusSelector } from '../../store/selectors/shedule.selectors';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './buttons.scss';
 
-const Buttons = ({ departure, toggle }) => {
+const Buttons = () => {
+  const { isDeparture } = useParams();
+  const departure = isDeparture === 'arrival' ? true : false;
   const [searchParams] = useSearchParams();
 
   return (
     <div className="select">
       <Link to={`/departure?${searchParams}`}>
         <button
-          onClick={toggle}
           className={classNames('select__btn select__btn_departure', {
-            select__btn_unactive: !departure,
+            select__btn_unactive: departure,
           })}
-          disabled={departure}
+          disabled={!departure}
         >
           ВИЛІТ
         </button>
       </Link>
       <Link to={`/arrival?${searchParams}`}>
         <button
-          onClick={toggle}
           className={classNames('select__btn select__btn_arrival', {
-            select__btn_unactive: departure,
+            select__btn_unactive: !departure,
           })}
-          disabled={!departure}
+          disabled={departure}
         >
           ПРИЛІТ
         </button>
@@ -37,24 +37,4 @@ const Buttons = ({ departure, toggle }) => {
     </div>
   );
 };
-
-const mapState = state => {
-  return {
-    departure: departureStatusSelector(state),
-  };
-};
-
-const mapDispatch = {
-  toggle: toggleAction,
-};
-
-Buttons.propTypes = {
-  toogle: PropTypes.func.isRequired,
-  departure: PropTypes.bool,
-};
-
-Buttons.defaultProps = {
-  departure: true,
-};
-
-export default connect(mapState, mapDispatch)(Buttons);
+export default Buttons;

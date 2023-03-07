@@ -7,13 +7,16 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import './shedule.scss';
 
-const Shedule = ({ shedule, departure }) => {
+const Shedule = ({ shedule }) => {
   if (shedule.departure.length === 0) return <div className="no-flights">Немає рейсів</div>;
 
-  const { isDepature } = useParams();
+  const { isDeparture } = useParams();
+  const departure = isDeparture === 'departure';
   const [searchParams] = useSearchParams();
   const { search } = Object.fromEntries([...searchParams]);
-  const flights = isDepature ? shedule.departure : shedule.arrival;
+  console.log(search);
+  const flights = departure ? shedule.departure : shedule.arrival;
+  console.log(flights);
 
   return (
     <div className="flights">
@@ -28,9 +31,7 @@ const Shedule = ({ shedule, departure }) => {
       </ul>
       {flights
         .filter(flight =>
-          search
-            ? flight['carrierID.IATA'].concat(flight.fltNo).includes(search.toUpperCase())
-            : flight,
+          search ? flight.codeShareData[0].codeShare.includes(search.toUpperCase()) : flight,
         )
         .map(flight => {
           return (

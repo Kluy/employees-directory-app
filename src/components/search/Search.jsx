@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { flightNumberAction } from '../../store/actions/shedule.actions';
-import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { flightNumberAction } from '../../store/actions/shedule.actions';
+// import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import moment from 'moment';
 
 import './search.scss';
 
-const Search = ({ saveFlightNumber }) => {
-  const { isDepature } = useParams();
+const Search = () => {
+  const { isDeparture } = useParams();
   const [searchParams] = useSearchParams({});
   const params = Object.fromEntries([...searchParams]);
   const [input, setInput] = useState(params.search || '');
@@ -34,9 +34,8 @@ const Search = ({ saveFlightNumber }) => {
           type="submit"
           onClick={e => {
             e.preventDefault();
-            // saveFlightNumber(input);
             navigate({
-              pathname: `/${isDepature || 'departure'}`,
+              pathname: `/${isDeparture || 'departure'}`,
               search: `?date=${params.date || today}${search}`,
             });
           }}
@@ -49,12 +48,13 @@ const Search = ({ saveFlightNumber }) => {
   );
 };
 
-const mapDispatch = {
-  saveFlightNumber: flightNumberAction,
-};
+// const mapDispatch = {
+//   saveFlightNumber: flightNumberAction,
+// };
 
-Search.propTypes = {
-  saveFlightNumber: PropTypes.func.isRequired,
-};
+// Search.propTypes = {
+//   saveFlightNumber: PropTypes.func.isRequired,
+// };
 
-export default connect(null, mapDispatch)(Search);
+// export default connect(null, mapDispatch)(Search);
+export default Search;

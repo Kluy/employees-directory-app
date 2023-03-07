@@ -15,7 +15,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Contents />}></Route>
-            <Route path="/:isDepature" element={<Contents />}></Route>
+            <Route path="/:isDeparture" element={<Contents />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>

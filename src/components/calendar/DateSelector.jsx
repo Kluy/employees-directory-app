@@ -5,7 +5,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const DateSelector = ({ selectDate }) => {
-  const { isDepature } = useParams();
+  const { isDeparture } = useParams();
 
   const date = selectDate.format('DD-MM-YYYY');
   const [searchParams] = useSearchParams({
@@ -22,7 +22,7 @@ const DateSelector = ({ selectDate }) => {
       })}
       onClick={() => {
         navigate({
-          pathname: `/${isDepature || 'departure'}`,
+          pathname: `/${isDeparture || 'departure'}`,
           search: `?date=${date}${search}`,
         });
       }}

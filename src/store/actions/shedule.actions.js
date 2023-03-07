@@ -1,8 +1,6 @@
 import { getFlights } from '../../gateway/gateway';
 
 export const SAVE_SHEDULE = 'SHEDULE/SAVE_SHEDULE';
-export const DEPARTURE_TOGGLE = 'SHEDULE/DEPARTURE_TOGGLE';
-export const FLIGHT_NUMBER = 'SHEDULE/FLIGHT_NUMBER';
 
 const saveShedule = shedule => {
   return {
@@ -10,21 +8,6 @@ const saveShedule = shedule => {
     payload: {
       shedule,
     },
-  };
-};
-
-export const flightNumberAction = flightNumber => {
-  return {
-    type: FLIGHT_NUMBER,
-    payload: {
-      flightNumber,
-    },
-  };
-};
-
-export const toggleAction = () => {
-  return {
-    type: DEPARTURE_TOGGLE,
   };
 };
 

@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import DateSelector from './DateSelector';
 import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { flightNumberAction, getSheduleAction } from '../../store/actions/shedule.actions';
+import { getSheduleAction } from '../../store/actions/shedule.actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
 import './calendar.scss';
 
-const Calendar = ({ getShedule, saveFlightNumber }) => {
-  const { isDepature } = useParams();
+const Calendar = ({ getShedule }) => {
+  const { isDeparture } = useParams();
   const newDate = new Date();
 
   const [searchParams] = useSearchParams({
@@ -25,7 +25,6 @@ const Calendar = ({ getShedule, saveFlightNumber }) => {
 
   useEffect(() => {
     getShedule(dateParam);
-    saveFlightNumber(params.search);
   }, [dateParam]);
 
   return (
@@ -34,7 +33,7 @@ const Calendar = ({ getShedule, saveFlightNumber }) => {
         <input
           onChange={e => {
             navigate({
-              pathname: `/${isDepature || 'departure'}`,
+              pathname: `/${isDeparture || 'departure'}`,
               search: `?date=${moment(e.target.value).format('DD-MM-YYYY')}${search}`,
             });
           }}
@@ -52,7 +51,6 @@ const Calendar = ({ getShedule, saveFlightNumber }) => {
 
 const mapDispatch = {
   getShedule: getSheduleAction,
-  saveFlightNumber: flightNumberAction,
 };
 
 Calendar.propTypes = {
