@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-// import { flightNumberAction } from '../../store/actions/shedule.actions';
-// import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import moment from 'moment';
 
@@ -48,13 +45,4 @@ const Search = () => {
   );
 };
 
-// const mapDispatch = {
-//   saveFlightNumber: flightNumberAction,
-// };
-
-// Search.propTypes = {
-//   saveFlightNumber: PropTypes.func.isRequired,
-// };
-
-// export default connect(null, mapDispatch)(Search);
 export default Search;

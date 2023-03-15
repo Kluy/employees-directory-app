@@ -8,7 +8,8 @@ import moment from 'moment';
 import './shedule.scss';
 
 const Shedule = ({ shedule }) => {
-  if (shedule.departure.length === 0) return <div className="no-flights">Немає рейсів</div>;
+  if (shedule.length === 0 || shedule.departure.length === 0)
+    return <div className="no-flights">Немає рейсів</div>;
 
   const { isDeparture } = useParams();
   const departure = isDeparture === 'departure';
@@ -31,6 +32,7 @@ const Shedule = ({ shedule }) => {
       </ul>
       {flights
         .filter(flight =>
+          // search ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase()) : flight,
           search ? flight.codeShareData[0].codeShare.includes(search.toUpperCase()) : flight,
         )
         .map(flight => {
