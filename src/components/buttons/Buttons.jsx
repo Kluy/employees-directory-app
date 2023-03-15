@@ -1,9 +1,5 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { toggleAction } from '../../store/actions/shedule.actions';
-// import { departureStatusSelector } from '../../store/selectors/shedule.selectors';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './buttons.scss';
 
