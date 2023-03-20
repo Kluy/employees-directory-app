@@ -29,13 +29,15 @@ const Shedule = ({ shedule }) => {
         <li className="flight__item flight__item_status"></li>
       </ul>
       {flights
-        .filter(flight => {
-          return search
-            ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase())
+        .filter(flight =>
+          search
+            ? flight.codeShareData[0].codeShare.includes(search.toUpperCase())
               ? flight
-              : flight.codeShareData[0].codeShare.includes(search.toUpperCase())
-            : flight;
-        })
+              : flight['airportToID.city']
+              ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase())
+              : flight['airportFromID.city'].toLowerCase().includes(search.toLowerCase())
+            : flight,
+        )
         .map(flight => {
           return (
             <ul key={flight.ID} className="flights__table flight">
