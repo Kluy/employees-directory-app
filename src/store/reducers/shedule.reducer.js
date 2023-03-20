@@ -1,4 +1,4 @@
-import { FLIGHT_NUMBER, SAVE_SHEDULE, DEPARTURE_TOGGLE } from '../actions/shedule.actions';
+import { SAVE_SHEDULE } from '../actions/shedule.actions';
 
 const initialState = {
   shedule: {

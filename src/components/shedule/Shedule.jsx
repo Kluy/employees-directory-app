@@ -13,8 +13,7 @@ const Shedule = ({ shedule }) => {
 
   const { isDeparture } = useParams();
   const departure = isDeparture === 'departure';
-  const [searchParams] = useSearchParams();
-  const { search } = Object.fromEntries([...searchParams]);
+  const { search } = Object.fromEntries(...useSearchParams());
   const flights = departure ? shedule.departure : shedule.arrival;
 
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import DateSelector from './DateSelector';
+import DateSelector from '../dateSelector/DateSelector';
 import PropTypes from 'prop-types';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { getSheduleAction } from '../../store/actions/shedule.actions';
