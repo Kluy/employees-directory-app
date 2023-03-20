@@ -12,6 +12,7 @@ const DateSelector = ({ selectDate }) => {
     date: moment(new Date()).format('DD-MM-YYYY'),
   });
   const params = Object.fromEntries([...searchParams]);
+
   const navigate = useNavigate();
   const search = params.search ? `&search=${params.search}` : '';
 

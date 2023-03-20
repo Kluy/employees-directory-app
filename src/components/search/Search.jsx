@@ -6,10 +6,11 @@ import './search.scss';
 
 const Search = () => {
   const { isDeparture } = useParams();
-  const [searchParams] = useSearchParams({});
+  const [searchParams] = useSearchParams({
+    date: moment(new Date()).format('DD-MM-YYYY'),
+  });
   const params = Object.fromEntries([...searchParams]);
   const [input, setInput] = useState(params.search || '');
-  const today = moment(new Date()).format('DD-MM-YYYY');
   const navigate = useNavigate();
 
   const search = input ? `&search=${input}` : '';
@@ -33,7 +34,7 @@ const Search = () => {
             e.preventDefault();
             navigate({
               pathname: `/${isDeparture || 'departure'}`,
-              search: `?date=${params.date || today}${search}`,
+              search: `?date=${params.date}${search}`,
             });
           }}
           className="search__button"

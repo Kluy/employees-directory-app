@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
+import moment from 'moment/moment';
 import './buttons.scss';
 
 const Buttons = () => {
   const { isDeparture } = useParams();
   const departure = isDeparture === 'arrival' ? true : false;
-  const [searchParams] = useSearchParams();
-
+  const [searchParams] = useSearchParams({
+    date: moment(new Date()).format('DD-MM-YYYY'),
+  });
   return (
     <div className="select">
       <Link to={`/departure?${searchParams}`}>

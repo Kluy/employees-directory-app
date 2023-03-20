@@ -18,9 +18,7 @@ const Calendar = ({ getShedule }) => {
 
   const params = Object.fromEntries([...searchParams]);
   const dateParam = params.date.split('-').reverse().join('-');
-
   const navigate = useNavigate();
-
   const search = params.search ? `&search=${params.search}` : '';
 
   useEffect(() => {
