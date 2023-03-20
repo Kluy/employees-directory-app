@@ -15,9 +15,7 @@ const Shedule = ({ shedule }) => {
   const departure = isDeparture === 'departure';
   const [searchParams] = useSearchParams();
   const { search } = Object.fromEntries([...searchParams]);
-  console.log(search);
   const flights = departure ? shedule.departure : shedule.arrival;
-  console.log(flights);
 
   return (
     <div className="flights">
@@ -31,10 +29,13 @@ const Shedule = ({ shedule }) => {
         <li className="flight__item flight__item_status"></li>
       </ul>
       {flights
-        .filter(flight =>
-          // search ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase()) : flight,
-          search ? flight.codeShareData[0].codeShare.includes(search.toUpperCase()) : flight,
-        )
+        .filter(flight => {
+          return search
+            ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase())
+              ? flight
+              : flight.codeShareData[0].codeShare.includes(search.toUpperCase())
+            : flight;
+        })
         .map(flight => {
           return (
             <ul key={flight.ID} className="flights__table flight">
