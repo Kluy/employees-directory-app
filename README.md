@@ -1,8 +1,8 @@
-<h1>Airport shedule</h1>
+<h1>ABZ-Project</h1>
 
-<h2><a href="https://ephemeral-nasturtium-b2ddbd.netlify.app/">Site link</a></h2>
+<h2><a href="#">Site link</a></h2>
 
-<p>Layout supports desktop (up-to-1440) versions</p>
+<p>Layout supports desktop (up-to-2560) versions</p>
 
 <h2>The tech stack is:</h2>
 
