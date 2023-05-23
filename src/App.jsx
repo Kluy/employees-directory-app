@@ -1,16 +1,16 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import Header from './components/header/Header';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import store from './store';
 import Headline from './components/headline/Headline';
+import Main from './components/main/Main';
 
 const App = () => {
   return (
     <div className="page">
       <Header />
       <Headline />
+      <Main />
     </div>
   );
 };
