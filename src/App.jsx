@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import store from './store';
 import Headline from './components/headline/Headline';
 import SectionGet from './components/sectionGet/SectionGet';
-import SectionPost from './components/sectionPost/SectionPost';
+import From from './components/form/Form';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       <Header />
       <Headline />
       <SectionGet />
-      <SectionPost />
+      <From />
     </div>
   );
 };
