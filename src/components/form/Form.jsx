@@ -5,7 +5,7 @@ import './form.scss';
 const From = () => {
   return (
     <section className="post">
-      <div className="section-heading">
+      <div className="heading">
         <Heading text="Working with POST request" />
       </div>
     </section>

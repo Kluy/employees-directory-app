@@ -39,7 +39,7 @@ const SectionGet = () => {
 
   return (
     <section className="get">
-      <div className="section-heading">
+      <div className="heading">
         <Heading text="Working with GET request" />
       </div>
       <div className="users-list">
