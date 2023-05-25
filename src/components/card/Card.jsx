@@ -1,18 +1,19 @@
 import React from 'react';
 import Text from '../text/Text';
+import Image from '../image/Image';
 import './card.scss';
 
-const Card = ({ text }) => {
+const Card = ({ photo, name, position, email, phone }) => {
   return (
-    <div className="card">
-      <img src="../../images/photo-cover.svg" />
-      <Text text="Salvador Stewart Flynn Thomas Salva..." />
-      <Text
-        text="Leading specialist of the department o...
-JeromeKlarkaJeromeKlarka19233623...
-+38 (098) 278 76 24"
-      />
-    </div>
+    <li className="card">
+      <Image src={photo} alt="User photo" />
+      <div className="card_name-wrapper">
+        <Text text={name} />
+      </div>
+      <Text text={position} />
+      <Text text={email} />
+      <Text text={phone} />
+    </li>
   );
 };
 export default Card;

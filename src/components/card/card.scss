@@ -2,5 +2,10 @@
 
 .card {
   padding: 20px;
+  margin-bottom: 20px;
   background-color: $white;
+
+  &_name-wrapper {
+    padding: 20px 0;
+  }
 }

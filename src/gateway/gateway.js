@@ -19,17 +19,20 @@ export const getToken = () => {
     });
 };
 
-export const getUsers = () => {
+export const fetchData = () =>
+  fetch(`${baseUrl}users?page=1&count=6`)
+    .then(response => response.json())
+    .catch(() => alert('Internal Server Error. Can"t display events'));
+
+export const getUsers = () =>
   fetch(`${baseUrl}users?page=1&count=6`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.users);
       if (data.success) {
+        return data.users;
       } else {
         console.log(data.message);
       }
     });
-};
