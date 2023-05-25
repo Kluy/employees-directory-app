@@ -1,4 +1,4 @@
-import { getFlights } from '../../gateway/gateway';
+// import { getFlights } from '../../gateway/gateway';
 
 export const SAVE_SHEDULE = 'SHEDULE/SAVE_SHEDULE';
 
