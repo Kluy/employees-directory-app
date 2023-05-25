@@ -20,14 +20,16 @@ export const getToken = () => {
 };
 
 export const getUsers = () => {
-  fetch(`${baseUrl}users?page=1&count=5`)
+  fetch(`${baseUrl}users?page=1&count=6`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+      console.log(data.users);
       if (data.success) {
       } else {
+        console.log(data.message);
       }
     });
 };

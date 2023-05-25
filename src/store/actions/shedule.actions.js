@@ -1,18 +1,18 @@
-// import { getFlights } from '../../gateway/gateway';
+import { getUsers } from '../../gateway/gateway';
 
-export const SAVE_SHEDULE = 'SHEDULE/SAVE_SHEDULE';
+export const GET_USERS = 'USERS/GET_USERS';
 
-const saveShedule = shedule => {
+const saveUsers = users => {
   return {
-    type: SAVE_SHEDULE,
+    type: GET_USERS,
     payload: {
-      shedule,
+      users,
     },
   };
 };
 
-export const getSheduleAction = input => {
+export const getUsersAction = input => {
   return function (dispatch) {
-    getFlights(input).then(result => dispatch(saveShedule(result.body)));
+    getUsers(input).then(result => dispatch(saveUsers(result.body)));
   };
 };

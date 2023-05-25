@@ -1,22 +1,19 @@
-import { SAVE_SHEDULE } from '../actions/shedule.actions';
+import { GET_USERS } from '../actions/shedule.actions';
 
 const initialState = {
-  shedule: {
-    departure: [],
-    arrival: [],
-  },
+  users: [],
 };
 
-const sheduleReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_SHEDULE:
+    case GET_USERS:
       return {
         ...state,
-        shedule: action.payload.shedule,
+        users: action.payload.users,
       };
     default:
       return state;
   }
 };
 
-export default sheduleReducer;
+export default usersReducer;
