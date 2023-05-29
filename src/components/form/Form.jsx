@@ -22,7 +22,7 @@ const Form = () => {
           </legend>
           {positionsList.map(elem => (
             <div className="radio-wrapper" key={elem}>
-              <Input type="radio" className="input_radio" id={elem} name="position" value={elem} />
+              <Input className="input_radio" type="radio" id={elem} name="position" value={elem} />
               <label htmlFor={elem}>{elem}</label>
             </div>
           ))}

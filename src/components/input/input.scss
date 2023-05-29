@@ -74,31 +74,5 @@
         border-radius: 4px 0 0 4px;
       }
     }
-
-
-
-    &::file-selector-button {
-      visibility: hidden;
-    }
-
-    &::before {
-      content: 'Upload';
-      height: 54px;
-      width: 83px;
-      position: absolute;
-      top: 563px;
-      left: 0;
-      box-sizing: border-box;
-      text-align: center;
-      line-height: 52px;
-      background-color: $light-grey;
-      border: 1px solid $black87;
-      border-radius: 4px 0 0 4px;
-    }
-
-    &::after {
-      content: 'Upload your photo';
-      line-height: 50px;
-    }
   }
 }
