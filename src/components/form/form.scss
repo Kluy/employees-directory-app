@@ -4,7 +4,27 @@
   padding: 140px 16px 100px 16px;
   text-align: center;
 }
+
 .form {
-  text-align: left;
   position: relative;
+}
+
+.legend {
+  margin-bottom: 10px;
+}
+
+.fieldset {
+  margin-top: 43px;
+  text-align: left;
+  border: none;
+}
+
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

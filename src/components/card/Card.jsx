@@ -6,7 +6,7 @@ import './card.scss';
 const Card = ({ photo, name, position, email, phone }) => {
   return (
     <li className="card">
-      <Image src={photo} alt="User photo" />
+      <Image className="photo" src={photo} alt="User photo" />
       <div className="card_name-wrapper">
         <Text text={name} />
       </div>

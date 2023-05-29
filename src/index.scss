@@ -10,10 +10,11 @@ body {
 }
 
 .page {
-  margin: 0 auto;
+  // margin: 0 auto;
   width: 360px;
   min-height: 100vh;
   color: $black87;
+  line-height: 26px;
   background-color: $light-grey;
 }
 
@@ -26,6 +27,11 @@ ul {
 h1,
 p {
   margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
 }
 
 a {

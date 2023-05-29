@@ -3,61 +3,91 @@
 .input {
   height: 54px;
   width: 328px;
-  margin: 50px 0;
-  display: block;
-  padding-left: 16px;
+  margin-top: 50px;
+  padding-left: 15px;
   background-color: $light-grey;
   outline: none;
   border: 1px solid rgba(208, 207, 207, 1);
   border-radius: 4px;
   color: rgba(126, 126, 126, 1);
-  &:last-child {
-    margin-bottom: 50px;
-  }
-  &__file {
-    padding-left: 0;
-    text-align: left;
+
+  &_file {
+    display: none;
+
+    &__label {
+      display: inline-block;
+      position: relative;
+      margin: 47px 0 50px 0;
+      padding-left: 2px;
+      line-height: 52px;
+
+      &::before {
+        content: 'Upload';
+        height: 54px;
+        width: 83px;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        line-height: 52px;
+        box-sizing: border-box;
+        background-color: $light-grey;
+        border: 1px solid $black87;
+        border-radius: 4px 0 0 4px;
+      }
+    }
+
+
+
     &::file-selector-button {
       visibility: hidden;
     }
+
     &::before {
       content: 'Upload';
-      height: 53px;
+      height: 54px;
       width: 83px;
-      display: block;
       position: absolute;
-      top: 516px;
+      top: 563px;
+      left: 0;
+      box-sizing: border-box;
       text-align: center;
-      line-height: 53px;
-      vertical-align: middle;
+      line-height: 52px;
       background-color: $light-grey;
       border: 1px solid $black87;
       border-radius: 4px 0 0 4px;
     }
+
+    &::after {
+      content: 'Upload your photo';
+      line-height: 50px;
+    }
   }
 }
+
 .input__radio {
-  width: 18px;
-  height: 18px;
-  margin: 7px 0;
+  width: 20px;
+  height: 20px;
   margin-right: 12px;
   display: inline;
   position: relative;
   visibility: hidden;
+
   &::after {
     content: '';
-    width: 18px;
-    height: 18px;
-    margin-top: 3px;
+    width: 20px;
+    height: 20px;
     display: block;
     visibility: visible;
+    box-sizing: border-box;
     border: 1px solid $light-grey-border;
     border-radius: 100%;
   }
+
   &:checked::after {
     content: '';
     border: 1px solid $blue;
   }
+
   &:checked::before {
     content: '';
     width: 10px;
@@ -65,7 +95,7 @@
     display: block;
     visibility: visible;
     position: absolute;
-    top: 8px;
+    top: 5px;
     left: 5px;
     border-radius: 100%;
     background-color: $blue;

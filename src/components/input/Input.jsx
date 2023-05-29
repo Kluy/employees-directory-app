@@ -13,14 +13,13 @@ const Input = ({ type, placeholder, id, className, name, value }) => {
         value={value}
       />
 
-      {type === 'radio' ? (
+      {/* {type === 'radio' ? (
         <>
           <label htmlFor={id}>{value}</label>
-          <br />
         </>
       ) : (
         ''
-      )}
+      )} */}
     </>
   );
 };

@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import store from './store';
 import Headline from './components/headline/Headline';
 import Get from './components/get/Get';
-import From from './components/form/Form';
+import Form from './components/form/Form';
 import { getUsers, fetchData } from './gateway/gateway';
 import { useEffect } from 'react';
 
@@ -14,7 +14,7 @@ const App = () => {
       <Header />
       <Headline />
       <Get />
-      <From />
+      <Form />
     </div>
   );
 };
