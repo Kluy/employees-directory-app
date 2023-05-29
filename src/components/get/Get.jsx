@@ -7,9 +7,9 @@ import { getUsers } from '../../gateway/gateway';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-import './sectionGet.scss';
+import './get.scss';
 
-const SectionGet = () => {
+const Get = () => {
   const [users, setUsers] = useState();
 
   const getUser = () => {
@@ -39,14 +39,10 @@ const SectionGet = () => {
 
   return (
     <section className="get">
-      <div className="heading">
-        <Heading text="Working with GET request" />
-      </div>
-      <div className="users-list">
-        <ul>{users}</ul>
-      </div>
+      <Heading text="Working with GET request" />
+      <ul className="users-list">{users}</ul>
       <Button text="Show more" onClick={getUsers} />
     </section>
   );
 };
-export default SectionGet;
+export default Get;

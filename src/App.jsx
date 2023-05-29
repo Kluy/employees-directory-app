@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 
 import store from './store';
 import Headline from './components/headline/Headline';
-import SectionGet from './components/sectionGet/SectionGet';
+import Get from './components/get/Get';
 import From from './components/form/Form';
 import { getUsers, fetchData } from './gateway/gateway';
 import { useEffect } from 'react';
@@ -13,7 +13,7 @@ const App = () => {
     <div className="page">
       <Header />
       <Headline />
-      <SectionGet />
+      <Get />
       <From />
     </div>
   );

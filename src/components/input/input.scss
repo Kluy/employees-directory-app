@@ -2,17 +2,72 @@
 
 .input {
   height: 54px;
-  min-width: 328px;
+  width: 328px;
+  margin: 50px 0;
+  display: block;
   padding-left: 16px;
-  color: rgba(126, 126, 126, 1);
+  background-color: $light-grey;
   outline: none;
   border: 1px solid rgba(208, 207, 207, 1);
   border-radius: 4px;
-  &:hover {
-    border: 3px solid $blue;
+  color: rgba(126, 126, 126, 1);
+  &:last-child {
+    margin-bottom: 50px;
   }
-  &:active {
-    border: 3px solid $blue;
-    border-radius: 0;
+  &__file {
+    padding-left: 0;
+    text-align: left;
+    &::file-selector-button {
+      visibility: hidden;
+    }
+    &::before {
+      content: 'Upload';
+      height: 53px;
+      width: 83px;
+      display: block;
+      position: absolute;
+      top: 516px;
+      text-align: center;
+      line-height: 53px;
+      vertical-align: middle;
+      background-color: $light-grey;
+      border: 1px solid $black87;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+}
+.input__radio {
+  width: 18px;
+  height: 18px;
+  margin: 7px 0;
+  margin-right: 12px;
+  display: inline;
+  position: relative;
+  visibility: hidden;
+  &::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    display: block;
+    visibility: visible;
+    border: 1px solid $light-grey-border;
+    border-radius: 100%;
+  }
+  &:checked::after {
+    content: '';
+    border: 1px solid $blue;
+  }
+  &:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    border-radius: 100%;
+    background-color: $blue;
   }
 }
