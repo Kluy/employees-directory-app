@@ -11,15 +11,54 @@
   border-radius: 4px;
   color: rgba(126, 126, 126, 1);
 
+  &_radio {
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 12px;
+    display: inline;
+    position: relative;
+    visibility: hidden;
+
+    &::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      display: block;
+      visibility: visible;
+      box-sizing: border-box;
+      border: 1px solid $light-grey-border;
+      border-radius: 100%;
+    }
+
+    &:checked::after {
+      content: '';
+      border: 1px solid $blue;
+    }
+
+    &:checked::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: block;
+      visibility: visible;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      border-radius: 100%;
+      background-color: $blue;
+    }
+  }
+
   &_file {
     display: none;
 
     &__label {
       display: inline-block;
       position: relative;
+      line-height: 52px;
       margin: 47px 0 50px 0;
       padding-left: 2px;
-      line-height: 52px;
 
       &::before {
         content: 'Upload';
@@ -61,43 +100,5 @@
       content: 'Upload your photo';
       line-height: 50px;
     }
-  }
-}
-
-.input__radio {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  display: inline;
-  position: relative;
-  visibility: hidden;
-
-  &::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    display: block;
-    visibility: visible;
-    box-sizing: border-box;
-    border: 1px solid $light-grey-border;
-    border-radius: 100%;
-  }
-
-  &:checked::after {
-    content: '';
-    border: 1px solid $blue;
-  }
-
-  &:checked::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    display: block;
-    visibility: visible;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 100%;
-    background-color: $blue;
   }
 }

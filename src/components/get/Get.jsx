@@ -36,7 +36,7 @@ const Get = () => {
           />
         ))}
       </ul>
-      <Button className="button button__show-more" text="Show more" onClick={getUser} />
+      <Button className="button__show-more" text="Show more" onClick={getUser} />
     </section>
   );
 };
