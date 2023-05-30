@@ -1,20 +1,21 @@
 .post {
-  padding: 140px 16px 100px 16px;
   text-align: center;
+  padding: 140px 16px 100px 16px;
 }
 
 .form {
-  position: relative;
-}
-
-.legend {
-  margin-bottom: 10px;
+  width: 328px;
+  margin: 0 auto;
 }
 
 .fieldset {
   margin-top: 43px;
   text-align: left;
   border: none;
+}
+
+.legend {
+  margin-bottom: 10px;
 }
 
 .radio-wrapper {

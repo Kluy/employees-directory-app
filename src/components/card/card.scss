@@ -1,9 +1,17 @@
 @import '../../styles/var.scss';
+@import '../../styles/breakpoints.scss';
 
 .card {
   padding: 20px;
   margin-bottom: 20px;
   background-color: $white;
-
-
+  @include min-screen {
+    width: 344px;
+  }
+  @include mid-screen {
+    width: 282px;
+  }
+  @include max-screen {
+    width: 370px;
+  }
 }

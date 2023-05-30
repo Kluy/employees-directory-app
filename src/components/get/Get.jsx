@@ -24,7 +24,7 @@ const Get = () => {
   return (
     <section className="get">
       <Heading text="Working with GET request" />
-      <ul className="users-list">
+      <ul className="cards">
         {users.map(elem => (
           <Card
             key={elem.id}

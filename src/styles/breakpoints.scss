@@ -1,0 +1,21 @@
+$min: 768px;
+$mid: 1024px;
+$max: 2560px;
+
+@mixin min-screen {
+  @media screen and (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin mid-screen {
+  @media screen and (min-width: $mid) {
+    @content;
+  }
+}
+
+@mixin max-screen {
+  @media screen and (min-width: $max) {
+    @content;
+  }
+}
