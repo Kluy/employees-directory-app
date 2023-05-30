@@ -23,6 +23,9 @@ body {
   @include mid-screen {
     width: 1024px;
   }
+  @include max-screen {
+    width: 2560px;
+  }
 }
 
 ul {
