@@ -7,31 +7,52 @@
   background-position: -445px -315px;
   background-repeat: no-repeat;
   background-image: url('../../images/pexels-alexandr-podvalny-1227513.jpeg');
-  text-align: center;
-  color: $white;
   position: relative;
+  z-index: 0;
+  color: $white;
+  text-align: center;
+
   @include min-screen {
-    background-size: 241%;
-    background-position: -645px -565px;
+    background-size: 345% 164%;
+    background-position: -961px -317px;
   }
+
   @include mid-screen {
-    background-size: 141%;
-    background-position: -405px -415px;
+    height: 650px;
+    background-size: 343% 164%;
+    background-position: -1274px -412px;
   }
-  &__bg-dimmer {
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  &__text-wrapper {
+
+  &__heading-wrapper {
+    width: 328px;
     height: 500px;
-    margin: auto;
+    margin: 0 auto;
+    padding-top: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 328px;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
     @include min-screen {
       width: 380px;
+      padding-top: 0;
+      justify-content: center;
+    }
+
+    @include mid-screen {
+      width: 380px;
+      height: 650px;
+      padding-top: 0;
+      justify-content: center;
     }
   }
 }

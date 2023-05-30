@@ -5,12 +5,18 @@
   padding: 20px;
   margin-bottom: 20px;
   background-color: $white;
+  border-radius: 10px;
+
   @include min-screen {
     width: 344px;
+    margin-bottom: 16px;
   }
+
   @include mid-screen {
     width: 282px;
+    margin-bottom: 29px;
   }
+
   @include max-screen {
     width: 370px;
   }

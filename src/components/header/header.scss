@@ -3,30 +3,27 @@
 
 .header {
   height: 60px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: $white;
-  padding: 0 16px;
+
   @include min-screen {
     padding: 0 32px;
   }
+
   @include mid-screen {
     padding: 0 60px;
   }
+
   @include max-screen {
     padding: 0;
   }
+
   &__buttons {
     width: 210px;
     display: flex;
     justify-content: space-between;
-  }
-}
-.logo {
-  margin-right: 3px;
-
-  @include min-screen {
-    flex-grow: 1;
   }
 }

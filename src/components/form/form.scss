@@ -1,11 +1,16 @@
+@import '../../styles/breakpoints.scss';
+
 .post {
   text-align: center;
   padding: 140px 16px 100px 16px;
 }
 
 .form {
-  width: 328px;
   margin: 0 auto;
+
+  @include min-screen {
+    width: 380px;
+  }
 }
 
 .fieldset {

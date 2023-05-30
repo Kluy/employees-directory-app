@@ -6,9 +6,7 @@ import './header.scss';
 const Header = () => {
   return (
     <header className="header">
-      <div className="logo">
-        <Image src="../../images/Logo.svg" alt="Logo" />
-      </div>
+      <Image src="../../images/Logo.svg" alt="Logo" />
       <div className="header__buttons">
         <Button type="yellow" text="Users" />
         <Button type="yellow" text="Sign up" />
