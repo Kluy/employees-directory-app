@@ -1,38 +1,57 @@
 const baseUrl = 'https://frontend-test-assignment-api.abz.agency/api/v1/';
 
-// export const getFlights = date => {
-//   return fetch(`${baseUrl}${date}`)
-//     .then(response => response.json())
-//     .catch(() => console.log('Internal Server Error. Can"t display flights'));
-// };
-
-export const getToken = () => {
-  return fetch(`${baseUrl}token`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
-
-export const fetchData = () =>
-  fetch(`${baseUrl}users?page=1&count=6`)
+export const getToken = () =>
+  fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
     .then(response => response.json())
-    .catch(() => alert('Internal Server Error. Can"t display events'));
+    .then(result => result.token)
+    .catch(error => console.log(error));
 
-export const getUsers = () =>
-  fetch(`${baseUrl}users?page=1&count=6`)
+export const fetchUsers = page => {
+  return fetch(`${baseUrl}users?page=${page}&count=6`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       if (data.success) {
-        return data.users;
+        return data;
       } else {
         console.log(data.message);
       }
     });
+};
+
+export const getPositions = () => {
+  return fetch(`${baseUrl}positions`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data.success) {
+        return data.positions;
+      } else {
+        console.log(data.message);
+      }
+    });
+};
+
+export const postUser = (newUser, token) =>
+  fetch(`${baseUrl}users`, {
+    method: 'POST',
+    headers: {
+      Token: token,
+    },
+    body: createFormData(newUser),
+  })
+    .then(response => response.json())
+    .then(result => {
+      console.log(result.fails);
+    })
+    .catch(error => console.log('error  ' + error));
+
+const createFormData = user => {
+  const formData = new FormData();
+  for (const prop in user) {
+    formData.append(prop, user[prop]);
+  }
+  return formData;
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../button/Button';
 import Card from '../card/Card';
 import Heading from '../heading/Heading';
-import { getUsers } from '../../gateway/gateway';
+import { fetchUsers } from '../../gateway/gateway';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -10,16 +10,25 @@ import './get.scss';
 
 const Get = () => {
   const [users, setUsers] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
 
-  const getUser = () => {
-    getUsers().then(users => {
-      setUsers(users);
+  const getUsers = a => {
+    fetchUsers(a).then(data => {
+      console.log(data.users);
+      console.log(data);
+      setUsers(data.users);
+      setTotalPages(data.total_pages);
     });
   };
 
+  const showNextPage = () => {
+    setPage(page + 1);
+  };
+
   useEffect(() => {
-    getUser();
-  }, []);
+    getUsers(page);
+  }, [page]);
 
   return (
     <section className="get">
@@ -36,7 +45,12 @@ const Get = () => {
           />
         ))}
       </ul>
-      <Button className="button__show-more" text="Show more" onClick={getUser} />
+      <Button
+        hidden={page === totalPages}
+        className="button_show-more"
+        text="Show more"
+        onClick={showNextPage}
+      />
     </section>
   );
 };

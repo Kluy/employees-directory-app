@@ -1,4 +1,4 @@
-import { getUsers } from '../../gateway/gateway';
+import { fetchUsers } from '../../gateway/gateway';
 
 export const GET_USERS = 'USERS/GET_USERS';
 

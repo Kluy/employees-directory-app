@@ -16,7 +16,10 @@
     background-color: $dark-grey;
   }
 
-  &__show-more {
+  &_show-more {
     width: 120px;
+  }
+  &_hidden {
+    visibility: hidden;
   }
 }
