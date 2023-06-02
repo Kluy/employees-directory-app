@@ -4,8 +4,9 @@
 .card {
   padding: 20px;
   margin-bottom: 20px;
-  background-color: $white;
   border-radius: 10px;
+  background-color: $white;
+  text-align: center;
 
   @include min-screen {
     width: 344px;

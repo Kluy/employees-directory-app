@@ -8,33 +8,36 @@ import { useState } from 'react';
 
 import './get.scss';
 
-const Get = () => {
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
+const Get = ({ reset }) => {
+  const [usersData, setUsersData] = useState({
+    users: [],
+    page: 1,
+    totalPages: null,
+  });
 
-  const getUsers = a => {
-    fetchUsers(a).then(data => {
-      console.log(data.users);
+  // if (reset) {
+  //   setUsersData({ ...usersData, page: 1 });
+  // }
+  console.log('props');
+  // console.log(props);
+  console.log(usersData.page);
+
+  const getUsers = page => {
+    fetchUsers(page).then(data => {
+      setUsersData({ users: data.users, page: data.page + 1, totalPages: data.total_pages });
       console.log(data);
-      setUsers(data.users);
-      setTotalPages(data.total_pages);
     });
   };
 
-  const showNextPage = () => {
-    setPage(page + 1);
-  };
-
   useEffect(() => {
-    getUsers(page);
-  }, [page]);
+    getUsers(usersData.page);
+  }, []);
 
   return (
     <section className="get">
       <Heading text="Working with GET request" />
       <ul className="cards">
-        {users.map(elem => (
+        {usersData.users.map(elem => (
           <Card
             key={elem.id}
             photo={elem.photo}
@@ -46,10 +49,10 @@ const Get = () => {
         ))}
       </ul>
       <Button
-        hidden={page === totalPages}
+        hidden={usersData.page === usersData.totalPages + 1}
         className="button_show-more"
         text="Show more"
-        onClick={showNextPage}
+        onClick={() => getUsers(usersData.page)}
       />
     </section>
   );

@@ -1,7 +1,11 @@
 import { GET_USERS } from '../actions/shedule.actions';
 
 const initialState = {
-  users: [],
+  data: {
+    users: [],
+    page: 1,
+    total_pages: null,
+  },
 };
 
 const usersReducer = (state = initialState, action) => {

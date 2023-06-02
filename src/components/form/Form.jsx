@@ -5,44 +5,43 @@ import Button from '../button/Button';
 import Heading from '../heading/Heading';
 import Input from '../input/Input';
 import Text from '../text/Text';
-import { getPositions, getToken, postUser } from '../../gateway/gateway';
+import { fetchUsers, getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const [positions, setPositions] = useState([]);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [position_id, setPositionID] = useState(null);
-  const [photo, setPhoto] = useState(null);
+  const [user, setUser] = useState({
+    name: 'an',
+    email: 'an@i.ua',
+    phone: '380959595095',
+    position_id: null,
+    photo: null,
+  });
 
   const sendRequest = e => {
     e.preventDefault();
-    getToken().then(token => postUser({ name, email, phone, position_id, photo }, token));
+    getToken().then(token => postUser(user, token));
   };
 
   const onChange = e => {
     switch (e.target.type) {
       case 'text':
-        setName(e.target.value);
+        setUser({ ...user, name: e.target.value });
         break;
       case 'email':
-        setEmail(e.target.value);
+        setUser({ ...user, email: e.target.value });
         break;
       case 'tel':
-        setPhone(e.target.value);
+        setUser({ ...user, phone: e.target.value });
         break;
       case 'radio':
-        setPositionID(e.target.id);
+        setUser({ ...user, position_id: e.target.id });
         break;
       case 'file':
-        setPhoto(e.target.files[0]);
+        setUser({ ...user, photo: e.target.files[0] });
         break;
     }
   };
-
-  console.log('user');
-  console.log({ name, email, phone, position_id, photo });
 
   useEffect(() => {
     getPositions().then(result => setPositions(result));
@@ -52,9 +51,9 @@ const Form = () => {
     <section className="post">
       <Heading text="Working with POST request" />
       <form className="form" action="post">
-        <Input onChange={e => onChange(e)} type="text" placeholder="Your name" value={name} />
-        <Input onChange={e => onChange(e)} type="email" placeholder="Email" value={email} />
-        <Input onChange={e => onChange(e)} type="tel" placeholder="Phone" value={phone} />
+        <Input onChange={e => onChange(e)} type="text" placeholder="Your name" value={user.name} />
+        <Input onChange={e => onChange(e)} type="email" placeholder="Email" value={user.email} />
+        <Input onChange={e => onChange(e)} type="tel" placeholder="Phone" value={user.phone} />
         <fieldset className="fieldset">
           <legend className="legend">
             <Text text="Select your position" />
@@ -84,6 +83,7 @@ const Form = () => {
           Upload your photo
         </label>
         {/* <Button type="submit" text="Sign up" onClick={sendRequest} disabled={true} /> */}
+        {/* <Button type="submit" text="Sign up" onClick={e => onSubmit(e, user)} /> */}
         <Button type="submit" text="Sign up" onClick={e => sendRequest(e)} />
       </form>
     </section>
