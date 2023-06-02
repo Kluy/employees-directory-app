@@ -10,7 +10,10 @@ const Card = ({ photo, name, position, email, phone }) => {
   const [tooltip, setTooltip] = useState({});
   const onMouseOver = e => {
     if (e.target.tagName === 'P') {
-      setTooltip({ text: e.target.innerText, coordinates: { top: e.pageY, left: e.pageX } });
+      setTooltip({
+        text: e.target.innerText,
+        coordinates: { display: 'block', top: e.pageY, left: e.pageX },
+      });
     }
   };
 
