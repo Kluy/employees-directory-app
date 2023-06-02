@@ -8,19 +8,12 @@ import { useState } from 'react';
 
 import './get.scss';
 
-const Get = ({ reset }) => {
+const Get = () => {
   const [usersData, setUsersData] = useState({
     users: [],
     page: 1,
     totalPages: null,
   });
-
-  // if (reset) {
-  //   setUsersData({ ...usersData, page: 1 });
-  // }
-  console.log('props');
-  // console.log(props);
-  console.log(usersData.page);
 
   const getUsers = page => {
     fetchUsers(page).then(data => {

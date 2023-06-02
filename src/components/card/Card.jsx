@@ -3,16 +3,28 @@ import Text from '../text/Text';
 import Image from '../image/Image';
 import './card.scss';
 import Preloader from '../preloader/Preloader';
+import Tooltip from '../tooltip/Tooltip';
+import { useState } from 'react';
 
 const Card = ({ photo, name, position, email, phone }) => {
+  const [tooltip, setTooltip] = useState({});
+  const onMouseOver = e => {
+    if (e.target.tagName === 'P') {
+      setTooltip({ text: e.target.innerText, coordinates: { top: e.pageY, left: e.pageX } });
+    }
+  };
+
+  console.log(onMouseOver);
+
   return (
-    <li className="card">
+    <li onMouseOver={e => onMouseOver(e)} className="card">
       <Image className="photo" src={photo} alt="User photo" />
       <Preloader />
-      <Text className="p1_name" text={name} />
-      <Text text={position} />
-      <Text text={email} />
-      <Text text={phone} />
+      <Text className="card_name card_text" text={name} />
+      <Text className="card_text" text={position} />
+      <Text className="card_text" text={email} />
+      <Text className="card_text" text={phone} />
+      <Tooltip tooltip={tooltip} />
     </li>
   );
 };
