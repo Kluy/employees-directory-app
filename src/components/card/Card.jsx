@@ -12,15 +12,20 @@ const Card = ({ photo, name, position, email, phone }) => {
     if (e.target.tagName === 'P') {
       setTooltip({
         text: e.target.innerText,
-        coordinates: { display: 'block', top: e.pageY, left: e.pageX },
+        styles: { display: 'block', top: e.pageY, left: e.pageX },
+      });
+    }
+  };
+  const onMouseOut = e => {
+    if (e.target.tagName === 'P') {
+      setTooltip({
+        styles: { display: 'none' },
       });
     }
   };
 
-  console.log(onMouseOver);
-
   return (
-    <li onMouseOver={e => onMouseOver(e)} className="card">
+    <li onMouseOut={e => onMouseOut(e)} onMouseOver={e => onMouseOver(e)} className="card">
       <Image className="photo" src={photo} alt="User photo" />
       <Preloader />
       <Text className="card_name card_text" text={name} />
