@@ -1,11 +1,12 @@
 @import '../../styles/var.scss';
 
 .tooltip {
-  margin-top: 21px;
+  margin-top: 12px;
   padding: 3px 16px;
+  position: absolute;
+  left: 50%;
+  z-index: 2;
   color: $white;
   border-radius: 4px;
   background-color: $black87;
-  display: none;
-  position: absolute;
 }

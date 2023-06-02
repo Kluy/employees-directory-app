@@ -2,13 +2,31 @@ import React from 'react';
 import './text.scss';
 import classNames from 'classnames';
 import Tooltip from '../tooltip/Tooltip';
+import { useState } from 'react';
 
-const Text = ({ onMouseOver, text, className }) => {
+const Text = ({ text, className }) => {
+  const [tooltip, setTooltip] = useState(false);
+
+  const onMouseOverHandler = e => {
+    if (e.target.scrollWidth > e.target.offsetWidth) {
+      setTooltip(true);
+    }
+  };
+
+  const onMouseOutHandler = () => {
+    setTooltip(false);
+  };
+
   return (
     <>
-      {/* <p onMouseOver={e => onMouseOver(e, text)} className={classNames('p1', className)}> */}
-      <p className={classNames('p1', className)}>{text}</p>
-      {/* <Tooltip text={text} /> */}
+      <p
+        onMouseOut={onMouseOutHandler}
+        onMouseOver={e => onMouseOverHandler(e)}
+        className={classNames('p1', className)}
+      >
+        {text}
+      </p>
+      {tooltip ? <Tooltip text={text} /> : ''}
     </>
   );
 };
