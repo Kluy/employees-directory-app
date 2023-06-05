@@ -9,14 +9,6 @@
   background-color: $white;
   text-align: center;
 
-  &_name {
-    padding: 20px 0;
-  }
-
-  &_text:hover+.tooltip {
-    display: block;
-  }
-
   @include min-screen {
     width: 344px;
     margin-bottom: 16px;

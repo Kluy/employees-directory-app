@@ -9,10 +9,10 @@ const Card = ({ photo, name, position, email, phone }) => {
     <li className="card">
       <Image className="photo" src={photo} alt="User photo" />
       <Preloader />
-      <Text className="card_name card_text" text={name} />
-      <Text className="card_text" text={position} />
-      <Text className="card_text" text={email} />
-      <Text className="card_text" text={phone} />
+      <Text className="p1_name" text={name} />
+      <Text text={position} />
+      <Text text={email} />
+      <Text text={phone} />
     </li>
   );
 };
