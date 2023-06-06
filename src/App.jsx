@@ -10,10 +10,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const App = () => {
-  const sendRequest = e => {
-    e.preventDefault();
-    getToken().then(token => postUser(user, token));
-  };
+  // const sendRequest = e => {
+  //   e.preventDefault();
+  //   getToken().then(token => postUser(user, token));
+  // };
 
   return (
     <div className="page">
@@ -21,7 +21,7 @@ const App = () => {
       <Headline />
       <Get />
       <Form />
-      <Form onSubmit={sendRequest} />
+      {/* <Form onSubmit={sendRequest} /> */}
     </div>
   );
 };
