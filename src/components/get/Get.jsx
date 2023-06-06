@@ -11,10 +11,6 @@ import './get.scss';
 
 const Get = ({ usersData, setPage }) => {
   console.log(usersData);
-  // console.log('page');
-  // console.log(page);
-
-  // console.log(users);
 
   // const [usersData, setUsersData] = useState({
   //   users: [],
