@@ -1,8 +1,8 @@
 import React from 'react';
-import './text.scss';
-import classNames from 'classnames';
 import Tooltip from '../tooltip/Tooltip';
 import { useState } from 'react';
+import classNames from 'classnames';
+import './text.scss';
 
 const Text = ({ text, className }) => {
   const [tooltip, setTooltip] = useState(false);

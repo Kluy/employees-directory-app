@@ -3,29 +3,39 @@ import Button from '../button/Button';
 import Card from '../card/Card';
 import Heading from '../heading/Heading';
 import Preloader from '../preloader/Preloader';
-import { fetchUsers } from '../../gateway/gateway';
+import { getUsers } from '../../gateway/gateway';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
 import './get.scss';
 
-const Get = () => {
-  const [usersData, setUsersData] = useState({
-    users: [],
-    page: 1,
-    totalPages: null,
-  });
+const Get = ({ usersData, setPage }) => {
+  console.log(usersData);
+  // console.log('page');
+  // console.log(page);
 
-  const getUsers = page => {
-    fetchUsers(page).then(data => {
-      setUsersData({ users: data.users, page: data.page + 1, totalPages: data.total_pages });
-      console.log(data);
-    });
-  };
+  // console.log(users);
 
-  useEffect(() => {
-    getUsers(usersData.page);
-  }, []);
+  // const [usersData, setUsersData] = useState({
+  //   users: [],
+  //   page: 1,
+  //   totalPages: null,
+  // });
+
+  // const renderUsers = page => {
+  //   getUsers(page).then(data => {
+  //     setPageApp(data.page + 1);
+  //     // setUsersData({ users: data.users, page: data.page + 1, totalPages: data.total_pages });
+  //     setUsersData({ users: data.users, totalPages: data.total_pages });
+  //     console.log(data);
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   renderUsers(pageApp);
+  // }, []);
+  console.log(usersData.page);
+  console.log(usersData.totalPages);
 
   return (
     <section className="get">
@@ -47,10 +57,10 @@ const Get = () => {
         </ul>
       )}
       <Button
-        hidden={usersData.page === usersData.totalPages + 1}
+        hidden={usersData.page === usersData.totalPages}
         className="button_show-more"
         text="Show more"
-        onClick={() => getUsers(usersData.page)}
+        onClick={() => setPage(usersData.page + 1)}
       />
     </section>
   );

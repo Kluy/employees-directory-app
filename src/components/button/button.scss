@@ -19,7 +19,8 @@
   &_show-more {
     width: 120px;
   }
+
   &_hidden {
-    visibility: hidden;
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Button from '../button/Button';
 import Heading from '../heading/Heading';
 import Input from '../input/Input';
@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
-const Form = ({ onSubmit }) => {
+const Form = memo(function From({ onSubmit }) {
   const [positions, setPositions] = useState([]);
   const [fileInputText, setFileInputText] = useState('Upload your photo');
   const [user, setUser] = useState({
@@ -19,10 +19,10 @@ const Form = ({ onSubmit }) => {
     photo: null,
   });
 
-  const sendRequest = e => {
-    e.preventDefault();
-    getToken().then(token => postUser(user, token));
-  };
+  // const sendRequest = e => {
+  //   e.preventDefault();
+  //   getToken().then(token => postUser(user, token));
+  // };
 
   const onChange = e => {
     switch (e.target.type) {
@@ -86,9 +86,11 @@ const Form = ({ onSubmit }) => {
         </label>
         {/* <Button type="submit" text="Sign up" onClick={sendRequest} disabled={true} /> */}
         {/* <Button type="submit" text="Sign up" onClick={e => onSubmit(e, user)} /> */}
-        <Button type="submit" text="Sign up" onClick={e => sendRequest(e)} />
+        <Button type="submit" text="Sign up" onClick={onSubmit} />
+        {/* <Button type="submit" text="Sign up" onClick={e => sendRequest(e)} /> */}
       </form>
+      <Button type="submit" text="Sign up" onClick={() => onSubmit()} />
     </section>
   );
-};
+});
 export default Form;

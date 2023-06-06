@@ -1,4 +1,4 @@
-import { fetchUsers } from '../../gateway/gateway';
+import { getUsers } from '../../gateway/gateway';
 
 export const GET_USERS = 'USERS/GET_USERS';
 
@@ -15,6 +15,6 @@ const saveUsers = users => {
 
 export const getUsersAction = input => {
   return function (dispatch) {
-    fetchUsers(input).then(result => dispatch(saveUsers(result.body)));
+    getUsers(input).then(result => dispatch(saveUsers(result.body)));
   };
 };

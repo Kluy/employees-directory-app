@@ -6,7 +6,7 @@ export const getToken = () =>
     .then(result => result.token)
     .catch(error => console.log(error));
 
-export const fetchUsers = page => {
+export const getUsers = page => {
   return fetch(`${baseUrl}users?page=${page}&count=6`)
     .then(function (response) {
       return response.json();
