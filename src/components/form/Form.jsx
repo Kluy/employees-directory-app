@@ -89,7 +89,6 @@ const Form = memo(function From({ onSubmit }) {
         <Button type="submit" text="Sign up" onClick={onSubmit} />
         {/* <Button type="submit" text="Sign up" onClick={e => sendRequest(e)} /> */}
       </form>
-      <Button type="submit" text="Sign up" onClick={() => onSubmit()} />
     </section>
   );
 });
