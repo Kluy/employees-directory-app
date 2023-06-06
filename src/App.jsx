@@ -10,18 +10,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const App = () => {
-  // const [reset, setReset] = useState(false);
-
-  // const sendRequest = e => {
-  //   e.preventDefault();
-  //   console.log('sign up');
-  //   setReset(!reset);
-  // getToken()
-  //   .then(token => postUser(user, token))
-  //   .then(result => setPage(1));
-  // };
-
-  // console.log(reset);
+  const sendRequest = e => {
+    e.preventDefault();
+    getToken().then(token => postUser(user, token));
+  };
 
   return (
     <div className="page">
@@ -29,7 +21,7 @@ const App = () => {
       <Headline />
       <Get />
       <Form />
-      {/* <Form onSubmit={sendRequest} /> */}
+      <Form onSubmit={sendRequest} />
     </div>
   );
 };

@@ -1,15 +1,16 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Button from '../button/Button';
 import Heading from '../heading/Heading';
 import Input from '../input/Input';
 import Text from '../text/Text';
-import { fetchUsers, getPositions, getToken, postUser } from '../../gateway/gateway';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
 const Form = ({ onSubmit }) => {
   const [positions, setPositions] = useState([]);
+  const [fileInputText, setFileInputText] = useState('Upload your photo');
   const [user, setUser] = useState({
     name: 'an',
     email: 'an@i.ua',
@@ -38,6 +39,7 @@ const Form = ({ onSubmit }) => {
         setUser({ ...user, position_id: e.target.id });
         break;
       case 'file':
+        setFileInputText(e.target.files[0].name);
         setUser({ ...user, photo: e.target.files[0] });
         break;
     }
@@ -80,7 +82,7 @@ const Form = ({ onSubmit }) => {
           name="user-photo"
         />
         <label className="input input_file__label" htmlFor="user-photo">
-          Upload your photo
+          {fileInputText}
         </label>
         {/* <Button type="submit" text="Sign up" onClick={sendRequest} disabled={true} /> */}
         {/* <Button type="submit" text="Sign up" onClick={e => onSubmit(e, user)} /> */}

@@ -7,12 +7,14 @@ const saveUsers = users => {
     type: GET_USERS,
     payload: {
       users,
+      total_pages,
+      page,
     },
   };
 };
 
 export const getUsersAction = input => {
   return function (dispatch) {
-    getUsers(input).then(result => dispatch(saveUsers(result.body)));
+    fetchUsers(input).then(result => dispatch(saveUsers(result.body)));
   };
 };
