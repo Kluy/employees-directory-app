@@ -1,38 +1,32 @@
 const baseUrl = 'https://frontend-test-assignment-api.abz.agency/api/v1/';
 
 export const getToken = () =>
-  fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+  fetch(`${baseUrl}token`)
     .then(response => response.json())
     .then(result => result.token)
     .catch(error => console.log(error));
 
-export const getUsers = page => {
-  return fetch(`${baseUrl}users?page=${page}&count=6`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
+export const getUsers = page =>
+  fetch(`${baseUrl}users?page=1&count=${page}`)
+    .then(response => response.json())
+    .then(data => {
       if (data.success) {
         return data;
       } else {
         console.log(data.message);
       }
     });
-};
 
-export const getPositions = () => {
-  return fetch(`${baseUrl}positions`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
+export const getPositions = () =>
+  fetch(`${baseUrl}positions`)
+    .then(response => response.json())
+    .then(data => {
       if (data.success) {
         return data.positions;
       } else {
         console.log(data.message);
       }
     });
-};
 
 export const postUser = (newUser, token) =>
   fetch(`${baseUrl}users`, {
@@ -43,10 +37,14 @@ export const postUser = (newUser, token) =>
     body: createFormData(newUser),
   })
     .then(response => response.json())
-    .then(result => {
-      console.log(result.fails);
+    .then(data => {
+      if (data.success) {
+        return data;
+      } else {
+        console.log(data.message);
+      }
     })
-    .catch(error => console.log('error  ' + error));
+    .catch(error => console.log(error));
 
 const createFormData = user => {
   const formData = new FormData();

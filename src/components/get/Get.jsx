@@ -9,38 +9,40 @@ import { useState } from 'react';
 
 import './get.scss';
 
-const Get = ({ usersData, setPage }) => {
-  console.log(usersData);
+const Get = ({ reset }) => {
+  const [data, setData] = useState({
+    users: [],
+    page: 1,
+    count: 6,
+    totalPages: null,
+  });
+  console.log(data);
 
-  // const [usersData, setUsersData] = useState({
-  //   users: [],
-  //   page: 1,
-  //   totalPages: null,
-  // });
+  const renderUsers = count => {
+    getUsers(count).then(data => {
+      console.log('data');
+      console.log(data);
+      setData({
+        users: data.users,
+        count: count,
+        page: data.page,
+        totalPages: data.total_pages,
+      });
+    });
+  };
 
-  // const renderUsers = page => {
-  //   getUsers(page).then(data => {
-  //     setPageApp(data.page + 1);
-  //     // setUsersData({ users: data.users, page: data.page + 1, totalPages: data.total_pages });
-  //     setUsersData({ users: data.users, totalPages: data.total_pages });
-  //     console.log(data);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   renderUsers(pageApp);
-  // }, []);
-  console.log(usersData.page);
-  console.log(usersData.totalPages);
+  useEffect(() => {
+    renderUsers(6);
+  }, [reset]);
 
   return (
     <section className="get">
       <Heading text="Working with GET request" />
-      {usersData.users.length === 0 ? (
+      {data.users.length === 0 ? (
         <Preloader />
       ) : (
         <ul className="cards">
-          {usersData.users.map(elem => (
+          {data.users.map(elem => (
             <Card
               key={elem.id}
               photo={elem.photo}
@@ -53,10 +55,10 @@ const Get = ({ usersData, setPage }) => {
         </ul>
       )}
       <Button
-        hidden={usersData.page === usersData.totalPages}
+        hidden={data.page === data.totalPages}
         className="button_show-more"
         text="Show more"
-        onClick={() => setPage(usersData.page + 1)}
+        onClick={() => renderUsers(data.count + 6)}
       />
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from '../button/Button';
 import Heading from '../heading/Heading';
 import Input from '../input/Input';
@@ -8,21 +8,17 @@ import { useState } from 'react';
 import { getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
-const Form = memo(function From({ onSubmit }) {
+const Form = ({ setReset, onSubmit, reset }) => {
   const [positions, setPositions] = useState([]);
   const [fileInputText, setFileInputText] = useState('Upload your photo');
+  const [radioInputChecked, setRadioInputChecked] = useState(false);
   const [user, setUser] = useState({
-    name: 'an',
-    email: 'an@i.ua',
-    phone: '380959595095',
+    name: '',
+    email: '',
+    phone: '',
     position_id: null,
     photo: null,
   });
-
-  // const sendRequest = e => {
-  //   e.preventDefault();
-  //   getToken().then(token => postUser(user, token));
-  // };
 
   const onChange = e => {
     switch (e.target.type) {
@@ -36,6 +32,8 @@ const Form = memo(function From({ onSubmit }) {
         setUser({ ...user, phone: e.target.value });
         break;
       case 'radio':
+        console.log(e);
+        console.log(e.target.value);
         setUser({ ...user, position_id: e.target.id });
         break;
       case 'file':
@@ -43,6 +41,18 @@ const Form = memo(function From({ onSubmit }) {
         setUser({ ...user, photo: e.target.files[0] });
         break;
     }
+  };
+
+  const sendRequest = (e, user) => {
+    e.preventDefault();
+    getToken()
+      .then(token => postUser(user, token))
+      .then(result => {
+        setReset(!reset);
+        setUser({ name: '', email: '', phone: '', position_id: null, photo: null });
+        setFileInputText('Upload your photo');
+        setRadioInputChecked(false);
+      });
   };
 
   useEffect(() => {
@@ -69,6 +79,7 @@ const Form = memo(function From({ onSubmit }) {
                 id={id}
                 name="position"
                 value={name}
+                checked={radioInputChecked}
               />
               <label htmlFor={id}>{name}</label>
             </div>
@@ -84,12 +95,10 @@ const Form = memo(function From({ onSubmit }) {
         <label className="input input_file__label" htmlFor="user-photo">
           {fileInputText}
         </label>
-        {/* <Button type="submit" text="Sign up" onClick={sendRequest} disabled={true} /> */}
         {/* <Button type="submit" text="Sign up" onClick={e => onSubmit(e, user)} /> */}
-        <Button type="submit" text="Sign up" onClick={onSubmit} />
-        {/* <Button type="submit" text="Sign up" onClick={e => sendRequest(e)} /> */}
+        <Button type="submit" text="Sign up" onClick={e => sendRequest(e, user)} />
       </form>
     </section>
   );
-});
+};
 export default Form;
