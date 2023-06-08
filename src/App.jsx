@@ -8,8 +8,6 @@ import { useState } from 'react';
 const App = () => {
   const [reset, setReset] = useState(false);
 
-  console.log(reset);
-
   return (
     <div className="page">
       <Header />
