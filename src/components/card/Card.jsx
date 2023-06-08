@@ -4,6 +4,8 @@ import Image from '../image/Image';
 import './card.scss';
 
 const Card = ({ photo, name, position, email, phone }) => {
+  console.log('photo');
+  console.log(photo);
   return (
     <li className="card">
       <Image className="photo" src={photo} alt="User photo" />
