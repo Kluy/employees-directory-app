@@ -20,8 +20,6 @@ const Get = ({ reset }) => {
 
   const renderUsers = count => {
     getUsers(count).then(data => {
-      console.log('data');
-      console.log(data);
       setData({
         users: data.users,
         count: count,

@@ -8,15 +8,15 @@ import { useState } from 'react';
 import { getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
-const Form = ({ setReset, onSubmit, reset }) => {
+const Form = ({ setReset, reset }) => {
   const [positions, setPositions] = useState([]);
   const [fileInputText, setFileInputText] = useState('Upload your photo');
   const [radioInputChecked, setRadioInputChecked] = useState(false);
   const [user, setUser] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    position_id: null,
+    name: 'an',
+    email: 'an@i.ua',
+    phone: '38095959509',
+    position_id: 2,
     photo: null,
   });
 
@@ -32,8 +32,6 @@ const Form = ({ setReset, onSubmit, reset }) => {
         setUser({ ...user, phone: e.target.value });
         break;
       case 'radio':
-        console.log(e);
-        console.log(e.target.value);
         setUser({ ...user, position_id: e.target.id });
         break;
       case 'file':
@@ -46,13 +44,23 @@ const Form = ({ setReset, onSubmit, reset }) => {
   const sendRequest = (e, user) => {
     e.preventDefault();
     getToken()
-      .then(token => postUser(user, token))
+      .then(token => postUser(createFormData(user), token))
       .then(result => {
-        setReset(!reset);
-        setUser({ name: '', email: '', phone: '', position_id: null, photo: null });
-        setFileInputText('Upload your photo');
-        setRadioInputChecked(false);
+        if (result) {
+          setReset(!reset);
+          setUser({ name: '', email: '', phone: '', position_id: null, photo: null });
+          setFileInputText('Upload your photo');
+          setRadioInputChecked(false);
+        }
       });
+  };
+
+  const createFormData = user => {
+    const formData = new FormData();
+    for (const prop in user) {
+      formData.append(prop, user[prop]);
+    }
+    return formData;
   };
 
   useEffect(() => {
@@ -62,7 +70,7 @@ const Form = ({ setReset, onSubmit, reset }) => {
   return (
     <section className="post">
       <Heading text="Working with POST request" />
-      <form className="form" action="post">
+      <form className="form" action="post" id="form">
         <Input onChange={e => onChange(e)} type="text" placeholder="Your name" value={user.name} />
         <Input onChange={e => onChange(e)} type="email" placeholder="Email" value={user.email} />
         <Input onChange={e => onChange(e)} type="tel" placeholder="Phone" value={user.phone} />
@@ -95,10 +103,10 @@ const Form = ({ setReset, onSubmit, reset }) => {
         <label className="input input_file__label" htmlFor="user-photo">
           {fileInputText}
         </label>
-        {/* <Button type="submit" text="Sign up" onClick={e => onSubmit(e, user)} /> */}
         <Button type="submit" text="Sign up" onClick={e => sendRequest(e, user)} />
       </form>
     </section>
   );
 };
+
 export default Form;

@@ -34,7 +34,7 @@ export const postUser = (newUser, token) =>
     headers: {
       Token: token,
     },
-    body: createFormData(newUser),
+    body: newUser,
   })
     .then(response => response.json())
     .then(data => {
@@ -45,11 +45,3 @@ export const postUser = (newUser, token) =>
       }
     })
     .catch(error => console.log(error));
-
-const createFormData = user => {
-  const formData = new FormData();
-  for (const prop in user) {
-    formData.append(prop, user[prop]);
-  }
-  return formData;
-};
