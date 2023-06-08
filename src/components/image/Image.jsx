@@ -1,11 +1,11 @@
 import React from 'react';
 import './image.scss';
 
-const Image = ({ src, alt, className }) => {
+const Image = ({ src, alt, className, type }) => {
   return (
     <img
       className={className}
-      src={!src || src.includes('placeholder') ? '../../images/photo-cover.svg' : src}
+      src={(type === 'photo') & src.includes('placeholder') ? '../../images/photo-cover.svg' : src}
       alt={alt}
     />
   );
