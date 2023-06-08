@@ -11,7 +11,7 @@
   border: 1px solid rgba(208, 207, 207, 1);
   border-radius: 4px;
   background-color: $light-grey;
-  color: rgba(126, 126, 126, 1);
+  color: $input-grey;
 
   @include min-screen {
     width: 380px;

@@ -1,8 +1,11 @@
 @import '../../styles/breakpoints.scss';
 
 .post {
-  text-align: center;
   padding: 140px 16px 100px 16px;
+  text-align: center;
+  &__wrapper {
+    margin-top: 50px;
+  }
 }
 
 .form {
@@ -14,12 +17,12 @@
 }
 
 .fieldset {
-  margin-top: 43px;
-  text-align: left;
+  margin-top: 29px;
   border: none;
 }
 
 .legend {
+  text-align: left;
   margin-bottom: 10px;
 }
 

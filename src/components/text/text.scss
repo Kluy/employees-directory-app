@@ -1,3 +1,4 @@
+@import '../../styles/var.scss';
 @import '../../styles/breakpoints.scss';
 
 .p1 {
@@ -5,11 +6,18 @@
   line-height: 26px;
   overflow: hidden;
   text-overflow: ellipsis;
-  &_headline {
+  &__headline {
     padding: 21px 0 32px 0;
   }
-  &_name {
+  &__name {
     padding: 20px 0;
     white-space: nowrap;
+  }
+  &__form {
+    padding-left: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    color: $input-grey;
   }
 }

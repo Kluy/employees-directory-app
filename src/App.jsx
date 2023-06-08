@@ -6,14 +6,16 @@ import Form from './components/form/Form';
 import { useState } from 'react';
 
 const App = () => {
-  const [reset, setReset] = useState(true);
+  const [reset, setReset] = useState(false);
+
+  console.log(reset);
 
   return (
     <div className="page">
       <Header />
       <Headline />
       <Get reset={reset} />
-      <Form setReset={setReset} reset={reset} />
+      <Form setReset={setReset} />
     </div>
   );
 };
