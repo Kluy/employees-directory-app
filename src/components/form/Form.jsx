@@ -43,14 +43,15 @@ const Form = ({ setRegistered, registered }) => {
 
   const sendRequest = (e, user) => {
     e.preventDefault();
-    console.log(user);
-    getToken()
-      .then(token => postUser(createFormData(user), token))
-      .then(result => {
-        if (result) {
-          setRegistered(true);
-        }
-      });
+    const formData = new FormData(e);
+    console.log(formData);
+    // getToken()
+    //   .then(token => postUser(createFormData(user), token))
+    //   .then(result => {
+    //     if (result) {
+    //       setRegistered(true);
+    //     }
+    //   });
   };
 
   const createFormData = user => {
