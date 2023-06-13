@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 import './get.scss';
 
-const Get = ({ reset }) => {
+const Get = ({ registered }) => {
   const [data, setData] = useState({
     users: [],
     page: 1,
@@ -31,7 +31,7 @@ const Get = ({ reset }) => {
 
   useEffect(() => {
     renderUsers(6);
-  }, [reset]);
+  }, [registered]);
 
   return (
     <section className="get">

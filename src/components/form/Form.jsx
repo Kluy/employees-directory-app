@@ -9,21 +9,18 @@ import { useState } from 'react';
 import { getPositions, getToken, postUser } from '../../gateway/gateway';
 import './form.scss';
 
-const Form = ({ setReset }) => {
+const Form = ({ setRegistered, registered }) => {
   const [positions, setPositions] = useState([]);
   const [fileInputText, setFileInputText] = useState('Upload your photo');
   const [user, setUser] = useState({
     name: '',
     email: '',
-    phone: '',
+    phone: '+380',
     position_id: null,
     photo: null,
   });
-  const [registered, setRegistered] = useState(false);
 
   const onChange = e => {
-    const targetType = ['text', 'email', 'tel', 'radio', 'file'];
-
     switch (e.target.type) {
       case 'text':
         setUser({ ...user, name: e.target.value });
@@ -46,11 +43,11 @@ const Form = ({ setReset }) => {
 
   const sendRequest = (e, user) => {
     e.preventDefault();
+    console.log(user);
     getToken()
       .then(token => postUser(createFormData(user), token))
       .then(result => {
         if (result) {
-          setReset(true);
           setRegistered(true);
         }
       });
@@ -85,14 +82,27 @@ const Form = ({ setReset }) => {
               type="text"
               placeholder="Your name"
               value={user.name}
+              minlength={2}
+              maxlength={60}
             />
+            {user.name.length < 2 ? (
+              <Text text="Please, enter user name" className="p1__form" />
+            ) : (
+              ''
+            )}
             <Input
               onChange={e => onChange(e)}
               type="email"
               placeholder="Email"
               value={user.email}
             />
-            <Input onChange={e => onChange(e)} type="tel" placeholder="Phone" value={user.phone} />
+            <Input
+              onChange={e => onChange(e)}
+              type="tel"
+              minlength={13}
+              maxlength={13}
+              value={user.phone}
+            />
             <Text text="+38 (XXX) XXX - XX - XX" className="p1__form" />
             <fieldset className="fieldset">
               <legend className="legend">

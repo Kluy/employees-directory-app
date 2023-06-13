@@ -2,7 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 import './input.scss';
 
-const Input = ({ onChange, type, placeholder, id, className, name, value }) => {
+const Input = ({
+  onChange,
+  type,
+  placeholder,
+  id,
+  className,
+  name,
+  value,
+  minlength,
+  maxlength,
+}) => {
   return (
     <input
       onChange={onChange}
@@ -12,6 +22,8 @@ const Input = ({ onChange, type, placeholder, id, className, name, value }) => {
       id={id}
       name={name}
       value={value}
+      minLength={minlength}
+      maxLength={maxlength}
       required
     />
   );
