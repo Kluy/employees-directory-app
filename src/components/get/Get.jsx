@@ -54,7 +54,7 @@ const Get = ({ registered }) => {
       )}
       <Button
         hidden={data.page === data.totalPages}
-        className="button_show-more"
+        className="button--show-more"
         text="Show more"
         onClick={() => renderUsers(data.count + 6)}
       />

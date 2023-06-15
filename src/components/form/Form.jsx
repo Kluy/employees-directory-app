@@ -21,23 +21,24 @@ const Form = ({ setRegistered, registered }) => {
   });
 
   const onChange = e => {
-    switch (e.target.type) {
-      case 'text':
-        setUser({ ...user, name: e.target.value });
-        break;
-      case 'email':
-        setUser({ ...user, email: e.target.value });
-        break;
-      case 'tel':
-        setUser({ ...user, phone: e.target.value });
-        break;
-      case 'radio':
-        setUser({ ...user, position_id: e.target.id });
-        break;
-      case 'file':
+    const type = e.target.type;
+    console.log(e.target.files);
+
+    if (type === 'text') {
+      setUser({ ...user, name: e.target.value });
+    } else if (type === 'email') {
+      setUser({ ...user, email: e.target.value });
+    } else if (type === 'tel') {
+      setUser({ ...user, phone: e.target.value });
+    } else if (type === 'radio') {
+      setUser({ ...user, position_id: e.target.id });
+    } else if (type === 'file') {
+      const file = e.target.files[0];
+      if (file.size > 5000000) {
+      } else {
         setFileInputText(e.target.files[0].name);
         setUser({ ...user, photo: e.target.files[0] });
-        break;
+      }
     }
   };
 
@@ -69,7 +70,7 @@ const Form = ({ setRegistered, registered }) => {
   return (
     <section className="post">
       <Heading text={registered ? 'User successfully registered' : 'Working with POST request'} />
-      <div className="post__box">
+      <div className="post__wrapper">
         {registered ? (
           <Image
             src="../../images/success-image.svg"
@@ -87,7 +88,7 @@ const Form = ({ setRegistered, registered }) => {
               maxlength={60}
             />
             {user.name.length < 2 ? (
-              <Text text="Please, enter user name" className="p1__form" />
+              <Text text="Please, enter user name" className="p1--form" />
             ) : (
               ''
             )}
@@ -104,16 +105,16 @@ const Form = ({ setRegistered, registered }) => {
               maxlength={13}
               value={user.phone}
             />
-            <Text text="+38 (XXX) XXX - XX - XX" className="p1__form" />
+            <Text text="+38 (XXX) XXX - XX - XX" className="p1--form" />
             <fieldset className="fieldset">
               <legend className="legend">
                 <Text text="Select your position" />
               </legend>
               {positions.map(({ id, name }) => (
-                <div className="radio-wrapper" key={id}>
+                <div className="form__radio-wrapper" key={id}>
                   <Input
                     onChange={e => onChange(e)}
-                    className="input_radio"
+                    className="input--radio"
                     type="radio"
                     id={id}
                     name="position"
@@ -125,12 +126,12 @@ const Form = ({ setRegistered, registered }) => {
             </fieldset>
             <Input
               onChange={e => onChange(e)}
-              className="input_file"
+              className="file-input"
               type="file"
               id="user-photo"
               name="user-photo"
             />
-            <label className="input input_file__label" htmlFor="user-photo">
+            <label className="input file-input__label" htmlFor="user-photo">
               {fileInputText}
             </label>
             <Button

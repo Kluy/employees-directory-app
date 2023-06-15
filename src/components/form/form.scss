@@ -14,6 +14,15 @@
   @include min-screen {
     width: 380px;
   }
+  &__radio-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .fieldset {
@@ -24,14 +33,4 @@
 .legend {
   text-align: left;
   margin-bottom: 10px;
-}
-
-.radio-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 7px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }

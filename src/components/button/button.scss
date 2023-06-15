@@ -15,11 +15,11 @@
     background-color: $dark-grey;
   }
 
-  &_show-more {
+  &--show-more {
     width: 120px;
   }
 
-  &_hidden {
+  &--hidden {
     display: none;
   }
 }
