@@ -23,6 +23,11 @@ const Form = ({ setRegistered, registered }) => {
   const onChange = e => {
     const type = e.target.type;
     console.log(e.target.files);
+    const fileReader = new FileReader();
+    fileReader.onload = function (file) {
+      console.log('ssdsd');
+      console.log(fileReader.result);
+    };
 
     if (type === 'text') {
       setUser({ ...user, name: e.target.value });
@@ -34,7 +39,10 @@ const Form = ({ setRegistered, registered }) => {
       setUser({ ...user, position_id: e.target.id });
     } else if (type === 'file') {
       const file = e.target.files[0];
+
+      fileReader.readAsDataURL(file);
       if (file.size > 5000000) {
+      } else if (file.type !== 'image/jpeg') {
       } else {
         setFileInputText(e.target.files[0].name);
         setUser({ ...user, photo: e.target.files[0] });
