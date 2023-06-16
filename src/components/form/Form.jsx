@@ -11,6 +11,7 @@ import './form.scss';
 
 const Form = ({ setRegistered, registered }) => {
   const [positions, setPositions] = useState([]);
+  const [fileInput, setFileInput] = useState('');
   const [fileInputText, setFileInputText] = useState('Upload your photo');
   const [user, setUser] = useState({
     name: '',
@@ -42,7 +43,9 @@ const Form = ({ setRegistered, registered }) => {
 
       fileReader.readAsDataURL(file);
       if (file.size > 5000000) {
+        setFileInput('File size is more than 5 Mb');
       } else if (file.type !== 'image/jpeg') {
+        setFileInput('Upload only jpeg or jpg');
       } else {
         setFileInputText(e.target.files[0].name);
         setUser({ ...user, photo: e.target.files[0] });
@@ -142,6 +145,8 @@ const Form = ({ setRegistered, registered }) => {
             <label className="input file-input__label" htmlFor="user-photo">
               {fileInputText}
             </label>
+            <Text text={fileInput} className="p1--form" />
+
             <Button
               type="submit"
               text="Sign up"
