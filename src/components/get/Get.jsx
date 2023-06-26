@@ -4,10 +4,7 @@ import Card from '../card/Card';
 import Heading from '../heading/Heading';
 import Preloader from '../preloader/Preloader';
 import { getUsersAction } from '../../store/actions/shedule.actions';
-
-// import { getUsers } from '../../gateway/gateway';
 import { useEffect } from 'react';
-import { useState } from 'react';
 import {
   countSelector,
   pageSelector,
