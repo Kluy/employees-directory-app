@@ -1,20 +1,23 @@
 import { getUsers } from '../../gateway/gateway';
 
-export const GET_USERS = 'USERS/GET_USERS';
+export const GET_DATA = 'DATA/GET_DATA';
 
-const saveUsers = users => {
+const saveData = ({ users, page, total_pages, count }) => {
   return {
-    type: GET_USERS,
+    type: GET_DATA,
     payload: {
       users,
-      total_pages,
       page,
+      totalPages: total_pages,
+      count,
     },
   };
 };
 
 export const getUsersAction = input => {
   return function (dispatch) {
-    getUsers(input).then(result => dispatch(saveUsers(result.body)));
+    getUsers(input).then(result => {
+      dispatch(saveData(result));
+    });
   };
 };

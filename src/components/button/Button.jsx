@@ -5,7 +5,7 @@ import './button.scss';
 const Button = ({ className, text, type, disabled, hidden, onClick }) => {
   return (
     <button
-      className={classNames('button', { button_hidden: hidden }, className)}
+      className={classNames('button', { 'button--hidden': hidden }, className)}
       type={type}
       disabled={disabled}
       onClick={onClick}

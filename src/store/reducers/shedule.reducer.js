@@ -1,19 +1,20 @@
-import { GET_USERS } from '../actions/shedule.actions';
+import { GET_DATA } from '../actions/shedule.actions';
 
 const initialState = {
   data: {
     users: [],
     page: 1,
-    total_pages: null,
+    totalPages: null,
+    count: 6,
   },
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERS:
+    case GET_DATA:
       return {
         ...state,
-        users: action.payload.users,
+        data: action.payload,
       };
     default:
       return state;

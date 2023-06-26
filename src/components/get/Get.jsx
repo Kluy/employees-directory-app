@@ -3,44 +3,34 @@ import Button from '../button/Button';
 import Card from '../card/Card';
 import Heading from '../heading/Heading';
 import Preloader from '../preloader/Preloader';
-import { getUsers } from '../../gateway/gateway';
+import { getUsersAction } from '../../store/actions/shedule.actions';
+
+// import { getUsers } from '../../gateway/gateway';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import {
+  countSelector,
+  pageSelector,
+  totalPagesSelector,
+  usersSelector,
+} from '../../store/selectors/shedule.selectors';
+import { connect } from 'react-redux';
 
 import './get.scss';
 
-const Get = ({ registered }) => {
-  const [data, setData] = useState({
-    users: [],
-    page: 1,
-    count: 6,
-    totalPages: null,
-  });
-  console.log(data);
-
-  const renderUsers = count => {
-    getUsers(count).then(data => {
-      setData({
-        users: data.users,
-        count: count,
-        page: data.page,
-        totalPages: data.total_pages,
-      });
-    });
-  };
-
+const Get = ({ getUsers, users, page, count, totalPages }) => {
   useEffect(() => {
-    renderUsers(6);
-  }, [registered]);
+    getUsers(count);
+  }, []);
 
   return (
     <section className="get">
       <Heading text="Working with GET request" />
-      {data.users.length === 0 ? (
+      {users.length === 0 ? (
         <Preloader />
       ) : (
         <ul className="cards">
-          {data.users.map(elem => (
+          {users.map(elem => (
             <Card
               key={elem.id}
               photo={elem.photo}
@@ -53,12 +43,26 @@ const Get = ({ registered }) => {
         </ul>
       )}
       <Button
-        hidden={data.page === data.totalPages}
+        hidden={page === totalPages}
         className="button--show-more"
         text="Show more"
-        onClick={() => renderUsers(data.count + 6)}
+        onClick={() => getUsers(count + 6)}
       />
     </section>
   );
 };
-export default Get;
+
+const usersDispatch = {
+  getUsers: getUsersAction,
+};
+
+const usersState = state => {
+  return {
+    users: usersSelector(state),
+    page: pageSelector(state),
+    totalPages: totalPagesSelector(state),
+    count: countSelector(state),
+  };
+};
+
+export default connect(usersState, usersDispatch)(Get);

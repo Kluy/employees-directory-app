@@ -1,29 +1,14 @@
 // import { createSelector } from 'reselect';
 
-export const sheduleSelector = state => {
-  return state.shedule;
+export const usersSelector = state => {
+  return state.data.users;
 };
-
-export const departureStatusSelector = state => {
-  return state.departure;
+export const pageSelector = state => {
+  return state.data.page;
 };
-
-// export const flightNumberSelector = state => {
-//   return state.flightNumber;
-// };
-
-// export const flightsSelector = createSelector(
-//   [sheduleSelector, departureStatusSelector, flightNumberSelector],
-//   (shedule, isDepature, flightNumber) => {
-//     const flights = isDepature ? shedule.departure : shedule.arrival;
-
-//     const flightsByNumber = flights
-//       .filter(flight =>
-//         flightNumber
-//           ? flight['carrierID.IATA'].concat(flight.fltNo).includes(flightNumber)
-//           : flight,
-//       )
-//       .sort((a, b) => a.timeDepShedule - b.timeDepShedule);
-//     return flightsByNumber;
-//   },
-// );
+export const totalPagesSelector = state => {
+  return state.data.totalPages;
+};
+export const countSelector = state => {
+  return state.data.count;
+};
