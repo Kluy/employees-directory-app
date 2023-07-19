@@ -9,6 +9,7 @@
 <ul>
     <li>Redux</li>
     <li>React</li>
+    <li>REST API</li>
     <li>JS</li>
     <li>Webpack</li>
     <li>HTML5</li>
