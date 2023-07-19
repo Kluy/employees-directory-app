@@ -57,13 +57,13 @@ const Form = ({ setRegistered, registered }) => {
     e.preventDefault();
     const formData = new FormData(e);
     console.log(formData);
-    // getToken()
-    //   .then(token => postUser(createFormData(user), token))
-    //   .then(result => {
-    //     if (result) {
-    //       setRegistered(true);
-    //     }
-    //   });
+    getToken()
+      .then(token => postUser(createFormData(user), token))
+      .then(result => {
+        if (result) {
+          setRegistered(true);
+        }
+      });
   };
 
   const createFormData = user => {
@@ -98,11 +98,11 @@ const Form = ({ setRegistered, registered }) => {
               minlength={2}
               maxlength={60}
             />
-            {user.name.length < 2 ? (
+            {/* {user.name.length < 2 ? (
               <Text text="Please, enter user name" className="p1--form" />
             ) : (
               ''
-            )}
+            )} */}
             <Input
               onChange={e => onChange(e)}
               type="email"
@@ -153,12 +153,12 @@ const Form = ({ setRegistered, registered }) => {
               onClick={e => sendRequest(e, user)}
               // disabled={true}
             />
-            <Button
+            {/* <Button
               type="submit"
               text="Sign up"
               onClick={e => sendRequest(e, user)}
               disabled={true}
-            />
+            /> */}
           </form>
         )}
       </div>
