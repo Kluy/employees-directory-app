@@ -45,7 +45,7 @@ const Form = ({ setRegistered, registered }) => {
       if (file.size > 5000000) {
         setFileInput('File size is more than 5 Mb');
       } else if (file.type !== 'image/jpeg') {
-        setFileInput('Upload only jpeg or jpg');
+        setFileInput('Please, upload only jpeg or jpg file format');
       } else {
         setFileInputText(e.target.files[0].name);
         setUser({ ...user, photo: e.target.files[0] });
@@ -55,8 +55,8 @@ const Form = ({ setRegistered, registered }) => {
 
   const sendRequest = (e, user) => {
     e.preventDefault();
-    const formData = new FormData(e);
-    console.log(formData);
+    // const formData = new FormData();
+    // console.log(formData);
     getToken()
       .then(token => postUser(createFormData(user), token))
       .then(result => {
@@ -145,7 +145,7 @@ const Form = ({ setRegistered, registered }) => {
             <label className="input file-input__label" htmlFor="user-photo">
               {fileInputText}
             </label>
-            <Text text={fileInput} className="p1--form" />
+            {/* <Text text={fileInput} className="p1--form" /> */}
 
             <Button
               type="submit"
