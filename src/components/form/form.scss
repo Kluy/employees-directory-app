@@ -15,9 +15,9 @@
     width: 380px;
   }
   &__radio-wrapper {
-    display: flex;
-    align-items: center;
     margin-bottom: 7px;
+    text-align: left;
+    position: relative;
 
     &:last-child {
       margin-bottom: 0;

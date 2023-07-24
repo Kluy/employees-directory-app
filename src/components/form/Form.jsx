@@ -125,7 +125,7 @@ const Form = ({ setRegistered, registered }) => {
                 <div className="form__radio-wrapper" key={id}>
                   <Input
                     onChange={e => onChange(e)}
-                    className="input--radio"
+                    className="radio-input"
                     type="radio"
                     id={id}
                     name="position"

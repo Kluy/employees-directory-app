@@ -2,7 +2,7 @@ import React from 'react';
 import './tooltip.scss';
 
 const Tooltip = ({ text }) => {
-  return <div className="tooltip">{text}</div>;
+  return <p className="tooltip">{text}</p>;
 };
 
 export default Tooltip;

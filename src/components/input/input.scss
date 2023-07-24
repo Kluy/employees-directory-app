@@ -16,41 +16,37 @@
   @include min-screen {
     width: 380px;
   }
+}
 
-  &--radio {
+.radio-input {
+  display: none;
+  & + label::before {
+    content: '';
     width: 20px;
     height: 20px;
-    margin: 0 12px 0 0;
-    position: relative;
-    visibility: hidden;
+    margin: 0 12px 2px 0;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 1px solid $light-grey-border;
+    border-radius: 100%;
+  }
 
-    &::after {
-      content: '';
-      width: 20px;
-      height: 20px;
-      display: block;
-      visibility: visible;
-      box-sizing: border-box;
-      border: 1px solid $light-grey-border;
-      border-radius: 100%;
-    }
+  &:checked + label::before {
+    content: '';
+    border: 1px solid $blue;
+  }
 
-    &:checked::after {
-      content: '';
-      border: 1px solid $blue;
-    }
-
-    &:checked::before {
-      content: '';
-      width: 10px;
-      height: 10px;
-      visibility: visible;
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      border-radius: 100%;
-      background-color: $blue;
-    }
+  &:checked + label::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    display: block;
+    border-radius: 100%;
+    background-color: $blue;
   }
 }
 
@@ -58,10 +54,10 @@
   display: none;
 
   &__label {
-    position: relative;
-    line-height: 52px;
     margin: 47px 0 50px 0;
     padding-left: 98px;
+    position: relative;
+    line-height: 52px;
     text-align: left;
 
     &::before {
