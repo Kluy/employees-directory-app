@@ -1,14 +1,13 @@
-// import { createSelector } from 'reselect';
+// export const idSelector = state => {
+//   return state.data.id;
+// };
+// export const nameSelector = state => {
+//   return state.data.name;
+// };
 
-export const usersSelector = state => {
-  return state.data.users;
-};
-export const pageSelector = state => {
-  return state.data.page;
-};
-export const totalPagesSelector = state => {
-  return state.data.totalPages;
-};
-export const countSelector = state => {
-  return state.data.count;
-};
+// export const workersSelector = state => {
+//   console.log('state');
+//   console.log(state);
+//   console.log(state.data);
+//   return state.data;
+// };

@@ -1,34 +1,21 @@
 @import 'styles/var.scss';
-@import 'styles/breakpoints.scss';
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
 
 .page {
-  // margin: 0 auto;
-  width: 360px;
+  margin: 0 auto;
+  width: 1280px;
   min-height: 100vh;
   color: $black87;
   line-height: 26px;
-  background-color: $light-grey;
-
-  @include min-screen {
-    width: 768px;
-  }
-
-  @include mid-screen {
-    width: 1024px;
-  }
-
-  @include max-screen {
-    width: 2560px;
-  }
+  background-color: $white;
 }
 
 ul {

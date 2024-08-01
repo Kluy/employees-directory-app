@@ -1,29 +1,11 @@
 @import '../../styles/var.scss';
-@import '../../styles/breakpoints.scss';
 
 .header {
-  height: 60px;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $white;
-
-  @include min-screen {
-    padding: 0 32px;
-  }
-
-  @include mid-screen {
-    padding: 0 60px;
-  }
-
-  @include max-screen {
-    padding: 0;
-  }
-
-  &__buttons {
-    width: 210px;
-    display: flex;
-    justify-content: space-between;
-  }
+  margin: 0 auto;
+  height: 48px;
+  width: 1232px;
+  padding: 16px 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: $black-text;
 }

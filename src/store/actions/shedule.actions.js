@@ -1,23 +1,29 @@
-import { getUsers } from '../../gateway/gateway';
+// import { getUsers } from '../../gateway/gateway';
 
-export const GET_DATA = 'DATA/GET_DATA';
+// export const GET_DATA = 'DATA/GET_DATA';
 
-const saveData = ({ users, page, total_pages, count }) => {
-  return {
-    type: GET_DATA,
-    payload: {
-      users,
-      page,
-      totalPages: total_pages,
-      count,
-    },
-  };
-};
+// // const saveData = ({ id, name, position, birthDate, phone, avatar, tag, email }) => {
+// const saveData = data => {
+//   return {
+//     type: GET_DATA,
+//     payload: {
+//       ...data,
+//       // id,
+//       // name,
+//       // position,
+//       // birthDate,
+//       // phone,
+//       // avatar,
+//       // tag,
+//       // email,
+//     },
+//   };
+// };
 
-export const getUsersAction = input => {
-  return function (dispatch) {
-    getUsers(input).then(result => {
-      dispatch(saveData(result));
-    });
-  };
-};
+// export const getUsersAction = input => {
+//   return function (dispatch) {
+//     getUsers(input).then(result => {
+//       dispatch(saveData(result));
+//     });
+//   };
+// };

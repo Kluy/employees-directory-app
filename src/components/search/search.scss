@@ -1,0 +1,21 @@
+@import '../../styles/var.scss';
+
+.search {
+  margin: 0 auto;
+  width: 1248px;
+  padding: 6px 0;
+  &_input {
+    width: 1248px;
+    height: 40px;
+    border: none;
+    font-size: 15px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    color: $black-text;
+    font-weight: 500;
+    background-color: $light-grey;
+    &::placeholder {
+      color: $grey1;
+    }
+  }
+}

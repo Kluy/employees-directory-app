@@ -1,0 +1,36 @@
+@import '../../styles/var.scss';
+.workers {
+  width: 1248px;
+  margin: 0 auto;
+}
+.worker {
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  &_text {
+    padding-left: 16px;
+  }
+  &_avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50px;
+    background-color: $violet;
+  }
+  &_name {
+    font-size: 16px;
+    font-weight: 500;
+    color: $black-text;
+    text-transform: capitalize;
+  }
+  &_tag {
+    font-size: 14px;
+    font-weight: 500;
+    color: $grey;
+  }
+  &_position {
+    font-size: 13px;
+    font-weight: 400;
+    color: $dark-grey-text;
+    text-transform: capitalize;
+  }
+}

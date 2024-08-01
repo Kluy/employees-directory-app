@@ -1,24 +1,15 @@
 import React from 'react';
+import Search from './components/search/Search';
+import Menu from './components/menu/Menu';
+import Workers from './components/workers/Workers';
 import Header from './components/header/Header';
-import Headline from './components/headline/Headline';
-import Get from './components/get/Get';
-import Form from './components/form/Form';
-import { Provider } from 'react-redux';
-
-import { useState } from 'react';
-import store from './store';
+import Body from './components/body/Body';
 
 const App = () => {
-  const [registered, setRegistered] = useState(false);
-
   return (
     <div className="page">
       <Header />
-      <Headline />
-      <Provider store={store}>
-        <Get registered={registered} />
-        <Form setRegistered={setRegistered} registered={registered} />
-      </Provider>
+      <Body />
     </div>
   );
 };

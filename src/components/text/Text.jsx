@@ -1,12 +1,8 @@
 import React from 'react';
-import Tooltip from '../tooltip/Tooltip';
-import { useState } from 'react';
 import classNames from 'classnames';
 import './text.scss';
 
 const Text = ({ text, className }) => {
-  const [tooltip, setTooltip] = useState(false);
-
   const onMouseOverHandler = e => {
     if (e.target.scrollWidth > e.target.offsetWidth) {
       setTooltip(true);
@@ -26,7 +22,6 @@ const Text = ({ text, className }) => {
       >
         {text}
       </p>
-      {tooltip ? <Tooltip text={text} /> : ''}
     </>
   );
 };

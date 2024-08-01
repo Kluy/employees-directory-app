@@ -7,22 +7,35 @@ import { getUsersAction } from '../../store/actions/shedule.actions';
 import { useEffect } from 'react';
 import {
   countSelector,
+  nameSelector,
   pageSelector,
   totalPagesSelector,
-  usersSelector,
+  workersSelector,
 } from '../../store/selectors/shedule.selectors';
 import { connect } from 'react-redux';
 
 import './get.scss';
+import { getWorkers } from '../../gateway/gateway';
+import { useState } from 'react';
 
-const Get = ({ getUsers, users, page, count, totalPages }) => {
-  useEffect(() => {
-    getUsers(count);
-  }, []);
+const Get = () => {
+  const [workers, setWorkers] = useState([]);
+
+  console.log('workers');
+  console.log(workers);
+  // console.log(getWorkers());
+
+  // setWorkers();
+
+  // useEffect(() => {}, []);
 
   return (
     <section className="get">
-      <Heading text="Working with GET request" />
+      {/* <div>{workers}</div> */}
+      <div>{name}</div>
+      <div>sdfsdfdsf</div>
+
+      {/* <Heading text="Working with GET request" />
       {users.length === 0 ? (
         <Preloader />
       ) : (
@@ -38,28 +51,26 @@ const Get = ({ getUsers, users, page, count, totalPages }) => {
             />
           ))}
         </ul>
-      )}
-      <Button
-        hidden={page === totalPages}
-        className="button--show-more"
-        text="Show more"
-        onClick={() => getUsers(count + 6)}
-      />
+      )} */}
     </section>
   );
 };
 
-const usersDispatch = {
-  getUsers: getUsersAction,
-};
+// const usersDispatch = {
+//   getUsers: getUsersAction,
+// };
 
-const usersState = state => {
-  return {
-    users: usersSelector(state),
-    page: pageSelector(state),
-    totalPages: totalPagesSelector(state),
-    count: countSelector(state),
-  };
-};
+// const usersState = state => {
+//   console.log('state2');
+//   console.log(state);
+//   return {
+//     workers: workersSelector(state),
+// users: usersSelector(state),
+// page: pageSelector(state),
+// totalPages: totalPagesSelector(state),
+// count: countSelector(state),
+// };
+// };
 
-export default connect(usersState, usersDispatch)(Get);
+// export default connect(usersState, usersDispatch)(Get);
+export default Get;

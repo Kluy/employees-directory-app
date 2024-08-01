@@ -1,5 +1,4 @@
 @import '../../styles/var.scss';
-@import '../../styles/breakpoints.scss';
 
 .card {
   padding: 20px;
@@ -8,18 +7,4 @@
   border-radius: 10px;
   background-color: $white;
   text-align: center;
-
-  @include min-screen {
-    width: 344px;
-    margin-bottom: 16px;
-  }
-
-  @include mid-screen {
-    width: 282px;
-    margin-bottom: 29px;
-  }
-
-  @include max-screen {
-    width: 370px;
-  }
 }

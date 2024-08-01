@@ -1,34 +1,10 @@
 @import '../../styles/var.scss';
-@import '../../styles/breakpoints.scss';
 
 .get {
   padding: 140px 16px 0 16px;
   text-align: center;
-
-  @include min-screen {
-    padding: 140px 32px 0 32px;
-  }
-
-  @include mid-screen {
-    padding: 140px 60px 0 60px;
-  }
-
-  @include max-screen {
-    padding: 140px 0 0 0;
-  }
 }
 
 .cards {
   padding: 50px 0 30px 0;
-
-  @include min-screen {
-    padding-bottom: 34px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  @include mid-screen {
-    padding-bottom: 21px;
-  }
 }
