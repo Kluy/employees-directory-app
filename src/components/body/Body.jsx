@@ -8,7 +8,7 @@ const Body = () => {
     <>
       <Search />
       <Menu />
-      <Workers />
+      {/* <Workers /> */}
     </>
   );
 };

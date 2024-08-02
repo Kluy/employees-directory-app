@@ -8,12 +8,8 @@
     display: flex;
   }
   &_list-item {
+    cursor: pointer;
     padding: 0 12px;
-    // &:first-child {
-    //   font-weight: 600;
-    //   color: $black-text;
-    //   border-bottom: 2px solid $violet;
-    // }
     &--active {
       font-weight: 600;
       color: $black-text;
