@@ -13,7 +13,8 @@ body {
   margin: 0 auto;
   width: 1280px;
   min-height: 100vh;
-  color: $black87;
+  position: relative;
+  color: $black-text;
   line-height: 26px;
   background-color: $white;
 }
@@ -25,6 +26,7 @@ ul {
 }
 
 h1,
+h2,
 p {
   margin: 0;
 }

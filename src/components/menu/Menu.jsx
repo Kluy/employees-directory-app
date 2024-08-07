@@ -3,22 +3,22 @@ import { useState } from 'react';
 import Workers from '../workers/Workers';
 import './menu.scss';
 
-const Menu = () => {
-  const menuItems = ['All', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android'];
+const Menu = ({ activeItem, filter }) => {
+  const menu = ['All', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android'];
 
-  const [activeItem, setActiveItem] = useState('All');
+  // const [activeItem, setActiveItem] = useState('All');
 
-  const filter = e => {
-    const newActiveItem = e.target.innerHTML;
+  // const filter = e => {
+  //   const newActiveItem = e.target.innerHTML;
 
-    if (activeItem !== newActiveItem) setActiveItem(newActiveItem);
-  };
+  //   if (activeItem !== newActiveItem) setActiveItem(newActiveItem);
+  // };
 
   return (
     <>
       <section className="menu">
         <ul onClick={filter} className="menu_list">
-          {menuItems.map(item => (
+          {menu.map(item => (
             <li
               key={item}
               className={
@@ -30,7 +30,6 @@ const Menu = () => {
           ))}
         </ul>
       </section>
-      <Workers activeItem={activeItem} />
     </>
   );
 };

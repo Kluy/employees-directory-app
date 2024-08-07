@@ -1,12 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
 import './search.scss';
-const Search = () => {
-  const [input, setInput] = useState('');
+const Search = ({ input, onSetInput, onOpenPopup }) => {
+  // const [input, setInput] = useState('');
 
-  const onSetInput = e => {
-    setInput(e.target.value);
-  };
+  // const onSetInput = e => {
+  //   setInput(e.target.value);
+  // };'
+
+  const sortWorkers = () => {};
 
   return (
     <section className="search">
@@ -17,6 +18,7 @@ const Search = () => {
         type="search"
         placeholder="Search by name, tag, email..."
       />
+      <img onClick={onOpenPopup} className="filter" src="../../images/sort.svg" alt="sort list" />
     </section>
   );
 };

@@ -5,7 +5,7 @@ import './workers.scss';
 import Card from '../card/Card';
 import Preloader from '../preloader/Preloader';
 
-const Workers = ({ activeItem }) => {
+const Workers = ({ activeItem, input }) => {
   const [workers, setWorkers] = useState([]);
 
   useEffect(() => {
@@ -18,9 +18,13 @@ const Workers = ({ activeItem }) => {
         <ul>
           {workers
             .filter(
-              ({ position }) =>
-                activeItem.toLowerCase().includes(position.toLowerCase()) || activeItem === 'All',
+              ({ name, position, email }) =>
+                (activeItem === 'All' ||
+                  activeItem.toLowerCase().includes(position.toLowerCase())) &&
+                (name.toLowerCase().includes(input.toLowerCase()) ||
+                  email.toLowerCase().includes(input.toLowerCase())),
             )
+            .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())
             .map(({ id, name, position, birthDate, phone, avatar, tag, email }) => {
               return (
                 <li className="worker workers_list-item" key={id}>

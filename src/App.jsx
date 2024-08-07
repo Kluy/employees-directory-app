@@ -8,7 +8,7 @@ import Body from './components/body/Body';
 const App = () => {
   return (
     <div className="page">
-      <Header />
+      {/* <Header /> */}
       <Body />
     </div>
   );
