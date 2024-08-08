@@ -1,32 +1,19 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import './popup.scss';
 
-const Popup = ({ isPopupOpen, onOpenPopup }) => {
-  const [checked, setChecked] = useState([
-    { id: 'a-z', text: 'A-Z', checked: true },
-    { id: 'birthday', text: 'By birthday', checked: false },
-  ]);
-
-  const sortWorkers = e => {
-    if (e.target.id === 'close') {
-      onOpenPopup();
-    } else if (e.target.type === 'radio') {
-      setChecked(
-        checked.map(({ id, checked, text }) => {
-          e.target.id === id ? (checked = true) : (checked = false);
-          return { id, checked, text };
-        }),
-      );
-    } else return;
-  };
+const Popup = ({ sortId, popupOpen, onSortOptions }) => {
+  const input = [
+    { id: 'a-z', text: 'A-Z' },
+    { id: 'birthday', text: 'By birthday' },
+  ];
 
   return (
-    <div className={classNames('popup', { visible: isPopupOpen })}>
-      <form onClick={e => sortWorkers(e)} className="sort" action="">
+    <div className={classNames('popup', { visible: popupOpen })}>
+      <form onClick={e => onSortOptions(e)} className="sort" action="">
         <fieldset className="sort_fieldset">
           <legend className="sort_legend">Sort</legend>
-          {checked.map(({ id, text, checked }) => (
+          {input.map(({ id, text }) => (
             <div>
               <input
                 className="sort_input"
@@ -34,7 +21,7 @@ const Popup = ({ isPopupOpen, onOpenPopup }) => {
                 id={id}
                 name="sort"
                 value={id}
-                checked={checked}
+                checked={id === sortId ? true : false}
               />
               <label className="sort_label" for={id}>
                 {text}

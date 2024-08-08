@@ -1,9 +1,16 @@
 @import '../../styles/var.scss';
 
+.header {
+  height: 48px;
+  padding: 16px 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  color: $black-text;
+}
+
 .search {
   position: relative;
-  margin: 0 auto;
-  width: 1248px;
   padding: 6px 0;
   &::before {
     position: absolute;
@@ -11,10 +18,12 @@
     left: 12px;
     content: url(../../images/search.svg);
   }
+
   &_input {
     width: 1248px;
     height: 40px;
     border: none;
+    outline: none;
     font-size: 15px;
     padding: 8px 40px;
     border-radius: 16px;
@@ -25,7 +34,7 @@
     }
   }
 }
-.filter {
+.sort-open {
   position: absolute;
   top: 20px;
   right: 10px;

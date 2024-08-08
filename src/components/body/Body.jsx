@@ -4,35 +4,48 @@ import Menu from '../menu/Menu';
 import Workers from '../workers/Workers';
 import { useState } from 'react';
 import Popup from '../popup/Popup';
-import Header from '../header/Header';
 
 const Body = () => {
   const [activeItem, setActiveItem] = useState('All');
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
   const [input, setInput] = useState('');
 
-  const onSetInput = e => {
+  const [popupOpen, setPopupOpen] = useState(false);
+
+  const [sortId, setSortId] = useState('a-z');
+
+  const handleInput = e => {
     setInput(e.target.value);
   };
 
-  const filter = e => {
+  const handleFilterOptions = e => {
     const newActiveItem = e.target.innerHTML;
     if (activeItem !== newActiveItem) setActiveItem(newActiveItem);
   };
 
-  const onOpenPopup = () => {
-    setIsPopupOpen(!isPopupOpen);
+  const handlePopup = () => {
+    setPopupOpen(!popupOpen);
+  };
+
+  const handleSortOptions = e => {
+    if (e.target.id === 'close') {
+      handlePopup();
+    } else if (e.target.type === 'radio') {
+      setSortId(e.target.id);
+    } else return;
   };
 
   return (
     <>
-      <Header />
-      <Search onOpenPopup={onOpenPopup} onSetInput={onSetInput} input={input} />
-      <Menu filter={filter} activeItem={activeItem} />
-      <Workers activeItem={activeItem} input={input} />
-      <Popup isPopupOpen={isPopupOpen} onOpenPopup={onOpenPopup} />
+      <Search onOpenPopup={handlePopup} onSetInput={handleInput} input={input} sortId={sortId} />
+      <Menu onFilter={handleFilterOptions} activeItem={activeItem} />
+      <Workers activeItem={activeItem} input={input} sortId={sortId} />
+      <Popup
+        onOpenPopup={handlePopup}
+        onSortOptions={handleSortOptions}
+        popupOpen={popupOpen}
+        sortId={sortId}
+      />
     </>
   );
 };

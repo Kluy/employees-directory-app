@@ -15,8 +15,12 @@ body {
   min-height: 100vh;
   position: relative;
   color: $black-text;
-  line-height: 26px;
+  line-height: 20px;
   background-color: $white;
+}
+.section {
+  margin: 0 auto;
+  width: 1248px;
 }
 
 ul {
