@@ -6,17 +6,16 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
-  color: $black-text;
+  color: $black;
 }
 
 .search {
   position: relative;
   padding: 6px 0;
-  &::before {
-    position: absolute;
+  &_icon {
     top: 15px;
     left: 12px;
-    content: url(../../images/search.svg);
+    position: absolute;
   }
 
   &_input {
@@ -34,7 +33,7 @@
     }
   }
 }
-.sort-open {
+.sort-icon {
   position: absolute;
   top: 20px;
   right: 10px;

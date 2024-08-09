@@ -11,7 +11,7 @@ const Popup = ({ sortId, popupOpen, onSortOptions }) => {
   return (
     <div className={classNames('popup', { visible: popupOpen })}>
       <form onClick={e => onSortOptions(e)} className="sort" action="">
-        <fieldset className="sort_fieldset">
+        <fieldset>
           <legend className="sort_legend">Sort</legend>
           {input.map(({ id, text }) => (
             <div>

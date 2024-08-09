@@ -2,57 +2,61 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getWorkers } from '../../gateway/gateway';
 import Preloader from '../preloader/Preloader';
-import moment from 'moment/moment';
+import WorkersList from '../workers-list/WorkersList';
+import None from '../none/None';
+
 import './workers.scss';
 
-const Workers = ({ activeItem, input, sortId }) => {
+const Workers = ({ activePosition, input, sortId }) => {
   const [workers, setWorkers] = useState([]);
 
   useEffect(() => {
     getWorkers().then(data => setWorkers(data));
   }, []);
 
+  const currentMonth = new Date().getMonth();
+
+  const searchWorkers = (currentData, input) =>
+    currentData.toLowerCase().includes(input.toLowerCase());
+
+  const workersList = workers.filter(
+    ({ name, position, email }) =>
+      (activePosition === 'All' || searchWorkers(activePosition, position)) &&
+      (searchWorkers(name, input) || searchWorkers(email, input)),
+  );
+
   return (
     <section className="section">
       {workers.length > 0 ? (
-        <ul className="workers">
-          {workers
-            .filter(
-              ({ name, position, email }) =>
-                (activeItem === 'All' ||
-                  activeItem.toLowerCase().includes(position.toLowerCase())) &&
-                (name.toLowerCase().includes(input.toLowerCase()) ||
-                  email.toLowerCase().includes(input.toLowerCase())),
-            )
-            .sort((a, b) =>
-              sortId === 'birthday'
-                ? new Date(a.birthDate).getMonth() === new Date(b.birthDate).getMonth()
-                  ? new Date(a.birthDate).getDate() > new Date(b.birthDate).getDate()
-                  : new Date(a.birthDate).getMonth() > new Date(b.birthDate).getMonth()
-                : a.name.toLowerCase() > b.name.toLowerCase(),
-            )
-            .map(({ id, name, position, birthDate, phone, avatar, tag, email }) => {
-              return (
-                <li className="worker" key={id}>
-                  <div className="worker_data">
-                    <img
-                      className="worker_avatar"
-                      src={avatar || '../../images/icon.png'}
-                      alt="avatar"
-                    />
-                    <div>
-                      <span className="worker_name">{name}</span>
-                      <span className="worker_tag"> {tag}</span>
-                      <div className="worker_position">{position}</div>
-                    </div>
-                  </div>
-                  {sortId === 'birthday' && (
-                    <div className="worker_birthdate">{moment(birthDate).format('DD MMM')}</div>
+        <>
+          {workersList.length > 0 ? (
+            sortId === 'birthday' ? (
+              <>
+                <WorkersList
+                  sortId={sortId}
+                  list={workersList.filter(
+                    ({ birthDate }) => new Date(birthDate).getMonth() > currentMonth,
                   )}
-                </li>
-              );
-            })}
-        </ul>
+                />
+                <div className="delimiter">
+                  <div className="delimiter_line"></div>
+                  <div className="delimiter_text"> {new Date().getFullYear() + 1}</div>
+                  <div className="delimiter_line"></div>
+                </div>
+                <WorkersList
+                  sortId={sortId}
+                  list={workersList.filter(
+                    ({ birthDate }) => new Date(birthDate).getMonth() < currentMonth,
+                  )}
+                />
+              </>
+            ) : (
+              <WorkersList sortId={sortId} list={workersList} />
+            )
+          ) : (
+            <None />
+          )}
+        </>
       ) : (
         <Preloader />
       )}

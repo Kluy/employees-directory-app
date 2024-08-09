@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Popup from '../popup/Popup';
 
 const Body = () => {
-  const [activeItem, setActiveItem] = useState('All');
+  const [activePosition, setActivePosition] = useState('All');
 
   const [input, setInput] = useState('');
 
@@ -19,8 +19,8 @@ const Body = () => {
   };
 
   const handleFilterOptions = e => {
-    const newActiveItem = e.target.innerHTML;
-    if (activeItem !== newActiveItem) setActiveItem(newActiveItem);
+    const newActivePosition = e.target.innerHTML;
+    if (activePosition !== newActivePosition) setActivePosition(newActivePosition);
   };
 
   const handlePopup = () => {
@@ -38,8 +38,8 @@ const Body = () => {
   return (
     <>
       <Search onOpenPopup={handlePopup} onSetInput={handleInput} input={input} sortId={sortId} />
-      <Menu onFilter={handleFilterOptions} activeItem={activeItem} />
-      <Workers activeItem={activeItem} input={input} sortId={sortId} />
+      <Menu onFilter={handleFilterOptions} activePosition={activePosition} />
+      <Workers activePosition={activePosition} input={input} sortId={sortId} />
       <Popup
         onOpenPopup={handlePopup}
         onSortOptions={handleSortOptions}

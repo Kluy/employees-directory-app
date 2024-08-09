@@ -12,8 +12,8 @@ body {
 .page {
   margin: 0 auto;
   width: 1280px;
+  color: $black;
   min-height: 100vh;
-  color: $black-text;
   line-height: 20px;
   background-color: $white;
 }
@@ -37,6 +37,7 @@ p {
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 a {

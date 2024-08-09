@@ -1,45 +1,18 @@
 @import '../../styles/var.scss';
 
-.workers {
-  margin-top: 16px;
-}
-.worker {
-  padding: 6px 0;
+.delimiter {
+  padding: 34px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  &_data {
-    display: flex;
-    align-items: center;
+  &_line {
+    width: 45%;
+    border-bottom: 1px solid $grey1;
   }
-  &_avatar {
-    width: 72px;
-    height: 72px;
-    margin-right: 16px;
-    border-radius: 50px;
-    background-color: $violet;
-  }
-  &_name {
-    font-size: 16px;
+  &_text {
+    width: 160px;
+    color: $grey1;
+    padding: 0 12px;
     font-weight: 500;
-    text-transform: capitalize;
-  }
-  &_tag {
-    font-size: 14px;
-    font-weight: 500;
-    color: $grey;
-  }
-  &_position {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 16px;
-    color: $dark-grey;
-    text-transform: capitalize;
-  }
-  &_birthdate {
-    font-size: 15px;
-    font-weight: 400;
-    color: $dark-grey;
-    text-transform: lowercase;
+    text-align: center;
   }
 }

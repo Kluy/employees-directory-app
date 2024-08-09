@@ -1,21 +1,23 @@
 import React from 'react';
 import './menu.scss';
 
-const Menu = ({ activeItem, onFilter }) => {
+const Menu = ({ activePosition, onFilter }) => {
   const menu = ['All', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android'];
 
   return (
     <>
       <section className="menu">
         <ul onClick={onFilter} className="menu_list">
-          {menu.map(item => (
+          {menu.map(position => (
             <li
-              key={item}
+              key={position}
               className={
-                item === activeItem ? 'menu_list-item menu_list-item--active' : 'menu_list-item'
+                position === activePosition
+                  ? 'menu_list-item menu_list-item--active'
+                  : 'menu_list-item'
               }
             >
-              {item}
+              {position}
             </li>
           ))}
         </ul>
