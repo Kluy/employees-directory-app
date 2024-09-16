@@ -15,6 +15,11 @@
     margin-right: 16px;
     border-radius: 50px;
     background-color: $violet;
+    &--big {
+      width: 104px;
+      height: 104px;
+      margin: 0;
+    }
   }
   &_name {
     font-size: 16px;
@@ -28,14 +33,12 @@
   }
   &_position {
     font-size: 13px;
-    font-weight: 400;
     line-height: 16px;
     color: $dark-grey;
     text-transform: capitalize;
   }
   &_birthdate {
     font-size: 15px;
-    font-weight: 400;
     color: $dark-grey;
     text-transform: lowercase;
   }

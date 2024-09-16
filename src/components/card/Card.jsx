@@ -3,7 +3,7 @@ import moment from 'moment/moment';
 
 import './card.scss';
 
-const Card = ({ sortId, id, name, position, birthDate, phone, avatar, tag, email }) => {
+const Card = ({ sortId, id, name, position, birthDate, avatar, tag }) => {
   return (
     <li className="worker" key={id}>
       <div className="worker_data">

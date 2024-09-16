@@ -4,6 +4,7 @@ import Menu from '../menu/Menu';
 import Workers from '../workers/Workers';
 import { useState } from 'react';
 import Popup from '../popup/Popup';
+import Profile from '../profile/Profile';
 
 const Body = () => {
   const [activePosition, setActivePosition] = useState('All');
@@ -46,6 +47,7 @@ const Body = () => {
         popupOpen={popupOpen}
         sortId={sortId}
       />
+      <Profile />
     </>
   );
 };
