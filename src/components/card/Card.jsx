@@ -5,7 +5,7 @@ import './card.scss';
 
 const Card = ({ sortId, id, name, position, birthDate, avatar, tag }) => {
   return (
-    <li className="worker" key={id}>
+    <li className="worker" data-key={id} key={id}>
       <div className="worker_data">
         <img className="worker_avatar" src={avatar || '../../images/icon.png'} alt="avatar" />
         <div>

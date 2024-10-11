@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from '../card/Card';
+import Profile from '../profile/Profile';
+import { Link } from 'react-router-dom';
 
 const WorkersList = ({ sortId, list }) => {
   return (
@@ -13,17 +15,19 @@ const WorkersList = ({ sortId, list }) => {
             : a.name.toLowerCase() > b.name.toLowerCase(),
         )
         .map(({ id, name, position, birthDate, phone, avatar, tag, email }) => (
-          <Card
-            sortId={sortId}
-            id={id}
-            name={name}
-            position={position}
-            birthDate={birthDate}
-            phone={phone}
-            avatar={avatar}
-            tag={tag}
-            email={email}
-          />
+          <Link to="/profile">
+            <Card
+              sortId={sortId}
+              id={id}
+              name={name}
+              position={position}
+              birthDate={birthDate}
+              phone={phone}
+              avatar={avatar}
+              tag={tag}
+              email={email}
+            />
+          </Link>
         ))}
     </ul>
   );

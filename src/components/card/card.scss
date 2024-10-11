@@ -25,11 +25,21 @@
     font-size: 16px;
     font-weight: 500;
     text-transform: capitalize;
+    &--big {
+      font-size: 24px;
+      font-weight: 700;
+      padding-bottom: 12px;
+    }
   }
   &_tag {
     font-size: 14px;
     font-weight: 500;
     color: $grey;
+    text-transform: lowercase;
+    &--big {
+      font-size: 17px;
+      font-weight: 400;
+    }
   }
   &_position {
     font-size: 13px;

@@ -1,19 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { getWorkers } from '../../gateway/gateway';
-import Preloader from '../preloader/Preloader';
 import WorkersList from '../workers-list/WorkersList';
 import None from '../none/None';
 
 import './workers.scss';
 
-const Workers = ({ activePosition, input, sortId }) => {
-  const [workers, setWorkers] = useState([]);
-
-  useEffect(() => {
-    getWorkers().then(data => setWorkers(data));
-  }, []);
-
+const Workers = ({ activePosition, input, sortId, workers, onSetProfileId }) => {
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>
@@ -26,39 +17,34 @@ const Workers = ({ activePosition, input, sortId }) => {
   );
 
   return (
-    <section className="section">
-      {workers.length > 0 ? (
-        <>
-          {workersList.length > 0 ? (
-            sortId === 'birthday' ? (
-              <>
-                <WorkersList
-                  sortId={sortId}
-                  list={workersList.filter(
-                    ({ birthDate }) => new Date(birthDate).getMonth() > currentMonth,
-                  )}
-                />
-                <div className="delimiter">
-                  <div className="delimiter_line"></div>
-                  <div className="delimiter_text"> {new Date().getFullYear() + 1}</div>
-                  <div className="delimiter_line"></div>
-                </div>
-                <WorkersList
-                  sortId={sortId}
-                  list={workersList.filter(
-                    ({ birthDate }) => new Date(birthDate).getMonth() < currentMonth,
-                  )}
-                />
-              </>
-            ) : (
-              <WorkersList sortId={sortId} list={workersList} />
-            )
-          ) : (
-            <None />
-          )}
-        </>
+    <section className="section" onClick={e => onSetProfileId(e)}>
+      {workersList.length > 0 ? (
+        sortId === 'birthday' ? (
+          <>
+            <WorkersList
+              onSetProfileId={onSetProfileId}
+              sortId={sortId}
+              list={workersList.filter(
+                ({ birthDate }) => new Date(birthDate).getMonth() > currentMonth,
+              )}
+            />
+            <div className="delimiter">
+              <div className="delimiter_line"></div>
+              <div className="delimiter_text"> {new Date().getFullYear() + 1}</div>
+              <div className="delimiter_line"></div>
+            </div>
+            <WorkersList
+              sortId={sortId}
+              list={workersList.filter(
+                ({ birthDate }) => new Date(birthDate).getMonth() < currentMonth,
+              )}
+            />
+          </>
+        ) : (
+          <WorkersList sortId={sortId} list={workersList} />
+        )
       ) : (
-        <Preloader />
+        <None />
       )}
     </section>
   );

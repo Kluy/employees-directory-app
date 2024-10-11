@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import './menu.scss';
 
 const Menu = ({ activePosition, onFilter }) => {
@@ -11,11 +12,9 @@ const Menu = ({ activePosition, onFilter }) => {
           {menu.map(position => (
             <li
               key={position}
-              className={
-                position === activePosition
-                  ? 'menu_list-item menu_list-item--active'
-                  : 'menu_list-item'
-              }
+              className={classNames('menu_list-item', {
+                'menu_list-item--active': position === activePosition,
+              })}
             >
               {position}
             </li>
