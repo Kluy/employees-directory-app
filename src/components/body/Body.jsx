@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from '../search/Search';
+import Errors from '../errors/Errors';
 import Menu from '../menu/Menu';
 import Workers from '../workers/Workers';
 import Popup from '../popup/Popup';
@@ -13,7 +14,10 @@ const Body = () => {
   const [workers, setWorkers] = useState([]);
 
   useEffect(() => {
-    getWorkers().then(data => setWorkers(data));
+    getWorkers().then(data => {
+      console.log(data);
+      setWorkers(data);
+    });
   }, []);
 
   const [profileId, setProfileId] = useState(null);
@@ -49,6 +53,7 @@ const Body = () => {
 
   const handleProfileId = (e, id) => {
     setProfileId(e.target.dataset.key);
+    console.log(e.target.dataset.key);
   };
 
   return (
@@ -58,6 +63,7 @@ const Body = () => {
           exact
           path="/"
           element={[
+            <Errors />,
             <Search
               onOpenPopup={handlePopup}
               onSetInput={handleInput}

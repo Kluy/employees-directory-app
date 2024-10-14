@@ -18,8 +18,11 @@
     padding-right: 18px;
     vertical-align: sub;
   }
-  &_text {
+  &_text-line {
     line-height: 60px;
+  }
+  &_age {
+    color: $grey;
   }
 }
 

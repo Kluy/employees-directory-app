@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from '../card/Card';
-import Profile from '../profile/Profile';
+import Worker from '../worker/Worker';
 import { Link } from 'react-router-dom';
 
 const WorkersList = ({ sortId, list }) => {
@@ -10,13 +9,13 @@ const WorkersList = ({ sortId, list }) => {
         .sort((a, b) =>
           sortId === 'birthday'
             ? new Date(a.birthDate).getMonth() === new Date(b.birthDate).getMonth()
-              ? new Date(a.birthDate).getDate() > new Date(b.birthDate).getDate()
+              ? new Date(a.birthDate).getDate() < new Date(b.birthDate).getDate()
               : new Date(a.birthDate).getMonth() > new Date(b.birthDate).getMonth()
             : a.name.toLowerCase() > b.name.toLowerCase(),
         )
         .map(({ id, name, position, birthDate, phone, avatar, tag, email }) => (
           <Link to="/profile">
-            <Card
+            <Worker
               sortId={sortId}
               id={id}
               name={name}
