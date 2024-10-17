@@ -14,7 +14,7 @@ const WorkersList = ({ sortId, list }) => {
             : a.name.toLowerCase() > b.name.toLowerCase(),
         )
         .map(({ id, name, position, birthDate, phone, avatar, tag, email }) => (
-          <Link to="/profile">
+          <Link to={`/profile/${id}`}>
             <Worker
               sortId={sortId}
               id={id}

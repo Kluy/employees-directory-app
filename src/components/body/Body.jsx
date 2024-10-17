@@ -20,8 +20,6 @@ const Body = () => {
     });
   }, []);
 
-  const [profileId, setProfileId] = useState(null);
-
   const [activePosition, setActivePosition] = useState('All');
 
   const [input, setInput] = useState('');
@@ -51,28 +49,32 @@ const Body = () => {
     } else return;
   };
 
-  const handleProfileId = (e, id) => {
-    setProfileId(e.target.dataset.key);
-    console.log(e.target.dataset.key);
-  };
-
   return (
     <BrowserRouter>
       <Routes>
         <Route
+          path="/connection-error"
+          element={<Errors text="Can't update the data. Check internet connection." color="red" />}
+        />
+        <Route path="/profile/:id" element={<Profile workers={workers} />}></Route>
+        <Route
           exact
           path="/"
           element={[
-            <Errors />,
-            <Search
-              onOpenPopup={handlePopup}
-              onSetInput={handleInput}
-              input={input}
-              sortId={sortId}
-            />,
+            [
+              workers.length > 0 ? (
+                <Search
+                  onOpenPopup={handlePopup}
+                  onSetInput={handleInput}
+                  input={input}
+                  sortId={sortId}
+                />
+              ) : (
+                <Errors text="Few seconds, downloading..." />
+              ),
+            ],
             <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
             <Workers
-              onSetProfileId={handleProfileId}
               activePosition={activePosition}
               input={input}
               sortId={sortId}
@@ -86,7 +88,6 @@ const Body = () => {
             />,
           ]}
         ></Route>
-        <Route path="/profile" element={<Profile worker={workers[profileId - 1]} />}></Route>
       </Routes>
     </BrowserRouter>
   );

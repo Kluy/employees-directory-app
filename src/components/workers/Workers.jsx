@@ -5,7 +5,7 @@ import Error from '../error/Error';
 
 import './workers.scss';
 
-const Workers = ({ activePosition, input, sortId, workers, onSetProfileId }) => {
+const Workers = ({ activePosition, input, sortId, workers }) => {
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>
@@ -18,12 +18,11 @@ const Workers = ({ activePosition, input, sortId, workers, onSetProfileId }) => 
   );
 
   return (
-    <section className="section" onClick={e => onSetProfileId(e)}>
+    <section className="section">
       {workersList.length > 0 ? (
         sortId === 'birthday' ? (
           <>
             <WorkersList
-              onSetProfileId={onSetProfileId}
               sortId={sortId}
               list={workersList.filter(
                 ({ birthDate }) => new Date(birthDate).getMonth() > currentMonth,
