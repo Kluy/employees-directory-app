@@ -43,7 +43,11 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
           <WorkersList sortId={sortId} list={workersList} />
         )
       ) : (
-        <None />
+        <None
+          text="Try another request"
+          textMain="We didn't find anyone"
+          img="../images/none.png"
+        />
       )}
     </section>
   );

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import './popup.scss';
 
-const Popup = ({ sortValue, popupOpen, onSortOptions }) => {
+const Popup = ({ sortId, popupOpen, onSortOptions }) => {
   const input = [
     { id: 'a-z', text: 'A-Z' },
     { id: 'birthday', text: 'By birthday' },
@@ -21,7 +21,7 @@ const Popup = ({ sortValue, popupOpen, onSortOptions }) => {
                 id={id}
                 name="sort"
                 value={id}
-                checked={id === sortValue ? true : false}
+                checked={id === sortId ? true : false}
               />
               <label className="sort_label" for={id}>
                 {text}

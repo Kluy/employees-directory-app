@@ -19,10 +19,8 @@ body {
 }
 .section {
   padding: 0 16px;
-  // margin: 0 auto;
-  // width: 1248px;
   &--red {
-    background-color: red;
+    background-color: $red;
   }
   &--violet {
     background-color: $violet;

@@ -1,12 +1,21 @@
 @import '../../styles/var.scss';
 
 .header {
-  // height: 48px;
   padding: 16px 0 12px 0;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   color: $black;
+  &--white {
+    color: $white;
+  }
+}
+
+.connection-error {
+  padding-bottom: 28px;
+  font-weight: 500;
+  font-size: 13px;
+  color: $white;
 }
 
 .search {
