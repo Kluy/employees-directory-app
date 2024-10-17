@@ -1,13 +1,11 @@
 import React from 'react';
 import Search from '../search/Search';
-import Errors from '../errors/Errors';
 import Menu from '../menu/Menu';
 import Workers from '../workers/Workers';
 import Popup from '../popup/Popup';
 import Profile from '../profile/Profile';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getWorkers } from '../../gateway/gateway';
-
 import { useEffect, useState } from 'react';
 
 const Body = () => {
@@ -15,7 +13,6 @@ const Body = () => {
 
   useEffect(() => {
     getWorkers().then(data => {
-      console.log(data);
       setWorkers(data);
     });
   }, []);
@@ -52,27 +49,17 @@ const Body = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/connection-error"
-          element={<Errors text="Can't update the data. Check internet connection." color="red" />}
-        />
         <Route path="/profile/:id" element={<Profile workers={workers} />}></Route>
         <Route
           exact
           path="/"
           element={[
-            [
-              workers.length > 0 ? (
-                <Search
-                  onOpenPopup={handlePopup}
-                  onSetInput={handleInput}
-                  input={input}
-                  sortId={sortId}
-                />
-              ) : (
-                <Errors text="Few seconds, downloading..." />
-              ),
-            ],
+            <Search
+              onOpenPopup={handlePopup}
+              onSetInput={handleInput}
+              input={input}
+              sortId={sortId}
+            />,
             <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
             <Workers
               activePosition={activePosition}
@@ -80,6 +67,7 @@ const Body = () => {
               sortId={sortId}
               workers={workers}
             />,
+
             <Popup
               onOpenPopup={handlePopup}
               onSortOptions={handleSortOptions}

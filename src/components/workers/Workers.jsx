@@ -1,7 +1,6 @@
 import React from 'react';
 import WorkersList from '../workers-list/WorkersList';
 import None from '../none/None';
-import Error from '../error/Error';
 
 import './workers.scss';
 
@@ -45,7 +44,6 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
         )
       ) : (
         <None />
-        // <Error />
       )}
     </section>
   );

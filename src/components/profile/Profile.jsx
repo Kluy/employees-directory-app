@@ -2,12 +2,9 @@ import React from 'react';
 import moment from 'moment/moment';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getWorkers } from '../../gateway/gateway';
 
 import './profile.scss';
-import { useEffect, useState } from 'react';
 
-// const Profile = ({ worker, id, name, position, phone, birthDate, avatar, tag ) => {
 const Profile = ({ workers }) => {
   const { id } = useParams();
   const worker = workers[id - 1];
