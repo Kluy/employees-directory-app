@@ -2,10 +2,12 @@ import React from 'react';
 import Search from '../search/Search';
 import Menu from '../menu/Menu';
 import Workers from '../workers/Workers';
+import Worker from '../worker/Worker';
 import Popup from '../popup/Popup';
 import Profile from '../profile/Profile';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getWorkers } from '../../gateway/gateway';
+
 import { useEffect, useState } from 'react';
 
 const Body = () => {
@@ -13,9 +15,12 @@ const Body = () => {
 
   useEffect(() => {
     getWorkers().then(data => {
+      console.log(data);
       setWorkers(data);
     });
   }, []);
+
+  // const [profileId, setProfileId] = useState(null);
 
   const [activePosition, setActivePosition] = useState('All');
 
@@ -46,9 +51,15 @@ const Body = () => {
     } else return;
   };
 
+  // const handleProfileId = e => {
+  //   const worker = e.target.closest('.worker');
+  //   if (worker) setProfileId(worker.dataset.id);
+  // };
+
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path="/profile/:id" element={<Worker workers={workers} />}></Route> */}
         <Route path="/profile/:id" element={<Profile workers={workers} />}></Route>
         <Route
           exact
@@ -62,12 +73,12 @@ const Body = () => {
             />,
             <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
             <Workers
+              // onSetProfileId={handleProfileId}
               activePosition={activePosition}
               input={input}
               sortId={sortId}
               workers={workers}
             />,
-
             <Popup
               onOpenPopup={handlePopup}
               onSortOptions={handleSortOptions}
