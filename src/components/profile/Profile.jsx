@@ -35,7 +35,7 @@ const Profile = ({ workers }) => {
             {moment(worker.birthDate).format('DD MMM')}
           </div>
           <div className="profile_age">
-            {new Date().getFullYear() - new Date(worker.birthDate).getFullYear()} года
+            {new Date().getFullYear() - new Date(worker.birthDate).getFullYear()} years
           </div>{' '}
         </div>
         <div className="profile_text-line">
