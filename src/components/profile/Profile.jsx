@@ -1,13 +1,18 @@
 import React from 'react';
 import moment from 'moment/moment';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import './profile.scss';
 
 const Profile = ({ workers }) => {
+  workers = [];
+  const loader = useLoaderData();
+  console.log('loader');
+  console.log(loader);
+
   const { id } = useParams();
-  const worker = workers[id - 1];
+  const worker = loader[id - 1];
 
   return (
     <section className="profile">
