@@ -24,20 +24,20 @@ const Body = () => {
   console.log('workers');
   console.log(workers);
 
-  const workers2 = useLoaderData();
-  console.log('workers2');
-  console.log(workers2);
+  // const workers = useLoaderData();
+  // console.log('workers');
+  // console.log(workers);
 
   // setWorkers(loaderData);
   // console.log('loader');
   // console.log(loader);
 
-  // useEffect(() => {
-  //   getWorkers().then(data => {
-  //     console.log(data);
-  //     setWorkers(data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getWorkers().then(data => {
+      console.log(data);
+      setWorkers(data);
+    });
+  }, []);
 
   // const [profileId, setProfileId] = useState(null);
 
@@ -84,7 +84,7 @@ const Body = () => {
         activePosition={activePosition}
         input={input}
         sortId={sortId}
-        workers={workers2}
+        workers={workers}
       />
       <Popup
         onOpenPopup={handlePopup}
@@ -107,7 +107,6 @@ const Body = () => {
     //         />
     //       }
     //     />
-    //     <Route path="/profile/:id" element={<Profile workers={workers} />}></Route>
     //     <Route
     //       exact
     //       path="/"

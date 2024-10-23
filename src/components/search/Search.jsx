@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import './search.scss';
 
 const Search = ({ input, sortId, onSetInput, onOpenPopup, errorText }) => {

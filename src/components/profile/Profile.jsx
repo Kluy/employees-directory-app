@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import './profile.scss';
 
 const Profile = ({ workers }) => {
-  workers = [];
+  // workers = [];
   const loader = useLoaderData();
   console.log('loader');
   console.log(loader);
