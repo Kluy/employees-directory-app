@@ -4,7 +4,6 @@ import None from '../none/None';
 import './workers.scss';
 
 const Workers = ({ activePosition, input, sortId, workers }) => {
-  console.log('workers');
   console.log(workers);
   const currentMonth = new Date().getMonth();
 
@@ -19,7 +18,8 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
 
   return (
     <section className="section">
-      {workersList.length > 0 ? (
+      {
+        // workersList.length > 0 ? (
         sortId === 'birthday' ? (
           <>
             <WorkersList
@@ -43,13 +43,15 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
         ) : (
           <WorkersList sortId={sortId} list={workersList} />
         )
-      ) : (
-        <None
-          text="Try another request"
-          textMain="We didn't find anyone"
-          img="../images/none.png"
-        />
-      )}
+        // )
+        // : (
+        //   <None
+        //     text="Try another request"
+        //     textMain="We didn't find anyone"
+        //     img="../images/none.png"
+        //   />
+        // )
+      }
     </section>
   );
 };
