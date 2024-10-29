@@ -1,12 +1,17 @@
-import classNames from 'classnames';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useNavigation } from 'react-router-dom';
 import './search.scss';
 
 const Search = ({ input, sortId, onSetInput, onOpenPopup, errorText }) => {
+  const nav = useNavigation();
+
+  console.log('nav');
+  console.log(nav);
+  console.log(nav.state);
+
   return (
     <section className="section">
-      <h1 className={'header'}>Search</h1>
+      <h1 className="title">Search</h1>
 
       {errorText ? (
         <div className="connection-error">{errorText}</div>

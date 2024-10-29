@@ -1,10 +1,11 @@
 import React from 'react';
 import WorkersList from '../workers-list/WorkersList';
 import None from '../none/None';
-
 import './workers.scss';
 
 const Workers = ({ activePosition, input, sortId, workers }) => {
+  console.log('workers');
+  console.log(workers);
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>

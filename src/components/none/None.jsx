@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './none.scss';
 
 const None = ({ img, textMain, text, reloadText }) => {
-  const reloadPage = () => {
-    window.location.reload();
-  };
   return (
     <div className="error">
       <div>
@@ -12,9 +11,9 @@ const None = ({ img, textMain, text, reloadText }) => {
         <div className="error_message">{textMain}</div>
         <div className="error_text">{text}</div>
         {reloadText && (
-          <div onClick={reloadPage} className="error_text error_text--violet">
-            {reloadText}
-          </div>
+          <Link reloadDocument={true}>
+            <div className="error_text error_text--violet">{reloadText}</div>
+          </Link>
         )}
       </div>
     </div>
