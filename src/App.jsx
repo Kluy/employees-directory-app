@@ -15,13 +15,18 @@ import Search from './components/search/Search';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './index.scss';
+import SkeletonList from './components/skeleton/SkeletonList';
 
 const App = () => {
   const [workers, setWorkers] = useState([]);
 
+  console.log(window.innerHeight);
+
+  console.log(workers);
+
   useEffect(() => {
     getWorkers().then(data => {
-      console.log(data);
+      console.log('useEffect');
       setWorkers(data);
     });
   }, []);
@@ -96,14 +101,18 @@ const App = () => {
               />
             }
             element={
-              <Workers
-                activePosition={activePosition}
-                input={input}
-                sortId={sortId}
-                workers={workers}
-              />
+              workers.length === 0 ? (
+                <SkeletonList quantity={Math.ceil((window.innerHeight - 155) / 84)} />
+              ) : (
+                <Workers
+                  activePosition={activePosition}
+                  input={input}
+                  sortId={sortId}
+                  workers={workers}
+                />
+              )
             }
-          ></Route>
+          />
         </Route>
         <Route
           path="profile/:id"
@@ -118,7 +127,6 @@ const App = () => {
           }
           loader={() =>
             getWorkers().then(data => {
-              // setWorkers(data);
               return data;
             })
           }
@@ -137,16 +145,3 @@ const App = () => {
 };
 
 export default App;
-
-// import React from 'react';
-// import Body from './components/body/Body';
-
-// const App = () => {
-//   return (
-//     <div className="app">
-//       <Body />
-//     </div>
-//   );
-// };
-
-// export default App;
