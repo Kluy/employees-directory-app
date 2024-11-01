@@ -44,6 +44,7 @@ const App = () => {
   };
 
   const handlePopup = () => {
+    document.body.style.overflow = popupOpen ? 'auto' : 'hidden';
     setPopupOpen(!popupOpen);
   };
 
