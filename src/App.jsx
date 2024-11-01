@@ -7,26 +7,21 @@ import {
 } from 'react-router-dom';
 import Profile from './components/profile/Profile';
 import Workers from './components/workers/Workers';
-import { getWorkers } from './gateway/gateway';
 import None from './components/none/None';
 import Popup from './components/popup/Popup';
 import Menu from './components/menu/Menu';
 import Search from './components/search/Search';
+import Skeleton from './components/skeleton/Skeleton';
+import { getWorkers } from './gateway/gateway';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './index.scss';
-import SkeletonList from './components/skeleton/SkeletonList';
 
 const App = () => {
   const [workers, setWorkers] = useState([]);
 
-  console.log(window.innerHeight);
-
-  console.log(workers);
-
   useEffect(() => {
     getWorkers().then(data => {
-      console.log('useEffect');
       setWorkers(data);
     });
   }, []);
@@ -102,7 +97,13 @@ const App = () => {
             }
             element={
               workers.length === 0 ? (
-                <SkeletonList quantity={Math.ceil((window.innerHeight - 155) / 84)} />
+                <section className="section">
+                  <ul>
+                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(1).map(() => (
+                      <Skeleton />
+                    ))}
+                  </ul>
+                </section>
               ) : (
                 <Workers
                   activePosition={activePosition}
@@ -125,11 +126,14 @@ const App = () => {
               reloadText="Reload page"
             />
           }
-          loader={() =>
-            getWorkers().then(data => {
-              return data;
-            })
-          }
+          loader={() => {
+            if (workers.length === 0) {
+              getWorkers().then(data => {
+                return data;
+              });
+            }
+            return null;
+          }}
         />
       </>,
     ),

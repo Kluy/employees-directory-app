@@ -1,7 +1,7 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 import './menu.scss';
-import { Outlet } from 'react-router-dom';
 
 const Menu = ({ activePosition, onFilter }) => {
   const menu = ['All', 'Designers', 'Analysts', 'Managers', 'iOS', 'Android'];

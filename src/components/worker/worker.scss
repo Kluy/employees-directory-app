@@ -14,9 +14,6 @@
     height: 72px;
     margin: 0 16px 0 0;
     border-radius: 50px;
-    // background: $violet;
-    background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
-
     &--big {
       margin: 0 0 24px 0;
       width: 104px;
@@ -55,17 +52,6 @@
     &--big {
       font-size: 17px;
       font-weight: 400;
-    }
-  }
-  &_downloading {
-    width: 144px;
-    height: 16px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
-    &--small {
-      width: 80px;
-      height: 12px;
-      margin-top: 6px;
     }
   }
 }
