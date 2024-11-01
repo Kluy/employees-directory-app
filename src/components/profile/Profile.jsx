@@ -32,16 +32,16 @@ const Profile = ({ workers }) => {
             <div className="worker_position">{worker.position}</div>
           </div>
           <div className="profile_data">
-            <div className="profile_text-line space-between">
+            <div className="profile_data profile_text-line space-between">
               <div>
                 <img className="profile_icons" src="../images/star.svg" alt="phone" />
-                {moment(worker.birthDate).format('DD MMM')}
+                {moment(worker.birthDate).format('DD MMM YYYY')}
               </div>
               <div className="profile_age">
                 {new Date().getFullYear() - new Date(worker.birthDate).getFullYear()} years
               </div>{' '}
             </div>
-            <div className="profile_text-line">
+            <div className="profile_data profile_text-line">
               <img className="profile_icons" src="../images/phone.svg" alt="birthdate" />
               {worker.phone}
             </div>

@@ -1,9 +1,8 @@
 @import '../../styles/var.scss';
 
 .error {
-  height: 70vh;
+  padding: 132px;
   display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
   &_image {
@@ -11,7 +10,7 @@
     height: 56px;
   }
   &_message {
-    padding-top: 8px;
+    padding-top: 4px;
     font-size: 17px;
     line-height: 22px;
     font-weight: 600;

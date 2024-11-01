@@ -1,7 +1,7 @@
 @import '../../styles/var.scss';
 
 .title {
-  padding: 16px 0 12px 0;
+  padding: 16px 0 12px 9px;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
@@ -33,10 +33,11 @@
     border: none;
     outline: none;
     font-size: 15px;
-    padding: 8px 40px;
+    padding: 8px 43px;
     border-radius: 16px;
     font-weight: 500;
     background-color: $light-grey;
+    caret-color: $violet;
     &::placeholder {
       color: $grey1;
     }
@@ -45,5 +46,5 @@
 .sort-icon {
   position: absolute;
   top: 20px;
-  right: 10px;
+  right: 13px;
 }

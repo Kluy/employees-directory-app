@@ -8,18 +8,15 @@
     text-align: center;
   }
   &_data {
-    padding: 0 20px 0 16px;
+    padding: 14px 8px 35px 9px;
     font-size: 16px;
     font-weight: 500;
     color: $black;
     background-color: $white;
   }
   &_icons {
-    padding-right: 18px;
+    padding-right: 13px;
     vertical-align: sub;
-  }
-  &_text-line {
-    line-height: 60px;
   }
   &_age {
     color: $grey;

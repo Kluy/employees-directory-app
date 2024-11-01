@@ -42,8 +42,8 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
         )
       ) : (
         <None
-          text="Try another request"
           textMain="We didn't find anyone"
+          text="Try to adjust your request"
           img="../images/none.png"
         />
       )}

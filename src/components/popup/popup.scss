@@ -16,7 +16,8 @@
 }
 .sort {
   width: 373px;
-  padding: 24px 16px 8px 16px;
+  height: 192px;
+  padding: 25px 16px 8px 17px;
   border-radius: 20px;
   position: relative;
   background-color: $white;
@@ -29,10 +30,9 @@
   }
   &_input {
     appearance: none;
-    top: 4px;
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
+    width: 21px;
+    height: 21px;
+    margin: 35px 14px 0 0;
     position: relative;
     border-radius: 50%;
     border: 2px solid $violet;
@@ -42,7 +42,8 @@
     }
   }
   &_label {
-    line-height: 60px;
+    vertical-align: bottom;
+    line-height: 28px;
   }
   &_close {
     position: absolute;
