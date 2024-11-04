@@ -16,9 +16,11 @@ import { getWorkers } from './gateway/gateway';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './index.scss';
+import Spinner from './components/spinner/Spinner';
 
 const App = () => {
   const [workers, setWorkers] = useState([]);
+  const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
     getWorkers().then(data => {
@@ -35,6 +37,7 @@ const App = () => {
   const [sortId, setSortId] = useState('a-z');
 
   const handleInput = e => {
+    setSpinner(true);
     setInput(e.target.value);
   };
 
@@ -106,12 +109,16 @@ const App = () => {
                   </ul>
                 </section>
               ) : (
+                // (spinner && <Spinner />) || (
                 <Workers
                   activePosition={activePosition}
                   input={input}
                   sortId={sortId}
                   workers={workers}
+                  spinner={spinner}
+                  onSetSpinner={setSpinner}
                 />
+                // )
               )
             }
           />

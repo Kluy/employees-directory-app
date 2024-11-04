@@ -1,0 +1,37 @@
+@import '../../styles/var.scss';
+
+.preloader {
+  width: 20px;
+  height: 20px;
+  margin: 50px auto;
+  position: relative;
+  border: 2px solid $light-grey;
+  border-radius: 100%;
+  animation: rotation 1.5s infinite linear;
+  &::after {
+    content: '';
+    top: -2px;
+    left: -2px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    border-bottom: 2px solid $violet;
+    background: radial-gradient(farthest-side, $violet 98%, transparent) left 15% bottom 14%,
+      radial-gradient(farthest-side, $violet 98%, transparent) right 15% bottom 14%;
+    background-size: 2px 2px;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

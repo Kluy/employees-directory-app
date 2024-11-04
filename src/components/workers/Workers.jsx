@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WorkersList from '../workers-list/WorkersList';
 import Delimiter from '../delimiter/Delimiter';
 import None from '../none/None';
+import Spinner from '../spinner/Spinner';
 
-const Workers = ({ activePosition, input, sortId, workers }) => {
+const Workers = ({ activePosition, input, sortId, workers, spinner, onSetSpinner }) => {
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>
@@ -14,6 +15,28 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
       (activePosition === 'All' || searchWorkers(activePosition, position)) &&
       (searchWorkers(name, input) || searchWorkers(email, input)),
   );
+
+  // const workersList2 = () => {
+  //   return workers.filter(
+  //     ({ name, position, email }) =>
+  //       (activePosition === 'All' || searchWorkers(activePosition, position)) &&
+  //       (searchWorkers(name, input) || searchWorkers(email, input)),
+  //   );
+  // };
+
+  // const promise = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve(
+  //       workers.filter(
+  //         ({ name, position, email }) =>
+  //           (activePosition === 'All' || searchWorkers(activePosition, position)) &&
+  //           (searchWorkers(name, input) || searchWorkers(email, input)),
+  //       ),
+  //     );
+  //   }, 5000);
+  // });
+
+  // console.log(promise.then(result => console.log(result)).then(result => onSetSpinner(false)));
 
   const birthDateList = (list, more) =>
     (more
