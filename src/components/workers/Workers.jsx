@@ -3,7 +3,7 @@ import WorkersList from '../workers-list/WorkersList';
 import Delimiter from '../delimiter/Delimiter';
 import None from '../none/None';
 
-const Workers = ({ activePosition, input, sortId, workers }) => {
+const Workers = ({ activePosition, input, sortOption, workers }) => {
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>
@@ -28,15 +28,14 @@ const Workers = ({ activePosition, input, sortId, workers }) => {
   return (
     <section className="section">
       {workersList.length > 0 ? (
-        sortId === 'birthday' ? (
+        sortOption == 1 ? (
           <>
-            <WorkersList sortId={sortId} list={birthDateList(workersList, true)} />
+            <WorkersList sortOption={sortOption} list={birthDateList(workersList, true)} />
             <Delimiter />
-            <WorkersList sortId={sortId} list={birthDateList(workersList)} />
+            <WorkersList sortOption={sortOption} list={birthDateList(workersList)} />
           </>
         ) : (
           <WorkersList
-            sortId={sortId}
             list={workersList.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())}
           />
         )

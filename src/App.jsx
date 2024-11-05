@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Profile from './components/profile/Profile';
+import Search from './components/search/Search';
+import Menu from './components/menu/Menu';
 import Workers from './components/workers/Workers';
+import Profile from './components/profile/Profile';
+import Skeleton from './components/skeleton/Skeleton';
 import None from './components/none/None';
 import Popup from './components/popup/Popup';
-import Menu from './components/menu/Menu';
-import Search from './components/search/Search';
-import Skeleton from './components/skeleton/Skeleton';
 import { getWorkers } from './gateway/gateway';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
 import './index.scss';
 
 const App = () => {
   const [workers, setWorkers] = useState([]);
-  const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
     getWorkers().then(data => {
@@ -33,10 +31,9 @@ const App = () => {
 
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const [sortId, setSortId] = useState('a-z');
+  const [sortOption, setSortOption] = useState(0);
 
   const handleInput = e => {
-    setSpinner(true);
     setInput(e.target.value);
   };
 
@@ -54,7 +51,7 @@ const App = () => {
     if (e.target.id === 'close') {
       handlePopup();
     } else if (e.target.type === 'radio') {
-      setSortId(e.target.id);
+      setSortOption(e.target.id);
     } else return;
   };
 
@@ -69,24 +66,16 @@ const App = () => {
               onOpenPopup={handlePopup}
               onSetInput={handleInput}
               input={input}
-              sortId={sortId}
+              sortOption={sortOption}
             />,
             <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
             <Popup
               onOpenPopup={handlePopup}
               onSortOptions={handleSortOptions}
               popupOpen={popupOpen}
-              sortId={sortId}
+              sortOption={sortOption}
             />,
           ]}
-          errorElement={
-            <None
-              img="../images/ufo.png"
-              textMain="Unexpected error occurred..."
-              text="Try again a bit later"
-              reloadText="Reload page"
-            />
-          }
         >
           <Route
             index
@@ -102,7 +91,7 @@ const App = () => {
               workers.length === 0 ? (
                 <section className="section">
                   <ul>
-                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(1).map(() => (
+                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(0).map(() => (
                       <Skeleton />
                     ))}
                   </ul>
@@ -111,10 +100,8 @@ const App = () => {
                 <Workers
                   activePosition={activePosition}
                   input={input}
-                  sortId={sortId}
+                  sortOption={sortOption}
                   workers={workers}
-                  spinner={spinner}
-                  onSetSpinner={setSpinner}
                 />
               )
             }
@@ -123,14 +110,6 @@ const App = () => {
         <Route
           path="profile/:id"
           element={<Profile workers={workers} />}
-          errorElement={
-            <None
-              img="../images/ufo.png"
-              textMain="Unexpected error occurred..."
-              text="Try again a bit later"
-              reloadText="Reload page"
-            />
-          }
           loader={() => {
             if (workers.length === 0) {
               getWorkers().then(data => {

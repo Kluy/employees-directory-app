@@ -2,18 +2,15 @@ import classNames from 'classnames';
 import React from 'react';
 import './popup.scss';
 
-const Popup = ({ sortId, popupOpen, onSortOptions }) => {
-  const input = [
-    { id: 'a-z', text: 'A-Z' },
-    { id: 'birthday', text: 'By birthday' },
-  ];
+const Popup = ({ sortOption, popupOpen, onSortOptions }) => {
+  const input = ['A-Z', 'By birthday'];
 
   return (
     <div className={classNames('popup', { visible: popupOpen })}>
       <form onClick={e => onSortOptions(e)} className="sort" action="">
         <fieldset>
           <legend className="sort_legend">Sort</legend>
-          {input.map(({ id, text }) => (
+          {input.map((text, id) => (
             <div>
               <input
                 className="sort_input"
@@ -21,7 +18,7 @@ const Popup = ({ sortId, popupOpen, onSortOptions }) => {
                 id={id}
                 name="sort"
                 value={id}
-                checked={id === sortId ? true : false}
+                checked={id == sortOption}
               />
               <label className="sort_label" for={id}>
                 {text}

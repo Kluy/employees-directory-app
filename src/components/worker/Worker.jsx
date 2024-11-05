@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment/moment';
 import './worker.scss';
 
-const Worker = ({ sortId, id, name, position, birthDate, avatar, tag }) => {
+const Worker = ({ sortOption, id, name, position, birthDate, avatar, tag }) => {
   return (
     <li className="worker" data-id={id} key={id}>
       <div className="worker_data">
@@ -15,7 +15,7 @@ const Worker = ({ sortId, id, name, position, birthDate, avatar, tag }) => {
           <div className={'worker_position'}>{position}</div>
         </div>
       </div>
-      {sortId === 'birthday' && (
+      {sortOption == 1 && (
         <div className="worker_birthdate">{moment(birthDate).format('DD MMM')}</div>
       )}
     </li>

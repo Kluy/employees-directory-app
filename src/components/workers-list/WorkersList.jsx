@@ -2,13 +2,13 @@ import React from 'react';
 import Worker from '../worker/Worker';
 import { Link } from 'react-router-dom';
 
-const WorkersList = ({ sortId, list }) => {
+const WorkersList = ({ sortOption, list }) => {
   return (
     <ul>
       {list.map(({ id, name, position, birthDate, phone, avatar, tag, email }) => (
         <Link to={`/profile/${id}`}>
           <Worker
-            sortId={sortId}
+            sortOption={sortOption}
             id={id}
             name={name}
             position={position}
