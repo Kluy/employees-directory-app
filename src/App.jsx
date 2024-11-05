@@ -16,7 +16,6 @@ import { getWorkers } from './gateway/gateway';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './index.scss';
-import Spinner from './components/spinner/Spinner';
 
 const App = () => {
   const [workers, setWorkers] = useState([]);
@@ -109,7 +108,6 @@ const App = () => {
                   </ul>
                 </section>
               ) : (
-                // (spinner && <Spinner />) || (
                 <Workers
                   activePosition={activePosition}
                   input={input}
@@ -118,7 +116,6 @@ const App = () => {
                   spinner={spinner}
                   onSetSpinner={setSpinner}
                 />
-                // )
               )
             }
           />
