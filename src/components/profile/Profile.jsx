@@ -13,7 +13,7 @@ const Profile = ({ workers }) => {
   return (
     <section className="profile">
       <Link to="/">
-        <img className="back-arrow" src="../images/arrow.svg" alt="back" />
+        <img className="back-arrow" src="../images/back.svg" alt="back" />
       </Link>
       {worker && (
         <>

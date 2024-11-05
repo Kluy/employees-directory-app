@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigation } from 'react-router-dom';
 import './search.scss';
 
 const Search = ({ input, sortId, onSetInput, onOpenPopup, errorText }) => {

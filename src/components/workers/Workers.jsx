@@ -3,7 +3,7 @@ import WorkersList from '../workers-list/WorkersList';
 import Delimiter from '../delimiter/Delimiter';
 import None from '../none/None';
 
-const Workers = ({ activePosition, input, sortId, workers, spinner, onSetSpinner }) => {
+const Workers = ({ activePosition, input, sortId, workers }) => {
   const currentMonth = new Date().getMonth();
 
   const searchWorkers = (currentData, input) =>
