@@ -1,13 +1,10 @@
-<h1>ABZ-Project</h1>
-
-<h2><a href="https://abz-project.netlify.app/">Site link</a></h2>
+<h1>Workers list</h1>
 
 <p>Layout supports desktop (up-to-2560) versions</p>
 
 <h2>The tech stack is:</h2>
 
 <ul>
-    <li>Redux</li>
     <li>React</li>
     <li>REST API</li>
     <li>JS</li>
