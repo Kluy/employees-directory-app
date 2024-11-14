@@ -13,7 +13,7 @@ const Profile = ({ workers }) => {
   return (
     <section className="profile">
       <Link to="/">
-        <img className="back-arrow" src="../images/back.svg" alt="back" />
+        <img className="back-arrow" src="/images/back.svg" alt="back" />
       </Link>
       {worker && (
         <>
@@ -21,7 +21,7 @@ const Profile = ({ workers }) => {
             <div>
               <img
                 className="worker_avatar worker_avatar--big"
-                src={worker.avatar || '../images/duck.svg'}
+                src={worker.avatar || '/images/duck.svg'}
                 alt="avatar"
               />
             </div>
@@ -34,7 +34,7 @@ const Profile = ({ workers }) => {
           <div className="profile_data">
             <div className="profile_data profile_text-line space-between">
               <div>
-                <img className="profile_icons" src="../images/star.svg" alt="phone" />
+                <img className="profile_icons" src="/images/star.svg" alt="phone" />
                 {moment(worker.birthDate).format('DD MMM YYYY')}
               </div>
               <div className="profile_age">
@@ -42,7 +42,7 @@ const Profile = ({ workers }) => {
               </div>{' '}
             </div>
             <div className="profile_data profile_text-line">
-              <img className="profile_icons" src="../images/phone.svg" alt="birthdate" />
+              <img className="profile_icons" src="/images/phone.svg" alt="birthdate" />
               {worker.phone}
             </div>
           </div>

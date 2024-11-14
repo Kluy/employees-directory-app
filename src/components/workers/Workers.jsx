@@ -43,7 +43,7 @@ const Workers = ({ activePosition, input, sortOption, workers }) => {
         <None
           textMain="We didn't find anyone"
           text="Try to adjust your request"
-          img="../images/none.png"
+          img="./images/none.png"
         />
       )}
     </section>

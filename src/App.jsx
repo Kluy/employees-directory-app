@@ -69,19 +69,13 @@ const App = () => {
               sortOption={sortOption}
             />,
             <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
-            <Popup
-              onOpenPopup={handlePopup}
-              onSortOptions={handleSortOptions}
-              popupOpen={popupOpen}
-              sortOption={sortOption}
-            />,
           ]}
         >
           <Route
             index
             errorElement={
               <None
-                img="../images/ufo.png"
+                img="./images/ufo.png"
                 textMain="Unexpected error occurred..."
                 text="Try again a bit later"
                 reloadText="Reload page"
@@ -125,9 +119,13 @@ const App = () => {
 
   return (
     <div className="app">
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
+      <RouterProvider router={router} />
+      <Popup
+        onOpenPopup={handlePopup}
+        onSortOptions={handleSortOptions}
+        popupOpen={popupOpen}
+        sortOption={sortOption}
+      />
     </div>
   );
 };

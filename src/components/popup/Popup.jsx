@@ -26,7 +26,7 @@ const Popup = ({ sortOption, popupOpen, onSortOptions }) => {
             </div>
           ))}
         </fieldset>
-        <img id="close" className="sort_close" src="../../images/close.svg" alt="close popup" />
+        <img id="close" className="sort_close" src="./images/close.svg" alt="close popup" />
       </form>
     </div>
   );

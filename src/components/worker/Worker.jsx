@@ -6,7 +6,7 @@ const Worker = ({ sortOption, id, name, position, birthDate, avatar, tag }) => {
   return (
     <li className="worker" data-id={id} key={id}>
       <div className="worker_data">
-        <img className="worker_avatar" src={avatar || '../../images/duck.png'} alt="avatar" />
+        <img className="worker_avatar" src={avatar || 'images/duck.png'} alt="avatar" />
         <div>
           <div className={'worker_name'}>
             {name}
