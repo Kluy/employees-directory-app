@@ -1,9 +1,7 @@
 import React from 'react';
 import WorkersList from '../workers-list/WorkersList';
 import Delimiter from '../delimiter/Delimiter';
-import None from '../none/None';
-import { Link } from 'react-router-dom';
-import Worker from '../worker/Worker';
+import Error from '../Error';
 
 const Workers = ({ activePosition, input, sortOption, workers }) => {
   const currentMonth = new Date().getMonth();
@@ -31,7 +29,7 @@ const Workers = ({ activePosition, input, sortOption, workers }) => {
     listt.map(({ id, name, position, birthDate, phone, avatar, tag }) => (
       <li className="worker" data-id={id} key={id}>
         <Link to={`/profile/${id}`}>
-          <Worker
+          <EmployeeCard
             sortOption={sortOption}
             name={name}
             position={position}
@@ -46,6 +44,7 @@ const Workers = ({ activePosition, input, sortOption, workers }) => {
 
   return (
     <section className="section">
+      <ul>{list2(birthDateList(workersList, true))}</ul>
       {workersList.length > 0 ? (
         sortOption == 1 ? (
           <>
@@ -54,16 +53,12 @@ const Workers = ({ activePosition, input, sortOption, workers }) => {
             <WorkersList sortOption={sortOption} list={birthDateList(workersList)} />
           </>
         ) : (
-          <>
-            <ul>{list2(workers)}</ul>
-
-            <WorkersList
-              list={workersList.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())}
-            />
-          </>
+          <WorkersList
+            list={workersList.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())}
+          />
         )
       ) : (
-        <None
+        <Error
           textMain="We didn't find anyone"
           text="Try to adjust your request"
           img="./images/none.png"

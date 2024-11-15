@@ -9,13 +9,18 @@ import Search from './components/search/Search';
 import Menu from './components/menu/Menu';
 import Workers from './components/workers/Workers';
 import Profile from './components/profile/Profile';
-import Skeleton from './components/skeleton/Skeleton';
 import None from './components/none/None';
 import Popup from './components/popup/Popup';
 import { getWorkers } from './gateway/gateway';
 
-import './index.scss';
+import Error from './features/Error';
+import Skeleton from './features/Skeleton';
+import EmployeeInfo from './features/EmployeeInfo';
+import SortDialog from './features/Filter/components/SortDialog';
+import SearchInput from './features/Filter/components/SearchInput';
+import PositionTabs from './features/Filter/components/PositionTabs';
 
+import './index.scss';
 const App = () => {
   const [workers, setWorkers] = useState([]);
 
@@ -62,19 +67,19 @@ const App = () => {
           exact
           path="/"
           element={[
-            <Search
+            <SearchInput
               onOpenPopup={handlePopup}
               onSetInput={handleInput}
               input={input}
               sortOption={sortOption}
             />,
-            <Menu onFilter={handleFilterOptions} activePosition={activePosition} />,
+            <PositionTabs onFilter={handleFilterOptions} activePosition={activePosition} />,
           ]}
         >
           <Route
             index
             errorElement={
-              <None
+              <Error
                 img="./images/ufo.png"
                 textMain="Unexpected error occurred..."
                 text="Try again a bit later"
@@ -101,7 +106,8 @@ const App = () => {
             }
           />
         </Route>
-        <Route path="profile/:id" element={<Profile workers={workers} />} />
+        {/* <Route path="profile/:id" element={<Profile workers={workers} />} /> */}
+        <Route path="profile/:id" element={<EmployeeInfo workers={workers} />} />
       </>,
     ),
   );
@@ -109,7 +115,13 @@ const App = () => {
   return (
     <div className="app">
       <RouterProvider router={router} />
-      <Popup
+      {/* <Popup
+        onOpenPopup={handlePopup}
+        onSortOptions={handleSortOptions}
+        popupOpen={popupOpen}
+        sortOption={sortOption}
+      /> */}
+      <SortDialog
         onOpenPopup={handlePopup}
         onSortOptions={handleSortOptions}
         popupOpen={popupOpen}
