@@ -1,5 +1,7 @@
 <h1>Workers list</h1>
 
+<h2><a href="https://employees-gr.netlify.app/">Site link</a></h2>
+
 <p>Layout supports desktop (up-to-2560) versions</p>
 
 <h2>The tech stack is:</h2>
