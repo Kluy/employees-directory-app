@@ -101,18 +101,7 @@ const App = () => {
             }
           />
         </Route>
-        <Route
-          path="profile/:id"
-          element={<Profile workers={workers} />}
-          loader={() => {
-            if (workers.length === 0) {
-              getWorkers().then(data => {
-                return data;
-              });
-            }
-            return null;
-          }}
-        />
+        <Route path="profile/:id" element={<Profile workers={workers} />} />
       </>,
     ),
   );

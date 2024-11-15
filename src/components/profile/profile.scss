@@ -21,14 +21,13 @@
   &_age {
     color: $grey;
   }
+  &_esc {
+    padding: 28px 0 24px 32px;
+    text-align: left;
+  }
 }
 
 .space-between {
   display: flex;
   justify-content: space-between;
-}
-
-.back-arrow {
-  padding: 28px 0 24px 32px;
-  text-align: left;
 }
