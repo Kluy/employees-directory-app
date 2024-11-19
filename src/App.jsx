@@ -5,36 +5,27 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Search from './components/search/Search';
-import Menu from './components/menu/Menu';
-import Workers from './components/workers/Workers';
-import Profile from './components/profile/Profile';
-import None from './components/none/None';
-import Popup from './components/popup/Popup';
-import { getWorkers } from './gateway/gateway';
+import { getEmployees } from './entities/employee/gateway/gateway';
 
 import Error from './features/Error';
 import Skeleton from './features/Skeleton';
 import EmployeeInfo from './features/EmployeeInfo';
-import SortDialog from './features/Filter/components/SortDialog';
-import SearchInput from './features/Filter/components/SearchInput';
-import PositionTabs from './features/Filter/components/PositionTabs';
+import EmployeesList from './features/EmployeesList';
 
 import './index.scss';
+import Filter from './features/Filter';
 const App = () => {
-  const [workers, setWorkers] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    getWorkers().then(data => {
-      setWorkers(data);
+    getEmployees().then(data => {
+      setEmployees(data);
     });
   }, []);
 
   const [activePosition, setActivePosition] = useState('All');
 
   const [input, setInput] = useState('');
-
-  const [popupOpen, setPopupOpen] = useState(false);
 
   const [sortOption, setSortOption] = useState(0);
 
@@ -47,17 +38,8 @@ const App = () => {
     if (activePosition !== newActivePosition) setActivePosition(newActivePosition);
   };
 
-  const handlePopup = () => {
-    document.body.style.overflow = popupOpen ? 'auto' : 'hidden';
-    setPopupOpen(!popupOpen);
-  };
-
-  const handleSortOptions = e => {
-    if (e.target.id === 'close') {
-      handlePopup();
-    } else if (e.target.type === 'radio') {
-      setSortOption(e.target.id);
-    } else return;
+  const handleSortOption = option => {
+    setSortOption(option);
   };
 
   const router = createBrowserRouter(
@@ -66,15 +48,16 @@ const App = () => {
         <Route
           exact
           path="/"
-          element={[
-            <SearchInput
-              onOpenPopup={handlePopup}
+          element={
+            <Filter
               onSetInput={handleInput}
+              onFilter={handleFilterOptions}
+              onSelectSortOption={handleSortOption}
               input={input}
               sortOption={sortOption}
-            />,
-            <PositionTabs onFilter={handleFilterOptions} activePosition={activePosition} />,
-          ]}
+              activePosition={activePosition}
+            />
+          }
         >
           <Route
             index
@@ -87,7 +70,7 @@ const App = () => {
               />
             }
             element={
-              workers.length === 0 ? (
+              employees.length === 0 ? (
                 <section className="section">
                   <ul>
                     {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(0).map(() => (
@@ -96,18 +79,17 @@ const App = () => {
                   </ul>
                 </section>
               ) : (
-                <Workers
-                  activePosition={activePosition}
+                <EmployeesList
                   input={input}
+                  employees={employees}
                   sortOption={sortOption}
-                  workers={workers}
+                  activePosition={activePosition}
                 />
               )
             }
           />
         </Route>
-        {/* <Route path="profile/:id" element={<Profile workers={workers} />} /> */}
-        <Route path="profile/:id" element={<EmployeeInfo workers={workers} />} />
+        <Route path="profile/:id" element={<EmployeeInfo employees={employees} />} />
       </>,
     ),
   );
@@ -115,18 +97,6 @@ const App = () => {
   return (
     <div className="app">
       <RouterProvider router={router} />
-      {/* <Popup
-        onOpenPopup={handlePopup}
-        onSortOptions={handleSortOptions}
-        popupOpen={popupOpen}
-        sortOption={sortOption}
-      /> */}
-      <SortDialog
-        onOpenPopup={handlePopup}
-        onSortOptions={handleSortOptions}
-        popupOpen={popupOpen}
-        sortOption={sortOption}
-      />
     </div>
   );
 };

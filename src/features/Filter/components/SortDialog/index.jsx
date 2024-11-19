@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 import './index.scss';
 
-const SortDialog = ({ sortOption, popupOpen, onSortOptions }) => {
+const SortDialog = ({ sortOption, sortDialog, onSortOptions }) => {
   const input = ['A-Z', 'By birthday'];
 
   return (
-    <div className={classNames('popup', { visible: popupOpen })}>
+    <div className={classNames('popup', { visible: sortDialog })}>
       <form onClick={e => onSortOptions(e)} className="sort" action="">
         <fieldset>
           <legend className="sort_legend">Sort</legend>

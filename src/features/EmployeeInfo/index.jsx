@@ -5,10 +5,10 @@ import moment from 'moment/moment';
 
 import './index.scss';
 
-const EmployeeInfo = ({ workers }) => {
+const EmployeeInfo = ({ employees }) => {
   const { id } = useParams();
 
-  const worker = workers[id - 1];
+  const employee = employees[id - 1];
 
   return (
     <section className="profile">
@@ -16,42 +16,37 @@ const EmployeeInfo = ({ workers }) => {
         <img className="profile_esc" src="/images/back.svg" alt="back" />
       </Link>
 
-      {worker && (
+      {employee && (
         <>
           <div className="profile_header">
-            {/* <Worker
-              profile={true}
-              name={worker.name}
-              position={worker.position}
-              avatar={worker.avatar}
-              tag={worker.tag}
-            /> */}
             <img
-              className="worker_avatar worker_avatar--profile"
-              src={worker.avatar || '/images/duck.png'}
+              className="employee_avatar employee_avatar--profile"
+              src={employee.avatar || '/images/duck.png'}
               alt="avatar"
             />
             <div>
-              <div className="worker_name worker_name--profile">
-                {worker.name}
-                <span className="worker_tag worker_tag--profile"> {worker.tag}</span>
+              <div className="employee_name employee_name--profile">
+                {employee.name}
+                <span className="employee_tag employee_tag--profile"> {employee.tag}</span>
               </div>
-              <div className="worker_position worker_position--profile">{worker.position}</div>
+              <div className="employee_position employee_position--profile">
+                {employee.position}
+              </div>
             </div>
           </div>
           <div className="profile_data">
             <div className="profile_data space-between">
               <div>
                 <img className="profile_icons" src="/images/star.svg" alt="phone" />
-                {moment(worker.birthDate).format('DD MMM YYYY')}
+                {moment(employee.birthDate).format('DD MMM YYYY')}
               </div>
               <div className="profile_age">
-                {new Date().getFullYear() - new Date(worker.birthDate).getFullYear()} years
-              </div>{' '}
+                {new Date().getFullYear() - new Date(employee.birthDate).getFullYear()} years
+              </div>
             </div>
             <div className="profile_data">
               <img className="profile_icons" src="/images/phone.svg" alt="birthdate" />
-              {worker.phone}
+              {employee.phone}
             </div>
           </div>
         </>

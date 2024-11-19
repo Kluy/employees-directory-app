@@ -4,7 +4,7 @@ import App from './App';
 import './index.scss';
 
 ReactDOM.createRoot(document.querySelector('#root')).render(
-  //   <React.StrictMode>
-  <App />,
-  //   </React.StrictMode>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
 );

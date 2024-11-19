@@ -1,5 +1,5 @@
 import React from 'react';
-import './delimiter.scss';
+import './index.scss';
 
 const Delimiter = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-const SearchInput = ({ input, sortOption, onSetInput, onOpenPopup }) => {
+const SearchInput = ({ input, sortOption, onSetInput, onOpenSortDialog }) => {
   return (
     <section className="section">
       <h1 className="title">Search</h1>
@@ -24,7 +24,7 @@ const SearchInput = ({ input, sortOption, onSetInput, onOpenPopup }) => {
           placeholder="Search by name, tag, email..."
         />
         <svg
-          onClick={onOpenPopup}
+          onClick={onOpenSortDialog}
           className="sort-icon"
           fill={sortOption == 1 ? '#6534FF' : '#C3C3C6'}
           width="21"
