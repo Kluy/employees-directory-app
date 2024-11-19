@@ -43,7 +43,7 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
 
   return (
     <section className="section">
-      {employeesList.length > 0 ? (
+      {filteredList.length > 0 ? (
         <ul>{employeesList(filteredList, sortOption)}</ul>
       ) : (
         <Error
