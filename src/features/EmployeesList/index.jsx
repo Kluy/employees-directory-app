@@ -8,9 +8,11 @@ import { birthDateList, searchEmployees } from './utils';
 const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
   const filteredList = employees
     .filter(
-      ({ name, position, email }) =>
+      ({ name, position, email, tag }) =>
         (activePosition === 'All' || searchEmployees(activePosition, position)) &&
-        (searchEmployees(name, input) || searchEmployees(email, input)),
+        (searchEmployees(name, input) ||
+          searchEmployees(email, input) ||
+          searchEmployees(tag, input)),
     )
     .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase());
 
