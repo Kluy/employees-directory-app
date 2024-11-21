@@ -12,15 +12,15 @@ const SortDialog = ({ sortOption, sortDialog, onSortOptions }) => {
           <legend className="sort_legend">Sort</legend>
           {input.map((text, id) => (
             <div>
-              <input
-                className="sort_input"
-                type="radio"
-                id={id}
-                name="sort"
-                value={id}
-                checked={id == sortOption}
-              />
               <label className="sort_label" for={id}>
+                <input
+                  className="sort_input"
+                  type="radio"
+                  id={id}
+                  name="sort"
+                  value={id}
+                  checked={id == sortOption}
+                />
                 {text}
               </label>
             </div>

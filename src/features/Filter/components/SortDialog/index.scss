@@ -6,14 +6,13 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  visibility: hidden;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background-color: rgba(5, 5, 16, 0.16);
 }
 .visible {
-  visibility: visible;
+  display: flex;
 }
 .sort {
   width: 373px;
@@ -33,18 +32,21 @@
     appearance: none;
     width: 21px;
     height: 21px;
-    margin: 35px 14px 0 0;
+    margin-right: 14px;
     position: relative;
     border-radius: 50%;
     border: 2px solid $violet;
+    cursor: pointer;
 
     &:checked {
       border: 6px solid $violet;
     }
   }
   &_label {
-    vertical-align: bottom;
-    line-height: 28px;
+    height: 57px;
+    display: flex;
+    align-items: end;
+    cursor: pointer;
   }
   &_close {
     position: absolute;

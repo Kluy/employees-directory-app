@@ -41,10 +41,14 @@
     &::placeholder {
       color: $grey1;
     }
+    &::-webkit-search-cancel-button {
+      cursor: pointer;
+    }
   }
 }
 .sort-icon {
   position: absolute;
   top: 20px;
   right: 13px;
+  cursor: pointer;
 }
