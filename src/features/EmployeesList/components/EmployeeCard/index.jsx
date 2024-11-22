@@ -16,8 +16,9 @@ const EmployeeCard = ({ sortOption, name, position, birthDate, avatar, tag }) =>
         </div>
       </div>
       {sortOption == 1 && (
-        // <div className="employee_birthdate">{moment(birthDate).format('DD MMM')}</div>
-        <div className="employee_birthdate">{moment(birthDate).format('YYYY')}</div>
+        <>
+          <div className="employee_birthdate">{moment(birthDate).format('DD MMM')}</div>
+        </>
       )}
     </li>
   );
