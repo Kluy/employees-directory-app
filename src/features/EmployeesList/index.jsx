@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Error from '../Error';
 import Delimiter from './components/Delimiter';
 import EmployeeCard from './components/EmployeeCard';
@@ -17,19 +16,8 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
     .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase());
 
   const mapList = list =>
-    list.map(({ id, name, position, birthDate, phone, avatar, tag }) => (
-      <Link to={`/profile/${id}`}>
-        <EmployeeCard
-          key={id}
-          sortOption={sortOption}
-          name={name}
-          position={position}
-          birthDate={birthDate}
-          phone={phone}
-          avatar={avatar}
-          tag={tag}
-        />
-      </Link>
+    list.map(employee => (
+      <EmployeeCard key={employee.id} sortOption={sortOption} employee={employee} />
     ));
 
   const employeesList = (list, sortOption) => {
@@ -46,6 +34,7 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
         }
         return elem;
       });
+
       return renderList;
     }
     return mapList(list);
@@ -54,12 +43,15 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
   return (
     <section className="section">
       {filteredList.length > 0 ? (
+        // <ul></ul>
         <ul>{employeesList(filteredList, sortOption)}</ul>
       ) : (
         <Error
-          textMain="We didn't find anyone"
-          text="Try to adjust your request"
-          img="./images/none.png"
+          error={{
+            textMain: "We didn't find anyone",
+            text: 'Try to adjust your request',
+            img: './images/none.png',
+          }}
         />
       )}
     </section>

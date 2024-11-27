@@ -7,7 +7,7 @@ const SearchInput = ({ input, sortOption, onSetInput, onOpenSortDialog }) => {
       <h1 className="title">Search</h1>
       <div className="search">
         <svg
-          className="search_icon"
+          className="search__icon"
           width="21"
           height="21"
           viewBox="0 0 21 21"
@@ -18,7 +18,7 @@ const SearchInput = ({ input, sortOption, onSetInput, onOpenSortDialog }) => {
         </svg>
         <input
           onChange={onSetInput}
-          className="search_input"
+          className="search__input"
           value={input}
           type="search"
           placeholder="Search by name, tag, email..."

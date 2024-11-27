@@ -9,12 +9,12 @@ const PositionTabs = ({ activePosition, onFilter }) => {
   return (
     <>
       <section className="menu">
-        <ul onClick={onFilter} className="menu_list">
+        <ul onClick={onFilter} className="menu__list">
           {menu.map(position => (
             <li
               key={position}
-              className={classNames('menu_list-item', {
-                'menu_list-item--active': position === activePosition,
+              className={classNames('menu__list-item', {
+                'menu__list-item_active': position === activePosition,
               })}
             >
               {position}

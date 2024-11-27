@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import errorConfig from './configs';
 
 import './index.scss';
 
-const Error = ({ img, textMain, text, reloadText }) => {
+const Error = ({ error: { img, textMain, text, reloadText } = errorConfig }) => {
   return (
     <div className="error">
       <div>
-        <img className="error_image" src={img} alt="" />
-        <div className="error_message">{textMain}</div>
-        <div className="error_text">{text}</div>
+        <img className="error__image" src={img} alt="" />
+        <div className="error__message">{textMain}</div>
+        <div className="error__text">{text}</div>
         {reloadText && (
           <Link reloadDocument={true}>
-            <div className="error_text error_text--violet">{reloadText}</div>
+            <div className="error__text error__text_violet">{reloadText}</div>
           </Link>
         )}
       </div>

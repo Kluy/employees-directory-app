@@ -6,7 +6,7 @@
   font-weight: 700;
   line-height: 28px;
   color: $black;
-  &--white {
+  &_white {
     color: $white;
   }
 }
@@ -21,13 +21,13 @@
 .search {
   position: relative;
   padding: 6px 0;
-  &_icon {
+  &__icon {
     top: 15px;
     left: 12px;
     position: absolute;
   }
 
-  &_input {
+  &__input {
     width: 1248px;
     height: 40px;
     border: none;

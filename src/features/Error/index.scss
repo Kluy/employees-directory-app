@@ -20,23 +20,23 @@
   text-align: center;
   // height: calc(100vh - 150px);
   // height: 100vh;
-  &_image {
+  &__image {
     width: 56px;
     height: 56px;
   }
-  &_message {
+  &__message {
     padding-top: 4px;
     font-size: 17px;
     line-height: 22px;
     font-weight: 600;
   }
-  &_text {
+  &__text {
     padding-top: 12px;
     color: $grey;
     font-size: 16px;
     font-weight: 400;
   }
-  &_text--violet {
+  &__text_violet {
     color: $violet;
     font-weight: 600;
     cursor: pointer;

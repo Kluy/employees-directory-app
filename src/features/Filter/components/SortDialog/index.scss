@@ -21,14 +21,14 @@
   border-radius: 20px;
   position: relative;
   background-color: $white;
-  &_legend {
+  &__legend {
     width: 100%;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
     text-align: center;
   }
-  &_input {
+  &__input {
     appearance: none;
     width: 21px;
     height: 21px;
@@ -42,13 +42,13 @@
       border: 6px solid $violet;
     }
   }
-  &_label {
+  &__label {
     height: 57px;
     display: flex;
     align-items: end;
     cursor: pointer;
   }
-  &_close {
+  &__close {
     position: absolute;
     top: 24px;
     right: 23px;

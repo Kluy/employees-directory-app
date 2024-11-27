@@ -5,56 +5,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &_data {
+  &__data {
     display: flex;
     align-items: center;
-    &--profile {
+    &_profile {
       display: block;
     }
   }
-  &_avatar {
+  &__avatar {
     width: 72px;
     height: 72px;
     margin: 0 16px 0 0;
     border-radius: 50px;
     background-color: $violet-background;
-    &--profile {
+    &_profile {
       margin: 4px 0 26px 0;
       width: 104px;
       height: 104px;
     }
   }
-  &_name {
+  &__name {
     font-size: 16px;
     font-weight: 500;
     text-transform: capitalize;
 
-    &--profile {
+    &_profile {
       font-size: 24px;
       font-weight: 700;
       padding-bottom: 12px;
     }
   }
 
-  &_position {
+  &__position {
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
     color: $dark-grey;
     text-transform: capitalize;
   }
-  &_birthdate {
+  &__birthdate {
     font-size: 15px;
     color: $dark-grey;
     text-transform: lowercase;
   }
 
-  &_tag {
+  &__tag {
     font-size: 14px;
     font-weight: 500;
     color: $grey;
     text-transform: lowercase;
-    &--profile {
+    &_profile {
       font-size: 17px;
       font-weight: 400;
     }

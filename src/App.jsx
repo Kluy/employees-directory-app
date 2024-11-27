@@ -11,9 +11,10 @@ import Error from './features/Error';
 import Skeleton from './features/Skeleton';
 import EmployeeInfo from './features/EmployeeInfo';
 import EmployeesList from './features/EmployeesList';
+import Filter from './features/Filter';
 
 import './index.scss';
-import Filter from './features/Filter';
+
 const App = () => {
   const [employees, setEmployees] = useState([]);
 
@@ -58,25 +59,11 @@ const App = () => {
               activePosition={activePosition}
             />
           }
-          errorElement={
-            <Error
-              img="./images/ufo.png"
-              textMain="Unexpected error occurred..."
-              text="Try again a bit later"
-              reloadText="Reload page"
-            />
-          }
+          errorElement={<Error />}
         >
           <Route
             index
-            errorElement={
-              <Error
-                img="./images/ufo.png"
-                textMain="Unexpected error occurred..."
-                text="Try again a bit later"
-                reloadText="Reload page"
-              />
-            }
+            errorElement={<Error />}
             element={
               employees.length === 0 ? (
                 <section className="section">
@@ -97,7 +84,11 @@ const App = () => {
             }
           />
         </Route>
-        <Route path="profile/:id" element={<EmployeeInfo employees={employees} />} />
+        <Route
+          path="profile/:id"
+          element={<EmployeeInfo employees={employees} />}
+          errorElement={<Error />}
+        />
       </>,
     ),
   );

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PositionTabs from './components/PositionTabs';
 import SearchInput from './components/SearchInput';
 import SortDialog from './components/SortDialog';
-import Error from '../Error';
 
 const Filter = ({
   onSetInput,
