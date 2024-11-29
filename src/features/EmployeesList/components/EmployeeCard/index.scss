@@ -5,25 +5,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   &__data {
     display: flex;
     align-items: center;
+
     &_profile {
       display: block;
     }
   }
+
   &__avatar {
     width: 72px;
     height: 72px;
     margin: 0 16px 0 0;
     border-radius: 50px;
     background-color: $violet-background;
+
     &_profile {
-      margin: 4px 0 26px 0;
       width: 104px;
       height: 104px;
+      margin: 4px 0 26px 0;
     }
   }
+
   &__name {
     font-size: 16px;
     font-weight: 500;
@@ -43,6 +48,7 @@
     color: $dark-grey;
     text-transform: capitalize;
   }
+
   &__birthdate {
     font-size: 15px;
     color: $dark-grey;
@@ -54,6 +60,7 @@
     font-weight: 500;
     color: $grey;
     text-transform: lowercase;
+
     &_profile {
       font-size: 17px;
       font-weight: 400;

@@ -1,8 +1,7 @@
 import React from 'react';
 import Error from '../Error';
-import Delimiter from './components/Delimiter';
 import EmployeeCard from './components/EmployeeCard';
-import { sortByBirthDate, searchEmployees, year } from './utils';
+import { birthDateList, searchEmployees } from './utils';
 
 const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
   const filteredList = employees
@@ -13,38 +12,29 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
           searchEmployees(email, input) ||
           searchEmployees(tag, input)),
     )
-    .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase());
+    .sort((a, b) => {
+      const aName = a.name.toLowerCase();
+      const bName = b.name.toLowerCase();
+      if (aName > bName) return 1;
+      else if (aName < bName) return -1;
+      return 0;
+    });
 
   const mapList = list =>
-    list.map(employee => (
-      <EmployeeCard key={employee.id} sortOption={sortOption} employee={employee} />
+    list.map((employee, i) => (
+      <EmployeeCard
+        key={employee.id}
+        sortOption={sortOption}
+        employee={employee}
+        employees={filteredList}
+        i={i}
+      />
     ));
-
-  const employeesList = (list, sortOption) => {
-    if (sortOption == 1) {
-      const sortedList = sortByBirthDate(list);
-      const renderList = [];
-
-      list.reduce((acc, elem) => {
-        if (year(acc.birthDate) !== year(elem.birthDate)) {
-          renderList.push(<Delimiter date={acc.birthDate} />);
-          renderList.push(
-            mapList(sortedList.filter(({ birthDate }) => year(acc.birthDate) === year(birthDate))),
-          );
-        }
-        return elem;
-      });
-
-      return renderList;
-    }
-    return mapList(list);
-  };
 
   return (
     <section className="section">
       {filteredList.length > 0 ? (
-        // <ul></ul>
-        <ul>{employeesList(filteredList, sortOption)}</ul>
+        <ul>{mapList(sortOption == 1 ? birthDateList(filteredList) : filteredList)}</ul>
       ) : (
         <Error
           error={{

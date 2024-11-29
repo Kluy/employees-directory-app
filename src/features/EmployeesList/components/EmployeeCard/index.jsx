@@ -1,11 +1,29 @@
 import React from 'react';
 import moment from 'moment/moment';
-import './index.scss';
 import { Link } from 'react-router-dom';
+import Delimiter from '../Delimiter';
 
-const EmployeeCard = ({ sortOption, employee: { id, name, position, birthDate, avatar, tag } }) => {
+import './index.scss';
+
+const EmployeeCard = ({
+  sortOption,
+  employee: { id, name, position, birthDate, avatar, tag },
+  employees,
+  i,
+}) => {
+  const delimiterActive = () => {
+    const prevBirthDate = i > 0 && employees[i - 1].birthDate;
+    return (
+      (!prevBirthDate ||
+        moment(birthDate).format('YYYY') !== moment(prevBirthDate).format('YYYY')) && (
+        <Delimiter date={birthDate} />
+      )
+    );
+  };
+
   return (
     <li>
+      {sortOption == 1 && delimiterActive()}
       <Link to={`/profile/${id}`}>
         <div className="employee">
           <div className="employee__data">

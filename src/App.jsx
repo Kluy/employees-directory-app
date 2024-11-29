@@ -9,7 +9,7 @@ import { getEmployees } from './entities/employee/gateway/gateway';
 
 import Error from './features/Error';
 import Skeleton from './features/Skeleton';
-import EmployeeInfo from './features/EmployeeInfo';
+import EmployeeProfile from './features/EmployeeProfile';
 import EmployeesList from './features/EmployeesList';
 import Filter from './features/Filter';
 
@@ -86,7 +86,7 @@ const App = () => {
         </Route>
         <Route
           path="profile/:id"
-          element={<EmployeeInfo employees={employees} />}
+          element={<EmployeeProfile employees={employees} />}
           errorElement={<Error />}
         />
       </>,

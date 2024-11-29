@@ -1,41 +1,31 @@
 @import '../../scss/var.scss';
 
 .error {
-  top: 50px;
-  // left: 0;
-  // width: 100vw;
-  // height: 100vh;
+  width: 344px;
   position: absolute;
-  // margin: 0 auto;
-  // width: 1280px;
-  // position: absolute;
-  top: calc(50vh - 150px);
-  // left: 50vw;
-  left: calc(50vw - 118px);
-
-  // padding: 132px;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   text-align: center;
-  // height: calc(100vh - 150px);
-  // height: 100vh;
+  top: calc(50% - 75px);
+  left: calc(50% - 172px);
+
   &__image {
     width: 56px;
     height: 56px;
   }
+
   &__message {
     padding-top: 4px;
     font-size: 17px;
     line-height: 22px;
     font-weight: 600;
   }
+
   &__text {
     padding-top: 12px;
     color: $grey;
     font-size: 16px;
     font-weight: 400;
   }
+
   &__text_violet {
     color: $violet;
     font-weight: 600;
