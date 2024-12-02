@@ -12,13 +12,7 @@ const EmployeesList = ({ input, employees, sortOption, activePosition }) => {
           searchEmployees(email, input) ||
           searchEmployees(tag, input)),
     )
-    .sort((a, b) => {
-      const aName = a.name.toLowerCase();
-      const bName = b.name.toLowerCase();
-      if (aName > bName) return 1;
-      else if (aName < bName) return -1;
-      return 0;
-    });
+    .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase());
 
   const mapList = list =>
     list.map((employee, i) => (
