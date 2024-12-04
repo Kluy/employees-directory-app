@@ -68,8 +68,8 @@ const App = () => {
               employees.length === 0 ? (
                 <section className="section">
                   <ul>
-                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(0).map(() => (
-                      <Skeleton />
+                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(0).map((_, i) => (
+                      <Skeleton key={i} />
                     ))}
                   </ul>
                 </section>
