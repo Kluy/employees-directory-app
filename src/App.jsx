@@ -5,23 +5,28 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { getEmployees } from './entities/employee/gateway/gateway';
-
 import Error from './features/Error';
-import Skeleton from './features/Skeleton';
 import EmployeeProfile from './features/EmployeeProfile';
 import EmployeesList from './features/EmployeesList';
 import Filter from './features/Filter';
+import { connect, Provider } from 'react-redux';
+import { getEmployeesAction } from './redux/actions/shedule.actions';
+import store from './redux/store';
 
 import './index.scss';
 
-const App = () => {
+const App = ({ getEmployees }) => {
   const [employees, setEmployees] = useState([]);
 
+  // useEffect(() => {
+  //   getEmployees().then(data => {
+  //     setEmployees(data);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    getEmployees().then(data => {
-      setEmployees(data);
-    });
+    console.log('useEffect');
+    getEmployees();
   }, []);
 
   const [activePosition, setActivePosition] = useState('All');
@@ -65,39 +70,32 @@ const App = () => {
             index
             errorElement={<Error />}
             element={
-              employees.length === 0 ? (
-                <section className="section">
-                  <ul>
-                    {new Array(Math.ceil((window.innerHeight - 155) / 84)).fill(0).map(() => (
-                      <Skeleton />
-                    ))}
-                  </ul>
-                </section>
-              ) : (
-                <EmployeesList
-                  input={input}
-                  employees={employees}
-                  sortOption={sortOption}
-                  activePosition={activePosition}
-                />
-              )
+              <EmployeesList
+                input={input}
+                sortOption={sortOption}
+                activePosition={activePosition}
+              />
             }
           />
         </Route>
-        <Route
-          path="profile/:id"
-          element={<EmployeeProfile employees={employees} />}
-          errorElement={<Error />}
-        />
+        <Route path="profile/:id" element={<EmployeeProfile />} errorElement={<Error />} />
       </>,
     ),
   );
 
   return (
     <div className="app">
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </div>
   );
 };
 
-export default App;
+const employeesDispatch = {
+  getEmployees: getEmployeesAction,
+};
+
+export default connect(null, employeesDispatch)(App);
+
+// export default App;

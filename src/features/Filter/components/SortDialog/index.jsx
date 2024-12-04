@@ -10,16 +10,16 @@ const SortDialog = ({ sortOption, sortDialog, onSortOptions }) => {
       <form onClick={e => onSortOptions(e)} className="sort" action="">
         <fieldset>
           <legend className="sort__legend">Sort</legend>
-          {input.map((text, id) => (
-            <div>
-              <label className="sort__label" for={id}>
+          {input.map((text, i) => (
+            <div key={i}>
+              <label className="sort__label" htmlFor={i}>
                 <input
                   className="sort__input"
                   type="radio"
-                  id={id}
+                  id={i}
                   name="sort"
-                  value={id}
-                  checked={id == sortOption}
+                  value={i}
+                  checked={i == sortOption}
                 />
                 {text}
               </label>

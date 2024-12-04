@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import Error from '../Error';
 import moment from 'moment/moment';
 
+import { employeesSelector } from '../../redux/selectors/shedule.selectors';
+import { connect } from 'react-redux';
+
 import './index.scss';
 
 const EmployeeInfo = ({ employees }) => {
@@ -57,4 +60,11 @@ const EmployeeInfo = ({ employees }) => {
     </section>
   );
 };
-export default EmployeeInfo;
+
+const employeesState = state => {
+  return {
+    employees: employeesSelector(state),
+  };
+};
+
+export default connect(employeesState, null)(EmployeeInfo);
